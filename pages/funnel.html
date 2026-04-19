@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Ministry Marketing Audit — YAHWAYLOVE LLC</title>
+  <meta name="description" content="Get your FREE Ministry Marketing Audit — a $500 value. We'll analyze your Meta presence, website, SEO, and lead capture systems and show you exactly what to fix." />
+  <meta name="author" content="Andrew Rocha" />
+  <meta property="og:title" content="Free Ministry Marketing Audit — YAHWAYLOVE LLC" />
+  <meta property="og:description" content="10 AI agents powered by Claude analyze your entire digital presence. Free. No credit card. Personal review by Andrew Rocha." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://yahwaylove.com/pages/funnel.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <style>
+    /* =============================================
+       FUNNEL PAGE — FULL DARK NAVY THROUGHOUT
+       Standalone page. No standard nav. No footer.
+       ============================================= */
+
+    body {
+      background: #040818;
+      color: var(--brand-white);
+    }
+
+    /* ---- MINIMAL NAV (logo only) ---- */
+    .funnel-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(4, 8, 24, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201,162,39,0.12);
+    }
+    .funnel-nav-inner {
+      max-width: var(--content-wide);
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (max-width: 640px) {
+      .funnel-nav-inner { padding: var(--space-4); }
+    }
+
+    /* ---- HERO ---- */
+    .funnel-hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: var(--space-16);
+      max-width: var(--content-wide);
+      margin: 0 auto;
+      padding: clamp(var(--space-24), 12vw, var(--space-32)) var(--space-8) clamp(var(--space-16), 8vw, var(--space-24));
+      position: relative;
+    }
+    @media (max-width: 900px) {
+      .funnel-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: clamp(var(--space-24), 14vw, var(--space-32));
+      }
+    }
+
+    .funnel-hero::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 35%, rgba(201,162,39,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 85% 65%, rgba(201,162,39,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(20,26,69,0.8) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .funnel-hero-left,
+    .funnel-hero-right { position: relative; z-index: 1; }
+
+    .funnel-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.35);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-5);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-6);
+    }
+
+    .funnel-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--brand-white);
+      line-height: 1.08;
+      margin-bottom: var(--space-5);
+      letter-spacing: -0.01em;
+    }
+
+    .funnel-title em {
+      font-style: italic;
+      color: var(--brand-gold);
+    }
+
+    .funnel-sub {
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: var(--space-8);
+      max-width: 52ch;
+    }
+
+    .funnel-value-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(46,125,80,0.15);
+      border: 1px solid rgba(46,125,80,0.4);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: #6ee89a;
+      letter-spacing: 0.06em;
+    }
+
+    /* ---- AUDIT FORM CARD ---- */
+    .audit-form-card {
+      background: rgba(13, 18, 53, 0.85);
+      border: 1.5px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8) var(--space-9);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,162,39,0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    @media (max-width: 640px) {
+      .audit-form-card { padding: var(--space-6); }
+    }
+
+    .audit-form-card h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-2);
+    }
+
+    .audit-form-card .form-subtitle {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--space-6);
+      line-height: 1.6;
+    }
+
+    /* Dark-surface form inputs */
+    .audit-form-card .form-label {
+      color: rgba(255,255,255,0.85);
+      font-size: var(--text-sm);
+    }
+
+    .audit-form-card .form-input,
+    .audit-form-card .form-select,
+    .audit-form-card .form-textarea {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.14);
+      color: var(--brand-white);
+    }
+
+    .audit-form-card .form-input::placeholder,
+    .audit-form-card .form-textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .audit-form-card .form-select option {
+      background: #0a0f2e;
+      color: var(--brand-white);
+    }
+
+    .audit-form-card .form-input:focus,
+    .audit-form-card .form-select:focus,
+    .audit-form-card .form-textarea:focus {
+      border-color: var(--brand-gold);
+      box-shadow: 0 0 0 3px rgba(201,162,39,0.2);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .trust-line {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+    .trust-line svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* Claude trust line — distinct from lock line */
+    .claude-trust {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      background: rgba(201,162,39,0.05);
+      border: 1px solid rgba(201,162,39,0.15);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .claude-trust p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      max-width: none;
+      margin: 0;
+    }
+    .claude-trust strong { color: rgba(255,255,255,0.75); }
+
+    /* ---- SECTION WRAPPERS ---- */
+    .funnel-section {
+      background: #040818;
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    }
+
+    .funnel-section-alt {
+      background: #070c20;
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    }
+
+    .funnel-section-dark {
+      background: linear-gradient(160deg, #0a0f2e 0%, #0d1235 100%);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    }
+
+    /* Section text overrides for dark bg */
+    .funnel-section .section-title,
+    .funnel-section-alt .section-title,
+    .funnel-section-dark .section-title { color: var(--brand-white); }
+
+    .funnel-section .section-sub,
+    .funnel-section-alt .section-sub,
+    .funnel-section-dark .section-sub { color: rgba(255,255,255,0.6); }
+
+    .funnel-section .section-label,
+    .funnel-section-alt .section-label,
+    .funnel-section-dark .section-label { color: var(--brand-gold); }
+
+    /* ---- WHAT'S INCLUDED GRID ---- */
+    .audit-items-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 900px) {
+      .audit-items-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .audit-items-grid { grid-template-columns: 1fr; }
+    }
+
+    .audit-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .audit-item:hover {
+      border-color: rgba(201,162,39,0.35);
+      background: rgba(201,162,39,0.04);
+    }
+
+    .audit-item-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(201,162,39,0.15), rgba(201,162,39,0.05));
+      border: 1.5px solid rgba(201,162,39,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-5);
+    }
+
+    .audit-item h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-2);
+    }
+
+    .audit-item p {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    /* ---- TESTIMONIAL STRIP ---- */
+    .testimonial-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 768px) {
+      .testimonial-strip { grid-template-columns: 1fr; }
+    }
+
+    .mini-testimonial {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid var(--brand-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+
+    .mini-testimonial .stars {
+      color: var(--brand-gold);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: var(--space-3);
+    }
+
+    .mini-testimonial blockquote {
+      font-style: italic;
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+
+    .mini-testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .mini-avatar {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy-soft), var(--brand-navy-mid));
+      border: 1.5px solid rgba(201,162,39,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      flex-shrink: 0;
+    }
+
+    .mini-author-name {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+    }
+    .mini-author-role {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1px;
+    }
+
+    /* ---- AGENT TIMELINE ---- */
+    .agent-timeline {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .agent-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--brand-gold), rgba(201,162,39,0.15));
+    }
+
+    @media (max-width: 560px) {
+      .agent-timeline::before { left: 22px; }
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+      position: relative;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      width: 58px; height: 58px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy-soft), var(--brand-navy-mid));
+      border: 2px solid rgba(201,162,39,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot.active {
+      background: linear-gradient(135deg, var(--brand-gold-dim), var(--brand-gold));
+      border-color: var(--brand-gold);
+      box-shadow: 0 0 20px rgba(201,162,39,0.4);
+    }
+
+    .timeline-dot svg { color: var(--brand-gold); }
+    .timeline-dot.active svg { color: var(--brand-navy); }
+
+    @media (max-width: 560px) {
+      .timeline-dot { width: 46px; height: 46px; }
+    }
+
+    .timeline-body {
+      flex: 1;
+      padding-top: var(--space-3);
+    }
+
+    .timeline-time {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-1);
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--brand-white);
+    }
+
+    .agent-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.3);
+      color: var(--brand-gold-light);
+      white-space: nowrap;
+    }
+
+    .timeline-desc {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* ---- AGENT GUARANTEE ---- */
+    .agent-guarantee {
+      background: linear-gradient(135deg, rgba(201,162,39,0.08), rgba(201,162,39,0.03));
+      border: 1.5px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10) var(--space-12);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .agent-guarantee {
+        grid-template-columns: 1fr;
+        padding: var(--space-7);
+        text-align: center;
+      }
+      .agent-guarantee-icon { margin: 0 auto; }
+    }
+
+    .agent-guarantee-icon {
+      width: 80px; height: 80px;
+      border-radius: var(--radius-full);
+      background: rgba(201,162,39,0.12);
+      border: 2px solid rgba(201,162,39,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      flex-shrink: 0;
+    }
+
+    .agent-guarantee h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-3);
+    }
+
+    .agent-guarantee p {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      max-width: none;
+    }
+
+    .agent-guarantee strong { color: var(--brand-gold); }
+
+    /* ---- BOTTOM TRUST ---- */
+    .bottom-trust {
+      text-align: center;
+      padding: clamp(var(--space-16), 8vw, var(--space-24)) var(--space-8);
+      background: #040818;
+      position: relative;
+    }
+
+    .bottom-trust::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, rgba(201,162,39,0.4));
+    }
+
+    .bottom-trust-pledge {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-4);
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .bottom-trust-sub {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.5);
+      max-width: 48ch;
+      margin: 0 auto var(--space-10);
+      line-height: 1.7;
+    }
+
+    .andrew-sig-block {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-5);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-7);
+      margin-bottom: var(--space-8);
+    }
+
+    .andrew-sig-avatar {
+      width: 60px; height: 60px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy-soft), var(--brand-navy-mid));
+      border: 2.5px solid var(--brand-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--brand-gold);
+      flex-shrink: 0;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .andrew-sig-text { text-align: left; }
+
+    .andrew-sig-name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--brand-white);
+    }
+
+    .andrew-sig-title {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+
+    .contact-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-full);
+      padding: var(--space-3) var(--space-5);
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .contact-pill:hover {
+      border-color: var(--brand-gold);
+      color: var(--brand-gold);
+    }
+
+    .contact-pill svg { color: var(--brand-gold); flex-shrink: 0; }
+
+    /* ---- MINIMAL FOOTER ---- */
+    .funnel-footer {
+      background: #02040f;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: var(--space-6) var(--space-8);
+      text-align: center;
+    }
+
+    .funnel-footer p {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.25);
+      max-width: none;
+    }
+
+    .funnel-footer a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .funnel-footer a:hover { color: var(--brand-gold); }
+  </style>
+</head>
+<body>
+
+  <!-- MINIMAL NAV — Logo only -->
+  <nav class="funnel-nav" role="navigation" aria-label="Site navigation">
+    <div class="funnel-nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="YAHWAYLOVE home">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#c9a227"/>
+          <path d="M8 10 L16 20 L24 10" stroke="#0a0f2e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="16" y1="20" x2="16" y2="26" stroke="#0a0f2e" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
+      </a>
+      <a href="contact.html" class="btn btn-primary" style="font-size:0.75rem;padding:var(--space-2) var(--space-5);">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — Above the fold
+       ============================================================ -->
+  <div class="funnel-hero">
+
+    <!-- LEFT: Headline + context -->
+    <div class="funnel-hero-left" data-animate>
+      <div class="funnel-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Free — No Credit Card Required
+      </div>
+
+      <h1 class="funnel-title">
+        Discover Exactly Why<br>
+        Your Ministry Isn't<br>
+        <em>Growing Online</em>
+      </h1>
+
+      <p class="funnel-sub">Get your FREE Ministry Marketing Audit — a $500 value. Our 10 Claude-powered AI agents will analyze your Meta presence, website, SEO, and lead capture systems and show you exactly what to fix.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-8);">
+        <span class="funnel-value-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          $500 Value — Completely Free
+        </span>
+        <span class="funnel-value-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          48-Hour Turnaround
+        </span>
+        <span class="funnel-value-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          30-Min Call with Andrew Included
+        </span>
+      </div>
+
+      <!-- What's included preview bullets -->
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">Meta Ads Account Review</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">Website Conversion Analysis</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">SEO &amp; Local Search Audit</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">Content Strategy Gap Report</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">Lead Capture Assessment</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--brand-gold);flex-shrink:0;"></div>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);">90-Day Prioritized Action Plan</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Audit request form -->
+    <div class="funnel-hero-right" data-animate data-animate-delay="2">
+      <div class="audit-form-card">
+        <h2>Get My Free Audit →</h2>
+        <p class="form-subtitle">Takes 2 minutes. Results in 48 hours. No obligation, no sales pitch.</p>
+
+        <form data-form method="POST" aria-label="Ministry audit request form">
+          <div class="form-group">
+            <label class="form-label" for="audit-name">Full Name <span style="color:var(--color-error);" aria-hidden="true">*</span></label>
+            <input class="form-input" type="text" id="audit-name" name="name" placeholder="Pastor James Williams" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="audit-email">Email Address <span style="color:var(--color-error);" aria-hidden="true">*</span></label>
+            <input class="form-input" type="email" id="audit-email" name="email" placeholder="pastor@yourchurch.org" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="audit-org">Church / Organization Name</label>
+            <input class="form-input" type="text" id="audit-org" name="organization" placeholder="Grace Community Church" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="audit-url">Website URL <span style="color:rgba(255,255,255,0.35);font-weight:400;">(optional)</span></label>
+            <input class="form-input" type="url" id="audit-url" name="website" placeholder="https://yourchurch.org" autocomplete="url" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="audit-challenge">Biggest Marketing Challenge</label>
+            <select class="form-select" id="audit-challenge" name="challenge">
+              <option value="" disabled selected>Select your biggest challenge…</option>
+              <option value="Not enough reach">Not enough reach</option>
+              <option value="Low engagement">Low engagement</option>
+              <option value="No leads/inquiries">No leads or inquiries</option>
+              <option value="Unclear messaging">Unclear messaging</option>
+              <option value="No time for marketing">No time for marketing</option>
+              <option value="Unsure where to start">Unsure where to start</option>
+            </select>
+          </div>
+
+          <input type="hidden" name="_subject" value="YAHWAYLOVE — Free Ministry Audit Request" />
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:var(--space-2);">
+            Get My Free Audit →
+          </button>
+
+          <div class="trust-line" style="margin-top:var(--space-3);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Your info is safe. We never spam. God's word on it.</span>
+          </div>
+
+          <!-- Claude trust line -->
+          <div class="claude-trust">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <p>Your audit is processed by <strong>Claude-powered AI agents</strong> and personally reviewed by Andrew Rocha — a licensed Claude Code operator with Anthropic API access.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       WHAT'S INCLUDED IN THE AUDIT
+       ============================================================ -->
+  <section class="funnel-section-alt">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+        <span class="section-label">What You'll Receive</span>
+        <h2 class="section-title">Six Deep Dives Into Your Ministry's Digital Presence</h2>
+        <p class="section-sub" style="margin:0 auto;">Every component of your audit is executed by a specialized AI agent — not a junior analyst working from a template.</p>
+      </div>
+
+      <div class="audit-items-grid">
+        <div class="audit-item" data-animate data-animate-delay="1">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Meta Ads Account Review</h3>
+          <p>ARIA agent scans your ad account history, audience targeting, creative performance, and spend efficiency — identifying exactly where money is being left on the table.</p>
+        </div>
+
+        <div class="audit-item" data-animate data-animate-delay="1">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h3>Website Conversion Analysis</h3>
+          <p>BUILD agent analyzes your site structure, page load speed, mobile experience, calls-to-action, and visitor flow — revealing exactly why people leave without contacting you.</p>
+        </div>
+
+        <div class="audit-item" data-animate data-animate-delay="2">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>SEO &amp; Local Search Audit</h3>
+          <p>PULSE agent checks your Google Business Profile, local keyword rankings, citation consistency, and search visibility — showing whether your community can find you online.</p>
+        </div>
+
+        <div class="audit-item" data-animate data-animate-delay="2">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>Content Strategy Gap Report</h3>
+          <p>CONTENT + SCOUT agents cross-reference what you're posting against what's driving engagement in the faith space — surfacing the high-value content you're not creating yet.</p>
+        </div>
+
+        <div class="audit-item" data-animate data-animate-delay="3">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Lead Capture Assessment</h3>
+          <p>FUNNEL agent maps every entry point where a potential visitor could become a lead — and counts how many are missing, broken, or underperforming. Every soul matters.</p>
+        </div>
+
+        <div class="audit-item" data-animate data-animate-delay="3">
+          <div class="audit-item-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>90-Day Action Plan</h3>
+          <p>DIRECTOR agent synthesizes all findings into a prioritized, numbered roadmap — ordered by impact and effort, so you know exactly what to do first when you're done reading.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOCIAL PROOF STRIP
+       ============================================================ -->
+  <section class="funnel-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+        <span class="section-label">What Ministry Leaders Say</span>
+        <h2 class="section-title">They Were Skeptical Too</h2>
+      </div>
+
+      <div class="testimonial-strip">
+        <div class="mini-testimonial" data-animate data-animate-delay="1">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>"The audit showed us three things we could fix in a week that doubled our inquiry form completions. I didn't expect this level of detail for free."</blockquote>
+          <div class="mini-testimonial-author">
+            <div class="mini-avatar" aria-hidden="true">PJ</div>
+            <div>
+              <div class="mini-author-name">Pastor James T.</div>
+              <div class="mini-author-role">Senior Pastor · Dallas, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-testimonial" data-animate data-animate-delay="2">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>"Andrew personally called me to walk through the findings. Not a sales pitch — actual strategy. I signed up the same day."</blockquote>
+          <div class="mini-testimonial-author">
+            <div class="mini-avatar" aria-hidden="true">MS</div>
+            <div>
+              <div class="mini-author-name">Michelle S.</div>
+              <div class="mini-author-role">Executive Director · Christian Nonprofit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-testimonial" data-animate data-animate-delay="3">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>"We'd been on Facebook for 5 years and never gotten results. The audit revealed we were targeting the wrong zip codes. Fixed in one afternoon."</blockquote>
+          <div class="mini-testimonial-author">
+            <div class="mini-avatar" aria-hidden="true">RC</div>
+            <div>
+              <div class="mini-author-name">Rev. C. Morgan</div>
+              <div class="mini-author-role">Lead Pastor · Multi-Campus Church</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHAT HAPPENS NEXT — 8-STEP AGENT WORKFLOW
+       ============================================================ -->
+  <section class="funnel-section-dark">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+        <span class="section-label">The Agent Workflow</span>
+        <h2 class="section-title">What Happens the Moment You Submit</h2>
+        <p class="section-sub" style="margin:0 auto;">Ten Claude-powered agents execute a precise sequence — each one specialized, each one accountable, all of it reviewed by Andrew before it reaches you.</p>
+      </div>
+
+      <div class="agent-timeline">
+
+        <div class="timeline-item" data-animate data-animate-delay="1">
+          <div class="timeline-dot active">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Submit</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Instant confirmation — email + SMS</span>
+              <span class="agent-pill">HERALD</span>
+            </div>
+            <p class="timeline-desc">The moment you hit submit, HERALD agent fires a personalized confirmation email and SMS to your inbox — acknowledging your request, setting expectations, and keeping God's work in motion.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate data-animate-delay="1">
+          <div class="timeline-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 1</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Full website, Meta &amp; SEO audit</span>
+              <span class="agent-pill">PULSE</span>
+            </div>
+            <p class="timeline-desc">PULSE agent begins a comprehensive scan — your website performance, Meta Ads account history, Google Business Profile, local SEO rankings, and conversion benchmarks against comparable ministries.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate data-animate-delay="2">
+          <div class="timeline-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 2</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Competitive landscape mapping</span>
+              <span class="agent-pill">SCOUT</span>
+            </div>
+            <p class="timeline-desc">SCOUT agent monitors competitor ad libraries, analyzes what similar ministries are running in your market, and identifies trending faith content — building a picture of exactly where you stand in the landscape.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate data-animate-delay="2">
+          <div class="timeline-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 6</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Ad opportunity analysis</span>
+              <span class="agent-pill">ARIA</span>
+            </div>
+            <p class="timeline-desc">ARIA agent analyzes your specific audience targeting opportunities on Meta — identifying underserved segments, estimating CPM and CPL benchmarks, and flagging quick-win campaigns that could launch within days.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate data-animate-delay="3">
+          <div class="timeline-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 12</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Content gap identification</span>
+              <span class="agent-pill">CONTENT</span>
+            </div>
+            <p class="timeline-desc">CONTENT agent cross-references your current output against what's performing in the faith-content space — identifying the specific post types, topics, and formats you're not producing that your audience is actively searching for.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate data-animate-delay="3">
+          <div class="timeline-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 24</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Full report compiled &amp; reviewed</span>
+              <span class="agent-pill">EDITOR</span>
+              <span class="agent-pill">DIRECTOR</span>
+            </div>
+            <p class="timeline-desc">EDITOR agent reviews every finding for accuracy, clarity, and brand voice. DIRECTOR agent compiles all agent outputs into a single cohesive audit document — prioritized, actionable, and jargon-free.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot active">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Hour 48</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Andrew's personal review + custom video walkthrough</span>
+            </div>
+            <p class="timeline-desc">Andrew reviews the full compiled report personally — adding strategic context, spiritual discernment, and faith-specific insights that no AI alone can provide. He records a custom video walkthrough of your audit findings, addressed directly to you.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot active" style="background:linear-gradient(135deg,var(--brand-gold-dim),var(--brand-gold));border-color:var(--brand-gold);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0f2e" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-time">Delivery</div>
+            <div class="timeline-header">
+              <span class="timeline-title">Your full audit + 30-min review call with Andrew</span>
+              <span class="agent-pill" style="background:rgba(201,162,39,0.2);border-color:rgba(201,162,39,0.5);color:var(--brand-gold);">HERALD</span>
+            </div>
+            <p class="timeline-desc">HERALD delivers your complete audit report, the custom video walkthrough, and a scheduling link for your free 30-minute review call with Andrew. You get real answers, a real plan, and a real conversation — no sales script, no pressure.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AGENT GUARANTEE CALLOUT
+       ============================================================ -->
+  <section class="funnel-section-alt">
+    <div class="container">
+      <div class="agent-guarantee" data-animate>
+        <div class="agent-guarantee-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div>
+          <h3>The Agent Guarantee</h3>
+          <p>Our agents <strong>never sleep, never miss a deadline, and never guess.</strong> Every audit insight is data-driven — pulled from live platform APIs, not assumptions. Every recommendation is actionable — specific steps you can execute this week. And <strong>every word is reviewed by Andrew personally</strong> before it reaches you. You're not getting an automated report. You're getting a human-directed, AI-executed analysis built around your specific ministry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BOTTOM TRUST SECTION
+       ============================================================ -->
+  <div class="bottom-trust">
+    <div class="container" style="max-width:640px;">
+      <p class="bottom-trust-pledge" data-animate>No obligation. No sales pressure. Just clarity and a plan.</p>
+      <p class="bottom-trust-sub" data-animate>The audit is yours to keep whether you become a client or not. We believe in proving the value first.</p>
+
+      <div class="andrew-sig-block" data-animate>
+        <div class="andrew-sig-avatar" aria-label="Andrew Rocha initials">AR</div>
+        <div class="andrew-sig-text">
+          <div class="andrew-sig-name">Andrew Rocha</div>
+          <div class="andrew-sig-title">Founder, YAHWAYLOVE LLC · Fort Worth, Texas<br>Licensed Claude Code Operator · Anthropic API</div>
+        </div>
+      </div>
+
+      <div class="contact-pills" data-animate>
+        <a href="tel:+15613050404" class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 13.5A19.79 19.79 0 0 1 1.88 4.9 2 2 0 0 1 3.85 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (561) 305-0404
+        </a>
+        <a href="mailto:rocha@yahwaylove.com" class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          rocha@yahwaylove.com
+        </a>
+        <a href="pricing.html" class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          View Pricing Plans
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MINIMAL FOOTER
+       ============================================================ -->
+  <footer class="funnel-footer" role="contentinfo">
+    <p>© 2025 YAHWAYLOVE LLC. All rights reserved. Fort Worth, Texas. &nbsp;·&nbsp; <a href="../index.html">Home</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="pricing.html">Pricing</a></p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

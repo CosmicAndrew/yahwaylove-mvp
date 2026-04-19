@@ -10,7 +10,10 @@
     { "source": "/audit", "destination": "/pages/funnel.html" },
     { "source": "/free-audit", "destination": "/pages/funnel.html" },
     { "source": "/agents", "destination": "/pages/agents.html" },
-    { "source": "/team", "destination": "/pages/agents.html" }
+    { "source": "/team", "destination": "/pages/agents.html" },
+    { "source": "/training", "destination": "/pages/training.html" },
+    { "source": "/camp", "destination": "/pages/training.html" },
+    { "source": "/ai-camp", "destination": "/pages/training.html" }
   ],
   "headers": [
     {

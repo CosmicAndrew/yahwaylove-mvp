@@ -458,6 +458,11 @@
                 Send My Request →
               </button>
               <p style="text-align:center;font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-3);">🔒 Your information is private and secure. We never share your data.</p>
+              <!-- Claude trust line -->
+              <div style="margin-top:var(--space-5);padding:var(--space-4) var(--space-5);background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.18);border-radius:var(--radius-md);display:flex;align-items:flex-start;gap:var(--space-3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <p style="font-size:0.72rem;color:var(--color-text-muted);line-height:1.65;max-width:none;margin:0;">Your inquiry is processed by <strong style="color:var(--color-text);">Claude-powered AI agents</strong> and personally reviewed by Andrew Rocha — a licensed Claude Code operator with Anthropic API access.</p>
+              </div>
             </form>
           </div>
         </div>
@@ -536,43 +541,80 @@
     </div>
   </section>
 
-  <!-- WHAT TO EXPECT -->
+  <!-- WHAT HAPPENS AFTER — AGENT WORKFLOW -->
   <section style="background:var(--color-surface-2);">
     <div class="container">
       <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
         <span class="section-label">The Process</span>
         <h2 class="section-title">What Happens After You Submit</h2>
-        <p class="section-sub" style="margin:0 auto;">Three simple steps from inquiry to your custom growth plan.</p>
+        <p class="section-sub" style="margin:0 auto;">The moment you hit send, the agent team gets to work. Here's exactly what happens — and which agent handles each step.</p>
       </div>
 
-      <div style="max-width:640px;margin:0 auto;">
+      <div style="max-width:680px;margin:0 auto;">
+
         <div class="expect-step" data-animate data-animate-delay="1">
           <div class="expect-step-num" aria-hidden="true">1</div>
           <div class="expect-step-content">
-            <h4>Confirmation Email Within 1 Hour</h4>
-            <p>As soon as you submit, you'll receive a confirmation email with details about what to expect next and a brief intake questionnaire to help us prepare.</p>
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-1);">
+              <h4 style="margin:0;">Instant Confirmation — within 60 seconds</h4>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-gold);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:var(--radius-full);padding:2px 8px;white-space:nowrap;">HERALD</span>
+            </div>
+            <p>HERALD agent sends you a personalized confirmation email and SMS within 60 seconds of submission — including a brief intake questionnaire and what to expect next.</p>
+          </div>
+        </div>
+
+        <div class="expect-connector" aria-hidden="true"></div>
+
+        <div class="expect-step" data-animate data-animate-delay="1">
+          <div class="expect-step-num" aria-hidden="true">2</div>
+          <div class="expect-step-content">
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-1);">
+              <h4 style="margin:0;">Preliminary Digital Audit begins immediately</h4>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-gold);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:var(--radius-full);padding:2px 8px;white-space:nowrap;">PULSE</span>
+            </div>
+            <p>PULSE agent immediately begins scanning your digital presence — website, Meta profile, SEO standing, and any existing ad accounts — building a baseline performance picture.</p>
           </div>
         </div>
 
         <div class="expect-connector" aria-hidden="true"></div>
 
         <div class="expect-step" data-animate data-animate-delay="2">
-          <div class="expect-step-num" aria-hidden="true">2</div>
+          <div class="expect-step-num" aria-hidden="true">3</div>
           <div class="expect-step-content">
-            <h4>Strategy Call Scheduled Within 48 Hours</h4>
-            <p>Andrew will personally reach out to schedule your free 45-minute strategy session at a time that works for your schedule. No hand-offs, no staff — you talk directly to the founder.</p>
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-1);">
+              <h4 style="margin:0;">Competitive landscape research</h4>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-gold);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:var(--radius-full);padding:2px 8px;white-space:nowrap;">SCOUT</span>
+            </div>
+            <p>SCOUT agent maps your ministry's competitive landscape — similar organizations in your area, what they're advertising, what content is performing in your niche, and where the gaps are.</p>
+          </div>
+        </div>
+
+        <div class="expect-connector" aria-hidden="true"></div>
+
+        <div class="expect-step" data-animate data-animate-delay="2">
+          <div class="expect-step-num" aria-hidden="true">4</div>
+          <div class="expect-step-content">
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-1);">
+              <h4 style="margin:0;">Andrew + DIRECTOR review all findings</h4>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-gold);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:var(--radius-full);padding:2px 8px;white-space:nowrap;">DIRECTOR</span>
+            </div>
+            <p>DIRECTOR agent compiles the PULSE audit and SCOUT research into a unified brief. Andrew reviews every finding personally, adds strategic context, and schedules your strategy call.</p>
           </div>
         </div>
 
         <div class="expect-connector" aria-hidden="true"></div>
 
         <div class="expect-step" data-animate data-animate-delay="3">
-          <div class="expect-step-num" aria-hidden="true">3</div>
+          <div class="expect-step-num" aria-hidden="true">5</div>
           <div class="expect-step-content">
-            <h4>Custom 90-Day Growth Plan Delivered Within 1 Week</h4>
-            <p>Within one week of your strategy call, you'll receive a personalized 90-day marketing roadmap tailored to your ministry's mission, budget, and growth goals — whether you become a client or not.</p>
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-1);">
+              <h4 style="margin:0;">Pre-call briefing delivered 24 hours before your call</h4>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-gold);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:var(--radius-full);padding:2px 8px;white-space:nowrap;">HERALD</span>
+            </div>
+            <p>You receive a pre-call briefing document 24 hours before your strategy session — summarizing what the agents found, what Andrew will cover, and what questions to have ready. You arrive prepared, not surprised.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
