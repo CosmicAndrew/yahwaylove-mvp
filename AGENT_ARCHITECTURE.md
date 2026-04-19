@@ -3,6 +3,74 @@
 
 **Stack: Anthropic Claude API + Claude Code + Tool Use**
 **Owner: Andrew Rocha | rocha@yahwaylove.com**
+**Last Updated: April 19, 2026 — Post-Restructure (Sprint GTM + Offer Ladder)**
+
+---
+
+## Business Model & Offer Ladder
+
+The YAHWAYLOVE revenue model is a 3-tier funnel. Every agent in the stack serves one of these tiers:
+
+```
+TIER 0 — Free Sample Close (SCOUT + CONTENT agents)
+  └─ SCOUT identifies faith leaders posting inconsistently
+  └─ CONTENT writes one post in their voice, unprompted
+  └─ HERALD sends: "We wrote this for your church. Post it if you like it."
+  └─ No ask. Just proof.
+
+TIER 1 — Faith Content Sprint: $500 flat (Sprint Page: /sprint)
+  └─ Entry via: yahwaylove.com/sprint → Free Post Form → Formspree → rocha@yahwaylove.com
+  └─ CONTENT generates 10 posts using pastor.md voice profile
+  └─ EDITOR QA reviews theology + tone
+  └─ Andrew does final human pass
+  └─ Blotato.com distributes across platforms
+  └─ Delivered in 48 hours, all content owned by client
+  └─ Path to Tier 2: Sprint clients who see results are offered a retainer
+
+TIER 2 — Monthly Retainer: $2,500–$8,500/mo
+  └─ Kingdom Starter:    $2,500/mo — 4 agents, core services
+  └─ Kingdom Builder:    $4,500/mo — 9 agents, full marketing stack
+  └─ Kingdom Dominator:  $8,500/mo — All 10 agents, dedicated mode
+  └─ Sprint-to-retainer conversion is the primary revenue path
+
+TIER 3 — AI Training Camp: $97–$2,500 (separate audience — DIY ministry leaders)
+  └─ Self-Study:         $97 flat (recordings + templates)
+  └─ Group Workshop:     $297/person (live Zoom cohort)
+  └─ 1-on-1 Session:     $497/session (private implementation)
+  └─ Team Training:      $2,500/team (up to 20 people, 6 hours)
+  └─ Sprint clients get 50% off any training tier
+```
+
+---
+
+## GTM Flow — How the First $500 Gets Closed
+
+```
+1. SCOUT scans LinkedIn/Facebook for faith leaders who post < 2x/week
+2. CONTENT generates one custom post using publicly visible voice signals
+3. HERALD sends outbound DM/email: free sample close
+4. Prospect visits yahwaylove.com/sprint via link in message
+5. They fill out Free Post Form (name, church, topic, style)
+6. Formspree routes to rocha@yahwaylove.com
+7. Andrew triggers CONTENT agent manually with pastor.md profile
+8. Post delivered within 24 hours — zero pitch, zero pressure
+9. Follow-up: "Liked it? The $500 Sprint delivers 9 more in 48 hours."
+10. Sprint converts → 2-week results window → retainer conversation
+```
+
+**Current GTM Blockers (as of April 19, 2026):**
+- [ ] andrew.md voice profile not yet built (needed for CONTENT agent)
+- [ ] No prospect list yet (SCOUT needs to run first pass)
+- [ ] Muapi.ai production API key: confirmed live, $20 credit loaded
+- [ ] Claude API key: needed for CONTENT + all agents
+- [ ] Meta Business API: needed for ARIA (retainer tier only)
+- [ ] Supabase leads table: needed for FUNNEL tracking
+
+**First action to close first $500 (no API keys needed):**
+1. Manually identify 10 pastors on LinkedIn who post inconsistently
+2. Write one post manually using their public voice
+3. Send the free sample close via DM
+4. Direct them to /sprint — form auto-routes to Andrew
 
 ---
 
@@ -460,24 +528,29 @@ GitHub (CosmicAndrew) ──► Vercel (yahwaylove.com)
           └── cornerstone.yaml
 ```
 
-## API Keys Required (stored in .env / Vercel environment)
+## API Keys & Integration Status
 
-```
-ANTHROPIC_API_KEY=           # Claude API — all agents
-META_APP_ID=                 # Meta Marketing API
-META_APP_SECRET=             # Meta Marketing API
-HUBSPOT_API_KEY=             # HubSpot CRM + Email
-TWILIO_ACCOUNT_SID=          # SMS campaigns
-TWILIO_AUTH_TOKEN=           # SMS campaigns
-TWILIO_PHONE_NUMBER=         # Outbound SMS/Voice
-VAPI_API_KEY=                # AI voice calls
-GOOGLE_ANALYTICS_KEY=        # GA4 reporting
-SENDGRID_API_KEY=            # Transactional email
-CALENDLY_API_KEY=            # Calendar booking
-BUFFER_API_KEY=              # Social scheduling
-VERCEL_TOKEN=                # Auto-deploy BUILD agent
-GITHUB_TOKEN=                # BUILD agent repo access
-```
+| Key | Service | Status | Needed For |
+|---|---|---|---|
+| `ANTHROPIC_API_KEY` | Claude API | ⏳ Pending | All agents — CONTENT, EDITOR, DIRECTOR, SCOUT |
+| `MUAPI_PRODUCTION_KEY` | Muapi.ai (200+ AI models) | ✅ Live ($20 credit) | AI media generation |
+| `VERCEL_TOKEN` | Auto-deploy | ✅ Live | BUILD agent + site deploys |
+| `GITHUB_TOKEN` | Repo access | ✅ Live | BUILD agent |
+| `FORMSPREE_ID` | Form routing | ✅ Live (xwpbbzvy) | Sprint form → rocha@yahwaylove.com |
+| `META_APP_ID` | Meta Marketing API | ⏳ Pending | ARIA agent (retainer tier only) |
+| `META_APP_SECRET` | Meta Marketing API | ⏳ Pending | ARIA agent |
+| `HUBSPOT_API_KEY` | CRM + Email | ⏳ Pending | FUNNEL agent |
+| `TWILIO_ACCOUNT_SID` | SMS campaigns | ⏳ Pending | HERALD agent (SMS) |
+| `TWILIO_AUTH_TOKEN` | SMS campaigns | ⏳ Pending | HERALD agent (SMS) |
+| `VAPI_API_KEY` | AI voice calls | ⏳ Pending | VOICE agent (high-tier retainer) |
+| `SENDGRID_API_KEY` | Transactional email | ⏳ Pending | HERALD agent (email) |
+| `GOOGLE_ANALYTICS_KEY` | GA4 reporting | ⏳ Pending | PULSE agent |
+| `SUPABASE_URL` | Leads database | ⏳ Pending | FUNNEL — lead tracking |
+| `SUPABASE_KEY` | Leads database | ⏳ Pending | FUNNEL — lead tracking |
+
+**Sprint-phase minimum (to close first $500 manually):** No API keys required — use Claude.ai Pro + manual DMs.
+**CONTENT agent minimum:** `ANTHROPIC_API_KEY` only.
+**Full retainer stack minimum:** All keys above.
 
 ## Monthly Cost Estimate (to run all 10 agents)
 
@@ -496,12 +569,33 @@ At $2,500/client retainer with $500 infrastructure cost → **80% margin**.
 
 ---
 
-## Phase 1 Build Plan (Week 1–4)
+## Phase 1 Build Plan (Sprint-First Sequence)
 
-**Week 1:** Build DIRECTOR + ARIA + HERALD (core money-makers)
-**Week 2:** Build CONTENT + EDITOR + FUNNEL (content pipeline)  
-**Week 3:** Build PULSE + SCOUT + VOICE (intelligence layer)
-**Week 4:** Build BUILD agent + full orchestrator + deploy to production
+The build sequence is now GTM-driven — ship what closes the first $500 before building for retainers.
+
+**Sprint Phase (Now → First $500)**
+- [x] Site live at yahwaylove.com (Vercel + GitHub: CosmicAndrew/yahwaylove-mvp)
+- [x] /sprint page with Free Post intake form → Formspree → rocha@yahwaylove.com
+- [x] Free Sample Close narrative embedded in /sprint
+- [ ] Build andrew.md voice profile (Taste Interviewer prompt)
+- [ ] Run SCOUT manually: identify 10 inconsistent faith posters on LinkedIn
+- [ ] Write + send 5 free sample posts manually (before CONTENT agent is live)
+- [ ] Close first $500 Sprint — deliver 10 posts manually via Claude.ai
+- [ ] Document Sprint delivery workflow → templatize for CONTENT agent
+
+**Agent Phase (Week 1–2, post first $500)**
+- [ ] CONTENT agent — pastor.md voice profile + 10-post generation pipeline
+- [ ] EDITOR agent — theology QA + tone review pass
+- [ ] HERALD agent — outbound free sample close automation (DM + email)
+- [ ] Supabase leads table — track all Sprint prospects and conversion status
+
+**Retainer Phase (Week 3–4, post first retainer)**
+- [ ] DIRECTOR + ARIA (Meta Ads — needs Meta Business API)
+- [ ] FUNNEL (HubSpot + email sequences)
+- [ ] PULSE (analytics + weekly reports)
+- [ ] SCOUT (automated discovery pipeline — Grok multi-agent search)
+- [ ] VOICE (VAPI call agent — optional, high-tier retainer only)
+- [ ] BUILD (Claude Code web dev agent — on-demand)
 
 Andrew operates from Claude Code CLI — can monitor, override, or enhance any agent at any time.
 
