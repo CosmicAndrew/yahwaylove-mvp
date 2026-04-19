@@ -585,12 +585,75 @@
 <nav class="nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="YAHWAYLOVE home">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#c9a227"/>
-        <path d="M16 6 L26 24 L16 20 L6 24 Z" fill="#0a0f2e"/>
-        <path d="M16 11 L22 23 L16 20 L10 23 Z" fill="#c9a227" opacity="0.4"/>
-        <rect x="14.5" y="8" width="3" height="16" rx="1.5" fill="#0a0f2e"/>
-      </svg>
+      <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="YAHWAYLOVE"><defs>
+    <clipPath id="bc">
+      <circle cx="100" cy="100" r="89"/>
+    </clipPath>
+  </defs>
+
+  <!-- Badge -->
+  <circle cx="100" cy="100" r="97" fill="#7a5533"/>
+  <circle cx="100" cy="100" r="91" fill="#c4a882"/>
+
+  <g clip-path="url(#bc)">
+
+    <!-- ══ YAH — left column (x: 14–130) ══ -->
+
+    <!-- Y -->
+    <line x1="16" y1="22" x2="31" y2="55" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="46" y1="22" x2="31" y2="55" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="31" y1="55" x2="31" y2="108" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+
+    <!-- A -->
+    <line x1="53" y1="108" x2="67" y2="22" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="90" y1="108" x2="76" y2="22" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="58" y1="72" x2="85" y2="72" stroke="#5c3318" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- H -->
+    <line x1="99" y1="22" x2="99" y2="108" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="130" y1="22" x2="130" y2="108" stroke="#5c3318" stroke-width="12" stroke-linecap="round"/>
+    <line x1="99" y1="65" x2="130" y2="65" stroke="#5c3318" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- ══ WAY — right column (x: 138–172)
+         Circle at y=35: max x = 100+sqrt(89²-65²) = 100+sqrt(7921-4225) = 100+60.8 = 160.8
+         Circle at y=50: max x = 100+sqrt(89²-50²) = 100+sqrt(7921-2500) = 100+73.6 = 173.6
+         So W can start at y=38, safe x up to ~158
+    ══ -->
+
+    <!-- W (y: 36–66, x: 136–162) -->
+    <line x1="136" y1="36" x2="141" y2="62" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="141" y1="62" x2="148" y2="40" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="148" y1="40" x2="155" y2="62" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="155" y1="62" x2="160" y2="36" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- A (y: 68–110, x: 135–162) -->
+    <line x1="135" y1="110" x2="144" y2="68" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="162" y1="110" x2="153" y2="68" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="138" y1="96" x2="159" y2="96" stroke="#5c3318" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Y (y: 114–178, x: 135–162) -->
+    <line x1="135" y1="114" x2="148" y2="145" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="162" y1="114" x2="148" y2="145" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+    <line x1="148" y1="145" x2="148" y2="183" stroke="#5c3318" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- ══ CROSS (cream) ══ -->
+    <line x1="134" y1="120" x2="134" y2="185" stroke="#e8d4bc" stroke-width="7" stroke-linecap="round"/>
+    <line x1="118" y1="150" x2="152" y2="150" stroke="#e8d4bc" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- JESUS -->
+    <text x="134" y="153.5" font-family="Georgia,serif" font-size="6" fill="#6b4220" text-anchor="middle" font-weight="bold" letter-spacing="0.6">JESUS</text>
+
+    <!-- ANDREW -->
+    <g transform="rotate(-90 134 133)">
+      <text x="134" y="136" font-family="Georgia,serif" font-size="5" fill="#6b4220" text-anchor="middle" letter-spacing="0.3">ANDREW</text>
+    </g>
+
+    <!-- HAILEY -->
+    <g transform="rotate(-90 134 168)">
+      <text x="134" y="171" font-family="Georgia,serif" font-size="5" fill="#6b4220" text-anchor="middle" letter-spacing="0.3">HAILEY</text>
+    </g>
+
+  </g></svg>
       <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
     </a>
     <ul class="nav-links">
@@ -1308,6 +1371,63 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PLATFORM VISION (for competition judges / investors) ====== -->
+<section style="padding:var(--space-20) 0;background:linear-gradient(180deg,#05081a 0%,#040818 100%);border-top:1px solid rgba(201,162,39,0.1);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-14);align-items:start;" data-animate>
+
+      <!-- Left: Services = Proof of Concept -->
+      <div>
+        <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,162,39,0.7);">Where This Is Going</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,1rem+2.5vw,2.8rem);font-weight:800;color:var(--brand-white);line-height:1.1;margin:var(--space-4) 0 var(--space-6);">The Service Is Proof.<br/>The Platform Is the <span style="color:var(--brand-gold);">Business.</span></h2>
+        <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:var(--space-6);">YAHWAYLOVE today is a faith-first AI marketing agency. Every Sprint delivered, every retainer signed, and every denomination voice profile built is building toward a single product: a Faith Marketing OS that any church or ministry can run without Andrew.</p>
+        <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:var(--space-8);">370,000 religious congregations in the US. $155B industry. No AI-native marketing platform built for them — yet.</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+          <div style="display:flex;gap:var(--space-3);align-items:baseline;">
+            <span style="font-size:1.1rem;font-weight:800;color:var(--brand-gold);min-width:90px;">Now</span>
+            <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">Agency — prove product-market fit, document results, build denomination playbooks</span>
+          </div>
+          <div style="display:flex;gap:var(--space-3);align-items:baseline;">
+            <span style="font-size:1.1rem;font-weight:800;color:var(--brand-gold);min-width:90px;">Month 6</span>
+            <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">$100K MRR from retainers — first hire, systematized delivery, case study library</span>
+          </div>
+          <div style="display:flex;gap:var(--space-3);align-items:baseline;">
+            <span style="font-size:1.1rem;font-weight:800;color:var(--brand-gold);min-width:90px;">Month 18</span>
+            <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">Faith Marketing OS launches — $199–$499/mo SaaS, churches self-serve their content</span>
+          </div>
+          <div style="display:flex;gap:var(--space-3);align-items:baseline;">
+            <span style="font-size:1.1rem;font-weight:800;color:var(--brand-gold);min-width:90px;">Year 3–5</span>
+            <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">Platform integrations (Planning Center, Pushpay, Blackbaud) — acquisition target or Series A</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: TAM / Numbers -->
+      <div style="display:flex;flex-direction:column;gap:var(--space-5);">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:var(--space-7);">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--brand-gold);font-family:var(--font-display);">370,000</div>
+          <div style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-top:var(--space-1);">US religious congregations — the primary addressable market</div>
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:var(--space-2);">Source: Hartford Institute for Religious Research</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:var(--space-7);">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--brand-gold);font-family:var(--font-display);">$155B</div>
+          <div style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-top:var(--space-1);">US religious organizations industry — zero AI-native marketing incumbents</div>
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:var(--space-2);">Source: IBISWorld, 2026</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:var(--space-7);">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--brand-gold);font-family:var(--font-display);">$1.5–10B</div>
+          <div style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-top:var(--space-1);">Realistic TAM for a faith-first AI marketing platform (US + global)</div>
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:var(--space-2);">37K paying congregations + faith-aligned businesses at $299–$499/mo</div>
+        </div>
+        <div style="padding:var(--space-5) var(--space-6);background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.2);border-radius:12px;">
+          <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);line-height:1.7;">The moat isn't technology. It's denomination-specific voice training refined across hundreds of clients, and trust relationships in a sector where pastors only buy from people vouched for by other pastors. That's not replicable with a product launch.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
