@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/sprint", "destination": "/pages/sprint.html" },
+    { "source": "/free-post", "destination": "/pages/sprint.html" },
     { "source": "/services", "destination": "/pages/services.html" },
     { "source": "/about", "destination": "/pages/about.html" },
     { "source": "/portfolio", "destination": "/pages/portfolio.html" },
