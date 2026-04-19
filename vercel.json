@@ -1,0 +1,36 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/services", "destination": "/pages/services.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/portfolio", "destination": "/pages/portfolio.html" },
+    { "source": "/pricing", "destination": "/pages/pricing.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/audit", "destination": "/pages/funnel.html" },
+    { "source": "/free-audit", "destination": "/pages/funnel.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+/* ============================================
+   YAHWAYLOVE — Design Tokens
+   Brand: Deep navy + warm gold + pure white
+   Faith-forward, premium, authoritative
+   ============================================ */
+
+:root,
+[data-theme='light'] {
+  /* --- Brand Palette --- */
+  --brand-navy:       #0a0f2e;
+  --brand-navy-mid:   #141a45;
+  --brand-navy-soft:  #1e2660;
+  --brand-gold:       #c9a227;
+  --brand-gold-light: #e8c254;
+  --brand-gold-dim:   #a07a10;
+  --brand-cream:      #faf8f3;
+  --brand-white:      #ffffff;
+
+  /* --- Surfaces --- */
+  --color-bg:              #faf8f3;
+  --color-surface:         #ffffff;
+  --color-surface-2:       #f5f2ea;
+  --color-surface-offset:  #ede9dd;
+  --color-border:          #d9d3c0;
+  --color-divider:         #e5e0d0;
+
+  /* --- Text --- */
+  --color-text:            #0a0f2e;
+  --color-text-muted:      #4a4f6e;
+  --color-text-faint:      #9098bc;
+  --color-text-inverse:    #faf8f3;
+
+  /* --- Accent --- */
+  --color-primary:         #c9a227;
+  --color-primary-hover:   #a07a10;
+  --color-primary-active:  #7d5e08;
+  --color-primary-highlight: #f7ecc4;
+
+  /* --- Supporting --- */
+  --color-success:         #2e7d50;
+  --color-error:           #b5392b;
+  --color-navy:            #0a0f2e;
+  --color-navy-hover:      #141a45;
+
+  /* --- Radius --- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.875rem;
+  --radius-xl:   1.25rem;
+  --radius-full: 9999px;
+
+  /* --- Spacing (4px base) --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Type Scale (fluid) --- */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* --- Fonts --- */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body:    'Work Sans', 'Helvetica Neue', sans-serif;
+
+  /* --- Shadows --- */
+  --shadow-sm:  0 1px 3px rgba(10, 15, 46, 0.08);
+  --shadow-md:  0 4px 16px rgba(10, 15, 46, 0.12);
+  --shadow-lg:  0 12px 40px rgba(10, 15, 46, 0.18);
+  --shadow-xl:  0 24px 64px rgba(10, 15, 46, 0.24);
+  --shadow-gold: 0 4px 24px rgba(201, 162, 39, 0.35);
+
+  /* --- Transitions --- */
+  --transition-fast:        120ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:        320ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Layout --- */
+  --content-narrow:  640px;
+  --content-default: 960px;
+  --content-wide:    1200px;
+  --content-full:    100%;
+}
+
+/* --- Dark Mode --- */
+[data-theme='dark'] {
+  --color-bg:              #080c22;
+  --color-surface:         #0d1235;
+  --color-surface-2:       #131840;
+  --color-surface-offset:  #1a2050;
+  --color-border:          #252b5c;
+  --color-divider:         #1e2450;
+  --color-text:            #ede9dd;
+  --color-text-muted:      #9098bc;
+  --color-text-faint:      #4a5280;
+  --color-text-inverse:    #0a0f2e;
+  --color-primary:         #e8c254;
+  --color-primary-hover:   #c9a227;
+  --color-primary-active:  #a07a10;
+  --color-primary-highlight: #2a2510;
+  --color-bg-hero:         #050818;
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.5);
+  --shadow-gold: 0 4px 24px rgba(232, 194, 84, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:              #080c22;
+    --color-surface:         #0d1235;
+    --color-surface-2:       #131840;
+    --color-surface-offset:  #1a2050;
+    --color-border:          #252b5c;
+    --color-divider:         #1e2450;
+    --color-text:            #ede9dd;
+    --color-text-muted:      #9098bc;
+    --color-text-faint:      #4a5280;
+    --color-text-inverse:    #0a0f2e;
+    --color-primary:         #e8c254;
+    --color-primary-hover:   #c9a227;
+    --color-primary-active:  #a07a10;
+    --color-primary-highlight: #2a2510;
+    --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg:  0 12px 40px rgba(0,0,0,0.5);
+    --shadow-gold: 0 4px 24px rgba(232, 194, 84, 0.25);
+  }
+}
