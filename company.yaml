@@ -1,0 +1,96 @@
+# YAHWAYLOVE LLC — Canopy Company Configuration
+# Canopy Protocol: github.com/Miosa-osa/canopy
+
+name: YAHWAYLOVE LLC
+domain: yahwaylove.com
+owner: Andrew Rocha
+email: rocha@yahwaylove.com
+phone: "(561) 305-0404"
+location: Fort Worth, TX
+founded: 2026
+tagline: "Faith. AI. Kingdom Growth."
+competition: Perplexity Billion Dollar Build (April 14 – June 2, 2026)
+
+mission: >
+  Faith-First AI Marketing for churches, ministries, and faith-led businesses.
+  We write, post, and distribute Kingdom content at scale — starting with one free post.
+
+# Revenue model
+offer_ladder:
+  tier_0:
+    name: Free Sample Close
+    price: $0
+    description: SCOUT identifies → CONTENT writes 1 post → HERALD sends "post it if you like it"
+    agents: [SCOUT, CONTENT, HERALD]
+  tier_1:
+    name: Faith Content Sprint
+    price: $500
+    description: 10 posts in your voice in 48 hours — theology reviewed, distribution ready
+    url: /sprint
+    agents: [CONTENT, EDITOR]
+    distribution: blotato
+  tier_2:
+    name: Monthly Retainer
+    tiers:
+      - { name: Kingdom Starter, price: $2500, agents: 4 }
+      - { name: Kingdom Builder, price: $4500, agents: 9 }
+      - { name: Kingdom Dominator, price: $8500, agents: 10 }
+  tier_3:
+    name: AI Training Camp
+    tiers:
+      - { name: Self-Study, price: $97 }
+      - { name: Group Workshop, price: $297 }
+      - { name: "1-on-1 Session", price: $497 }
+      - { name: Team Training, price: $2500 }
+
+# Budget governance (Sprint phase)
+budget:
+  monthly_cap: 500
+  soft_alert_pct: 80
+  hard_stop_pct: 100
+  human_approval_threshold: 50  # any single action >$50 needs Andrew's OK
+
+# Infrastructure (Sprint phase)
+stack:
+  ai_models:
+    orchestration: claude-opus-4-7
+    generation: claude-sonnet-4-6
+    scout: grok-3  # SuperGrok $30/mo
+    local: ollama/gemma4  # for sensitive data
+
+  distribution:
+    primary: blotato.com  # 33M views/mo, 100+ pieces/wk
+    telegram: shipclaw.org  # 30-second agent deploy
+    video: remotion  # 5 production templates
+
+  hosting:
+    site: vercel
+    repo: github.com/CosmicAndrew/yahwaylove-mvp
+    forms: formspree  # xwpbbzvy → rocha@yahwaylove.com
+    leads: supabase  # pending
+
+  api_keys:
+    ANTHROPIC_API_KEY: pending
+    MUAPI_PRODUCTION_KEY: live  # $20 credit
+    VERCEL_TOKEN: live
+    GITHUB_TOKEN: live
+    FORMSPREE_ID: live  # xwpbbzvy
+    BLOTATO_API_KEY: pending
+    GROK_API_KEY: pending  # SuperGrok
+    META_APP_ID: pending
+    HUBSPOT_API_KEY: pending
+    TWILIO_ACCOUNT_SID: pending
+    VAPI_API_KEY: pending
+    SUPABASE_URL: pending
+    SUPABASE_KEY: pending
+
+# Design system
+design:
+  colors:
+    navy: "#0a0f2e"
+    gold: "#c9a227"
+    cream: "#faf8f3"
+  fonts:
+    display: Playfair Display
+    body: Work Sans
+  voice: faith-affirming, never preachy, transformation > information
