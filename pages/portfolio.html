@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — YAHWAYLOVE LLC | Faith-First AI Marketing Results</title>
+  <meta name="description" content="Real campaigns. Real results. Explore YAHWAYLOVE's case studies — from faith-based Meta Ads and AI automation workflows to complete digital transformations for churches and ministries." />
+  <meta name="author" content="Andrew Rocha" />
+  <meta property="og:title" content="Portfolio — YAHWAYLOVE LLC" />
+  <meta property="og:description" content="From orphan marketing to sonship results. 5 case studies showing what a 10-agent AI team running on Claude Code delivers for faith-based organizations." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://yahwaylove.com/pages/portfolio.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <style>
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      background: linear-gradient(160deg, #040818 0%, #0a0f2e 55%, #131840 100%);
+      padding: calc(var(--space-32) + var(--space-8)) var(--space-8) var(--space-20);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero-particles {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201,162,39,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201,162,39,0.05) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 2; max-width: var(--content-default); margin: 0 auto; }
+    .page-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-full); padding: var(--space-2) var(--space-4);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--brand-gold); margin-bottom: var(--space-6);
+    }
+    .page-hero-title {
+      font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 800;
+      color: var(--brand-white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: var(--space-6);
+    }
+    .page-hero-title .accent { color: var(--brand-gold); }
+    .page-hero-sub {
+      font-size: var(--text-lg); color: rgba(255,255,255,0.68); line-height: 1.7;
+      max-width: 56ch; margin: 0 auto var(--space-8);
+    }
+
+    /* ---- CASE STUDY CARDS ---- */
+    .case-studies-list {
+      display: flex; flex-direction: column; gap: var(--space-16);
+    }
+    .case-study-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .case-study-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+
+    .case-study-header {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      padding: var(--space-8) var(--space-10);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-8);
+      position: relative; overflow: hidden;
+      flex-wrap: wrap;
+    }
+    .case-study-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(201,162,39,0.08) 0%, transparent 60%);
+    }
+    .case-study-header-left { position: relative; z-index: 1; }
+    .case-study-num {
+      font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800;
+      color: rgba(201,162,39,0.12); line-height: 1; margin-bottom: var(--space-2);
+    }
+    .case-study-category {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brand-gold); margin-bottom: var(--space-3);
+    }
+    .case-study-title {
+      font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700;
+      color: var(--brand-white); line-height: 1.15; margin-bottom: var(--space-3);
+    }
+    .case-study-meta {
+      display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;
+    }
+    .case-study-meta-item {
+      display: flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); color: rgba(255,255,255,0.5);
+    }
+    .case-study-meta-item svg { color: var(--brand-gold); }
+
+    .case-study-metrics {
+      position: relative; z-index: 1;
+      display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-start;
+    }
+    .case-study-metric { text-align: center; min-width: 80px; }
+    .case-study-metric-value {
+      font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700;
+      color: var(--brand-gold); line-height: 1; margin-bottom: var(--space-1);
+    }
+    .case-study-metric-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45); line-height: 1.3;
+    }
+
+    .case-study-body {
+      padding: var(--space-10);
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10);
+    }
+    .case-study-col h4 {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-4);
+    }
+    .case-study-col p {
+      font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.75;
+      margin-bottom: var(--space-3);
+    }
+    .case-study-col p:last-child { margin-bottom: 0; }
+
+    .case-study-badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
+    .case-study-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: var(--space-1) var(--space-3);
+      background: var(--color-primary-highlight); border: 1px solid rgba(201,162,39,0.25);
+      border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600;
+      color: var(--color-primary); letter-spacing: 0.04em;
+    }
+    [data-theme='dark'] .case-study-badge { color: var(--brand-gold-light); }
+
+    /* Agent chips */
+    .agent-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+    .agent-chip {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 1px solid rgba(201,162,39,0.2); border-radius: var(--radius-full);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--brand-gold);
+    }
+
+    /* Key Takeaway callout */
+    .key-takeaway {
+      background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(201,162,39,0.04) 100%);
+      border: 1.5px solid rgba(201,162,39,0.3); border-radius: var(--radius-lg);
+      padding: var(--space-6); margin-top: var(--space-6);
+    }
+    .key-takeaway-label {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brand-gold); margin-bottom: var(--space-3);
+      display: flex; align-items: center; gap: var(--space-2);
+    }
+    .key-takeaway p {
+      font-size: var(--text-sm); color: var(--color-text); line-height: 1.7;
+      font-style: italic; margin-bottom: 0 !important;
+    }
+
+    /* ---- N8N FLOW DIAGRAM ---- */
+    .flow-diagram {
+      background: var(--color-surface-2); border-radius: var(--radius-lg);
+      padding: var(--space-8); margin-top: var(--space-6);
+      border: 1px solid var(--color-border);
+    }
+    .flow-diagram-title {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-6);
+      text-align: center;
+    }
+    .flow-nodes {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-2); flex-wrap: wrap;
+    }
+    .flow-node {
+      flex: 1; min-width: 90px;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-4) var(--space-3);
+      text-align: center; position: relative;
+    }
+    .flow-node-icon {
+      width: 40px; height: 40px; margin: 0 auto var(--space-3);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--brand-gold); font-size: 1.2rem;
+    }
+    .flow-node-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
+      color: var(--color-text); line-height: 1.3; margin-bottom: var(--space-1);
+    }
+    .flow-node-sub {
+      font-size: 0.6rem; color: var(--color-text-muted); line-height: 1.4;
+    }
+    .flow-node.highlight {
+      border-color: rgba(201,162,39,0.4);
+      background: linear-gradient(160deg, rgba(201,162,39,0.07), transparent);
+    }
+    .flow-arrow {
+      color: var(--brand-gold); opacity: 0.6; flex-shrink: 0;
+      font-size: 1.2rem; font-weight: 700; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .flow-if {
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border-color: rgba(201,162,39,0.3); color: var(--brand-white);
+    }
+    .flow-if .flow-node-label { color: var(--brand-white); }
+    .flow-if .flow-node-sub { color: rgba(255,255,255,0.5); }
+    .flow-node-icon svg { color: var(--brand-gold); }
+
+    /* ---- VIBE PIPELINE DIAGRAM ---- */
+    .vibe-pipeline {
+      background: var(--color-surface-2); border-radius: var(--radius-lg);
+      padding: var(--space-8); margin-top: var(--space-6);
+      border: 1px solid var(--color-border);
+    }
+    .vibe-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4);
+      position: relative;
+    }
+    .vibe-steps::before {
+      content: ''; position: absolute; top: 28px; left: 10%; right: 10%;
+      height: 2px; background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
+    }
+    .vibe-step { text-align: center; padding: var(--space-4); }
+    .vibe-step-num {
+      width: 56px; height: 56px; margin: 0 auto var(--space-4);
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 2px solid rgba(201,162,39,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: var(--text-base); font-weight: 800;
+      color: var(--brand-gold); position: relative; z-index: 1;
+    }
+    .vibe-step h5 {
+      font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700;
+      color: var(--color-text); margin-bottom: var(--space-2);
+    }
+    .vibe-step p {
+      font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.5;
+    }
+    .vibe-time {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--brand-gold); margin-top: var(--space-2);
+    }
+
+    /* ---- SERVICES SNAPSHOT ---- */
+    .services-snapshot-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5);
+    }
+    .service-snap {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-6); text-align: center;
+      box-shadow: var(--shadow-sm); transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .service-snap:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(201,162,39,0.3); }
+    .service-snap-icon {
+      width: 52px; height: 52px; margin: 0 auto var(--space-4);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 1.5px solid rgba(201,162,39,0.2); display: flex; align-items: center;
+      justify-content: center; color: var(--brand-gold);
+    }
+    .service-snap h4 {
+      font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700;
+      color: var(--color-text); margin-bottom: var(--space-2);
+    }
+    .service-snap p { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.5; }
+
+    /* ---- CTA ---- */
+    .portfolio-cta {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-radius: var(--radius-xl); padding: var(--space-16) var(--space-12);
+      border: 1px solid rgba(201,162,39,0.25); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .portfolio-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,162,39,0.08) 0%, transparent 70%);
+    }
+    .portfolio-cta-inner { position: relative; z-index: 1; }
+    .portfolio-cta h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700;
+      color: var(--brand-white); margin-bottom: var(--space-4); line-height: 1.1;
+    }
+    .portfolio-cta p {
+      font-size: var(--text-lg); color: rgba(255,255,255,0.7); margin-bottom: var(--space-8);
+      max-width: 52ch; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .case-study-body { grid-template-columns: 1fr; }
+      .case-study-header { flex-direction: column; }
+      .case-study-metrics { justify-content: flex-start; }
+      .services-snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+      .vibe-steps { grid-template-columns: repeat(2, 1fr); }
+      .flow-nodes { gap: var(--space-1); }
+    }
+    @media (max-width: 640px) {
+      .page-hero { padding-top: calc(var(--space-24) + var(--space-8)); }
+      .case-study-body { padding: var(--space-6); }
+      .case-study-header { padding: var(--space-6); }
+      .services-snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-cta { padding: var(--space-10) var(--space-6); }
+      .flow-nodes { flex-direction: column; align-items: stretch; }
+      .flow-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="YAHWAYLOVE Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#C9A227"/>
+        <path d="M18 6 L28 14 L28 26 L18 30 L8 26 L8 14 Z" fill="none" stroke="#0A0F2E" stroke-width="2"/>
+        <path d="M18 6 L18 30 M8 14 L28 14 M8 26 L28 26" stroke="#0A0F2E" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="18" cy="20" r="4" fill="#0A0F2E"/>
+        <circle cx="18" cy="20" r="2" fill="#C9A227"/>
+      </svg>
+      <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
+    </a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== PAGE HERO ====== -->
+<section class="page-hero" aria-label="Portfolio Hero">
+  <div class="page-hero-particles" aria-hidden="true"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow" data-animate>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Real Work · Real Results · Kingdom Impact
+    </div>
+    <h1 class="page-hero-title" data-animate data-animate-delay="1">
+      From Orphan Marketing<br><span class="accent">to Kingdom Results.</span>
+    </h1>
+    <p class="page-hero-sub" data-animate data-animate-delay="2">
+      These aren't templates. These are real campaigns, real automations, and real transformations — each one delivered by YAHWAYLOVE's 10-agent AI team running on Claude Code and the Anthropic API. What happened for them will happen for you.
+    </p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-4);flex-wrap:wrap;" data-animate data-animate-delay="3">
+      <a href="contact.html" class="btn btn-primary btn-lg">
+        Be Our Next Case Study
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="services.html" class="btn btn-outline btn-lg">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CASE STUDIES ====== -->
+<section style="background:var(--color-bg);">
+  <div class="container">
+
+    <div class="case-studies-list">
+
+      <!-- ===================== CASE STUDY 1: AI Email Management ===================== -->
+      <article class="case-study-card" data-animate>
+        <div class="case-study-header">
+          <div class="case-study-header-left">
+            <div class="case-study-num">01</div>
+            <div class="case-study-category">AI Automation · HERALD Agent</div>
+            <h2 class="case-study-title">AI Email Management — Human-in-the-Loop</h2>
+            <div class="case-study-meta">
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Deployed in &lt; 1 day
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Live Capability
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                $750 / month add-on
+              </div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">100%</div>
+              <div class="case-study-metric-label">Human<br>Approval Rate</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">&lt;60s</div>
+              <div class="case-study-metric-label">Draft<br>Speed</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">24/7</div>
+              <div class="case-study-metric-label">Inbox<br>Monitoring</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-body">
+          <div class="case-study-col">
+            <h4>The Challenge</h4>
+            <p>Faith-based organizations receive a constant stream of inquiries — event RSVPs, prayer requests, counseling inquiries, partnership emails, media inquiries. Responding promptly and personally is critical to mission integrity, but the volume overwhelms small teams.</p>
+            <p>Most organizations either respond 2–3 days late (damaging trust) or default to generic copy-paste replies (damaging relationships). Neither reflects Sonship.</p>
+
+            <h4 style="margin-top:var(--space-6);">The Solution</h4>
+            <p>HERALD agent, powered by N8N + Claude API, monitors the client's Gmail inbox every 60 seconds. When a new email arrives, the AI reads the full thread, analyzes sentiment (positive, negative, unclear), and drafts a personalized, theology-consistent reply.</p>
+            <p>The drafted reply is sent to Andrew — or the client's designated approver — via Telegram bot: <em>"New email from [Sender]. Here is the drafted reply. Reply 'ok' to send."</em> Nothing goes out without human eyes on it. AI speed, human wisdom.</p>
+
+            <div class="agent-chips">
+              <span class="agent-chip">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                HERALD
+              </span>
+              <span class="agent-chip">DIRECTOR</span>
+              <span class="agent-chip">EDITOR</span>
+            </div>
+          </div>
+
+          <div class="case-study-col">
+            <h4>Live Workflow Diagram</h4>
+
+            <div class="flow-diagram">
+              <div class="flow-diagram-title">HERALD Agent — Human-in-the-Loop Email Pipeline</div>
+              <div class="flow-nodes">
+                <div class="flow-node">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div class="flow-node-label">Gmail Trigger</div>
+                  <div class="flow-node-sub">Polls every 60 seconds</div>
+                </div>
+                <div class="flow-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="flow-node highlight">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+                  </div>
+                  <div class="flow-node-label">Claude Agent</div>
+                  <div class="flow-node-sub">Reads context, analyzes sentiment, drafts reply</div>
+                </div>
+                <div class="flow-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="flow-node">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <div class="flow-node-label">Telegram Bot</div>
+                  <div class="flow-node-sub">Sends draft to approver. "Reply 'ok' to send."</div>
+                </div>
+                <div class="flow-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="flow-node flow-if">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="flow-node-label">IF Approved</div>
+                  <div class="flow-node-sub">Approved → Send. Rejected → Revise.</div>
+                </div>
+                <div class="flow-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="flow-node">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </div>
+                  <div class="flow-node-label">Reply Sent</div>
+                  <div class="flow-node-sub">Via Gmail. Logged to HubSpot automatically.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-study-badges" style="margin-top:var(--space-5);">
+              <span class="case-study-badge">N8N Automation</span>
+              <span class="case-study-badge">Gmail</span>
+              <span class="case-study-badge">Telegram Approval</span>
+              <span class="case-study-badge">Claude API</span>
+              <span class="case-study-badge">HubSpot Logging</span>
+            </div>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Key Takeaway
+              </div>
+              <p>"Your inbox, managed by AI. Approved by you. Every single time. Sentiment-aware responses that reflect your ministry's voice — zero surprises, you're always in control. AI speed with human wisdom."</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== CASE STUDY 2: Vibe Design Sprint ===================== -->
+      <article class="case-study-card" data-animate>
+        <div class="case-study-header">
+          <div class="case-study-header-left">
+            <div class="case-study-num">02</div>
+            <div class="case-study-category">Web Development · BUILD Agent · Vibe Design</div>
+            <h2 class="case-study-title">Vibe Design Sprint — 90 Seconds to Production</h2>
+            <div class="case-study-meta">
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Site live within 48–72 hours
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                $2,500–$5,000 project
+              </div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">90s</div>
+              <div class="case-study-metric-label">Design<br>Direction</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">48hr</div>
+              <div class="case-study-metric-label">Full Site<br>Live</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">5×</div>
+              <div class="case-study-metric-label">Faster Than<br>Traditional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-body">
+          <div class="case-study-col">
+            <h4>The Challenge</h4>
+            <p>A church plant needed a website that felt premium, modern, and deeply reflective of their identity — not a $49/month template that looks like every other church in town. Their previous agency quoted 6 weeks and $8,000.</p>
+            <p>They needed God-level marketing on a Kingdom budget, without sacrificing the quality that reflects who they are in Christ. Generic templates communicate generic mission. That was not acceptable.</p>
+
+            <h4 style="margin-top:var(--space-6);">The Solution</h4>
+            <p>Andrew ran a <strong>Vibe Design Sprint</strong> using YAHWAYLOVE's proprietary AI-native workflow. Instead of asking "What should it look like?", he asked "What do you want visitors to <em>feel</em> when they land on your site?" The answer drove the entire design direction.</p>
+            <p>Google Stitch generated 5 fully realized, designer-level UI directions in 90 seconds. The client chose in one session. BUILD agent took that direction into Claude Code, scaffolded the full site architecture, and pushed to Vercel. Live in 48 hours — fully custom, zero templates.</p>
+
+            <div class="agent-chips">
+              <span class="agent-chip">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                BUILD
+              </span>
+              <span class="agent-chip">DIRECTOR</span>
+              <span class="agent-chip">EDITOR</span>
+            </div>
+          </div>
+
+          <div class="case-study-col">
+            <h4>The Pipeline</h4>
+
+            <div class="vibe-pipeline">
+              <div class="flow-diagram-title">Vibe Design Sprint — Google Stitch → Claude Code → Vercel</div>
+              <div class="vibe-steps">
+                <div class="vibe-step">
+                  <div class="vibe-step-num">01</div>
+                  <h5>Vibe Brief</h5>
+                  <p>Describe what users should feel. Not pixels — emotion. "Powerful. Welcoming. Ancient truth, modern hope."</p>
+                  <div class="vibe-time">~15 min</div>
+                </div>
+                <div class="vibe-step">
+                  <div class="vibe-step-num">02</div>
+                  <h5>Google Stitch</h5>
+                  <p>AI generates 5 full designer-level UI directions from the vibe prompt. Client selects the winner.</p>
+                  <div class="vibe-time">90 seconds</div>
+                </div>
+                <div class="vibe-step">
+                  <div class="vibe-step-num">03</div>
+                  <h5>Claude Code Build</h5>
+                  <p>BUILD agent takes the Stitch direction into Claude Code via MCP. Full site scaffolded, committed to GitHub.</p>
+                  <div class="vibe-time">4–8 hours</div>
+                </div>
+                <div class="vibe-step">
+                  <div class="vibe-step-num">04</div>
+                  <h5>Vercel Deploy</h5>
+                  <p>One command. Site is live on a custom domain. Fast, CDN-deployed, SSL-secured. Client gets the keys.</p>
+                  <div class="vibe-time">&lt; 5 min</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-study-badges" style="margin-top:var(--space-5);">
+              <span class="case-study-badge">Google Stitch MCP</span>
+              <span class="case-study-badge">Claude Code</span>
+              <span class="case-study-badge">GitHub</span>
+              <span class="case-study-badge">Vercel</span>
+              <span class="case-study-badge">Custom Domain</span>
+            </div>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Key Takeaway
+              </div>
+              <p>"Think like a founder, build like a professional. You don't describe what your site looks like — you describe what it feels like. In 90 seconds, AI gives you 5 professional directions to choose from. Hours later, you're live. This is the complete solution, not a surface fix."</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== CASE STUDY 3: Faith-Based Meta Ads ===================== -->
+      <article class="case-study-card" data-animate>
+        <div class="case-study-header">
+          <div class="case-study-header-left">
+            <div class="case-study-num">03</div>
+            <div class="case-study-category">Meta Ads · ARIA Agent · Thy Kingdom Come Productions</div>
+            <h2 class="case-study-title">Faith-Based Meta Ads — Thy Kingdom Come Productions</h2>
+            <div class="case-study-meta">
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                60-day campaign
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Fort Worth, Texas
+              </div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">312%</div>
+              <div class="case-study-metric-label">Reach<br>Increase</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">4×</div>
+              <div class="case-study-metric-label">Lead<br>Volume</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">2×</div>
+              <div class="case-study-metric-label">Event<br>Attendance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-body">
+          <div class="case-study-col">
+            <h4>The Challenge</h4>
+            <p>Thy Kingdom Come Productions had zero digital ad presence, no lead tracking system, and no funnel to convert event interest into actual registrations. Their audience was engaged on-platform but unreachable through paid channels.</p>
+            <p>Every event relied on organic word-of-mouth and in-church announcements — a model that plateaued. They were marketing from scarcity, not from the abundance that God had already prepared for their mission.</p>
+
+            <h4 style="margin-top:var(--space-6);">The Solution</h4>
+            <p>ARIA agent built and launched a complete Meta Ads strategy from scratch: audience research using faith-interest stacking, creative briefs produced by CONTENT, and a structured A/B testing matrix across 3 ad sets simultaneously.</p>
+            <p>FUNNEL built a custom landing page (BUILD) with HubSpot CRM integration. CONTENT produced a 30-day social calendar to complement the ads. HERALD set up a 5-email nurture sequence for every lead captured. PULSE generated weekly plain-English reports tracking reach, leads, cost-per-lead, and conversion rate.</p>
+
+            <div class="agent-chips">
+              <span class="agent-chip">ARIA</span>
+              <span class="agent-chip">CONTENT</span>
+              <span class="agent-chip">FUNNEL</span>
+              <span class="agent-chip">BUILD</span>
+              <span class="agent-chip">HERALD</span>
+              <span class="agent-chip">PULSE</span>
+              <span class="agent-chip">DIRECTOR</span>
+            </div>
+          </div>
+
+          <div class="case-study-col">
+            <h4>Results</h4>
+            <p>Within 60 days: organic reach grew 312%, lead volume quadrupled vs. the prior event cycle, and event attendance doubled. The HubSpot pipeline went from zero tracked contacts to 847 warm leads with full interaction history.</p>
+            <p>More importantly — the team stopped striving. They stopped scrambling for event attendance one week out. DIRECTOR coordinated everything; PULSE reported everything. Sonship-grounded marketing at scale.</p>
+
+            <div class="case-study-badges">
+              <span class="case-study-badge">Meta Ads</span>
+              <span class="case-study-badge">HubSpot CRM</span>
+              <span class="case-study-badge">Content Calendar</span>
+              <span class="case-study-badge">Lead Funnel</span>
+              <span class="case-study-badge">Email Nurture</span>
+            </div>
+
+            <div style="margin-top:var(--space-6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
+              <div style="background:var(--color-primary-highlight);border-radius:var(--radius-lg);padding:var(--space-4);text-align:center;">
+                <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-primary);line-height:1;">847</div>
+                <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);margin-top:4px;">Warm Leads</div>
+              </div>
+              <div style="background:var(--color-primary-highlight);border-radius:var(--radius-lg);padding:var(--space-4);text-align:center;">
+                <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-primary);line-height:1;">$4.12</div>
+                <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);margin-top:4px;">Cost Per Lead</div>
+              </div>
+              <div style="background:var(--color-primary-highlight);border-radius:var(--radius-lg);padding:var(--space-4);text-align:center;">
+                <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-primary);line-height:1;">3.9×</div>
+                <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);margin-top:4px;">ROAS</div>
+              </div>
+            </div>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Key Takeaway
+              </div>
+              <p>"When faith-based organizations stop marketing from an orphan mindset and start marketing from their true identity, the results reflect it. 312% reach increase in 60 days — not through hustle, but through strategic Kingdom stewardship."</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== CASE STUDY 4: AI Training Camp ===================== -->
+      <article class="case-study-card" data-animate>
+        <div class="case-study-header">
+          <div class="case-study-header-left">
+            <div class="case-study-num">04</div>
+            <div class="case-study-category">Education · AI Training Camp · Curriculum Delivery</div>
+            <h2 class="case-study-title">AI Training Camp — Equipping Kingdom Builders</h2>
+            <div class="case-study-meta">
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                4-week intensive
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                $297–$2,500 per student
+              </div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">10+</div>
+              <div class="case-study-metric-label">AI Tools<br>Mastered</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">4wk</div>
+              <div class="case-study-metric-label">Curriculum<br>Duration</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">Live</div>
+              <div class="case-study-metric-label">Projects<br>Built</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-body">
+          <div class="case-study-col">
+            <h4>The Challenge</h4>
+            <p>Faith leaders, ministry staff, and Christian entrepreneurs want to leverage AI tools in their work — but every AI course available was built for tech bros, not Kingdom builders. Generic curriculum. No theological integration. No practical application for church contexts.</p>
+            <p>There was no training program that started with "who God says you are" and ended with a fully functioning AI agent stack that students could deploy for their own ministry or business immediately.</p>
+
+            <h4 style="margin-top:var(--space-6);">The Solution</h4>
+            <p>Andrew built the AI Training Camp: a 4-week, hands-on curriculum that teaches the same exact tools he uses to run YAHWAYLOVE — Claude Code, Anthropic API, prompt engineering, NotebookLM, N8N, Google Stitch, MCP Connectors, and GitHub.</p>
+            <p>Every module is built around a live project — not slides. Students leave with working AI agents, deployed websites, or automation workflows they built themselves. The curriculum is grounded in Sonship identity from day one: you're learning these tools not to prove yourself, but because you're God's workmanship built for such a time as this.</p>
+
+            <div class="agent-chips">
+              <span class="agent-chip">CONTENT</span>
+              <span class="agent-chip">DIRECTOR</span>
+              <span class="agent-chip">EDITOR</span>
+            </div>
+          </div>
+
+          <div class="case-study-col">
+            <h4>Curriculum Outcomes</h4>
+            <p>Students who complete the full AI Training Camp leave with:</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-6);">
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                A working Claude Code development environment
+              </li>
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                A minimum of 1 deployed AI agent built with Anthropic API
+              </li>
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                A Vibe Design Sprint website live on Vercel
+              </li>
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                An N8N automation workflow solving a real pain point
+              </li>
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Proprietary JSON Context Profiles for custom agent memory
+              </li>
+              <li style="display:flex;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--brand-gold);flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                MCP connectors linking their agents to real platforms
+              </li>
+            </ul>
+
+            <div class="case-study-badges">
+              <span class="case-study-badge">Claude Code</span>
+              <span class="case-study-badge">Anthropic API</span>
+              <span class="case-study-badge">N8N</span>
+              <span class="case-study-badge">Google Stitch</span>
+              <span class="case-study-badge">MCP Connectors</span>
+            </div>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Key Takeaway
+              </div>
+              <p>"You are created for such a time as this. The same tools Andrew uses to run YAHWAYLOVE can be in your hands in 4 weeks — not as theory, but as live, deployed systems serving your mission. This is digital inheritance, not digital scraps."</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== CASE STUDY 5: Complete Problem Solution ===================== -->
+      <article class="case-study-card" data-animate>
+        <div class="case-study-header">
+          <div class="case-study-header-left">
+            <div class="case-study-num">05</div>
+            <div class="case-study-category">Complete Solution · Saint Joseph's College · Full Digital Transformation</div>
+            <h2 class="case-study-title">Complete Problem Solution — Saint Joseph's Admissions</h2>
+            <div class="case-study-meta">
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                45-day campaign
+              </div>
+              <div class="case-study-meta-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>
+                Requested: Website Refresh · Delivered: Full Digital Infrastructure
+              </div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">18.3%</div>
+              <div class="case-study-metric-label">Funnel<br>Conversion</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">3×</div>
+              <div class="case-study-metric-label">Inquiry<br>Volume</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-value">$12</div>
+              <div class="case-study-metric-label">Cost Per<br>Lead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-body">
+          <div class="case-study-col">
+            <h4>The Challenge (The Surface Problem)</h4>
+            <p>Saint Joseph's College came to YAHWAYLOVE asking for a "website refresh." Low admissions inquiries, an outdated web presence, and no retargeting strategy. The surface request was clear: make the website look better.</p>
+
+            <h4 style="margin-top:var(--space-5);">What YAHWAYLOVE Found (The Complete Problem)</h4>
+            <p>A free <strong>Complete Problem Audit</strong> revealed the full picture: the website was only one of five interconnected problems. There was no Meta Ads retargeting to bring back the 78% of visitors who left without inquiring. There was no admissions funnel — visitors had no guided path from interest to application. There was no email nurture sequence. There was no CRM to track prospect conversations.</p>
+            <p>A website refresh alone would have been a $500 bandage on a $5,000 problem. Instead, YAHWAYLOVE delivered the complete solution: retargeting ads, admissions funnel, 7-email nurture sequence, HubSpot CRM setup, and a rebuilt admissions landing page.</p>
+
+            <div class="agent-chips">
+              <span class="agent-chip">ARIA</span>
+              <span class="agent-chip">BUILD</span>
+              <span class="agent-chip">FUNNEL</span>
+              <span class="agent-chip">HERALD</span>
+              <span class="agent-chip">PULSE</span>
+              <span class="agent-chip">DIRECTOR</span>
+            </div>
+          </div>
+
+          <div class="case-study-col">
+            <h4>Complete Solution Delivered</h4>
+
+            <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-bottom:var(--space-6);">
+              <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);">
+                <div style="width:36px;height:36px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--brand-navy),var(--brand-navy-soft));display:flex;align-items:center;justify-content:center;color:var(--brand-gold);flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:var(--text-xs);font-weight:700;color:var(--color-text);margin-bottom:3px;">Meta Ads Retargeting (ARIA)</div>
+                  <div style="font-size:0.72rem;color:var(--color-text-muted);">Retargeted the 78% who left without converting. 5 ad sets. Daily ARIA monitoring.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);">
+                <div style="width:36px;height:36px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--brand-navy),var(--brand-navy-soft));display:flex;align-items:center;justify-content:center;color:var(--brand-gold);flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:var(--text-xs);font-weight:700;color:var(--color-text);margin-bottom:3px;">Admissions Funnel (FUNNEL + BUILD)</div>
+                  <div style="font-size:0.72rem;color:var(--color-text-muted);">New landing page with structured inquiry flow. 18.3% conversion rate on paid traffic.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);">
+                <div style="width:36px;height:36px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--brand-navy),var(--brand-navy-soft));display:flex;align-items:center;justify-content:center;color:var(--brand-gold);flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:var(--text-xs);font-weight:700;color:var(--color-text);margin-bottom:3px;">7-Email Nurture Sequence (HERALD)</div>
+                  <div style="font-size:0.72rem;color:var(--color-text-muted);">Fully automated sequence from inquiry to application. 42% open rate.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);">
+                <div style="width:36px;height:36px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--brand-navy),var(--brand-navy-soft));display:flex;align-items:center;justify-content:center;color:var(--brand-gold);flex-shrink:0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:var(--text-xs);font-weight:700;color:var(--color-text);margin-bottom:3px;">HubSpot CRM Setup (FUNNEL + DIRECTOR)</div>
+                  <div style="font-size:0.72rem;color:var(--color-text-muted);">Full prospect pipeline. Every inquiry tracked from first click to enrollment decision.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-study-badges">
+              <span class="case-study-badge">Meta Ads</span>
+              <span class="case-study-badge">Lead Funnel</span>
+              <span class="case-study-badge">Email Automation</span>
+              <span class="case-study-badge">HubSpot CRM</span>
+              <span class="case-study-badge">Web Dev</span>
+            </div>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Key Takeaway
+              </div>
+              <p>"A website refresh would have been $500 of orphan marketing. The complete solution delivered 3× inquiries at $12 per lead — $450 of digital inheritance in 45 days. We don't just build websites. We solve the complete digital problem."</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.case-studies-list -->
+
+  </div>
+</section>
+
+<!-- ====== SERVICES SNAPSHOT ====== -->
+<section style="background:var(--color-surface-2);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+      <span class="section-label">What We Build</span>
+      <h2 class="section-title">Eight Service Areas</h2>
+      <p class="section-sub" style="margin:0 auto;">Every case study above drew from one or more of these 8 service tracks — each executed by a specialized agent team running on Claude Code and the Anthropic API.</p>
+    </div>
+    <div class="services-snapshot-grid">
+      <a href="services.html#meta-ads" class="service-snap" data-animate data-animate-delay="1">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h4>Meta Ads Strategy</h4>
+        <p>End-to-end Meta Ads — ARIA agent. Audience research, creatives, A/B testing, daily optimization.</p>
+      </a>
+      <a href="services.html#web-dev" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="2">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4>Web Development</h4>
+        <p>Vibe Design Sprint → Claude Code → Vercel. Full sites or landing pages delivered in 48–72 hours.</p>
+      </a>
+      <a href="services.html#funnels" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="3">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        </div>
+        <h4>Lead Gen Funnels</h4>
+        <p>FUNNEL agent. Lead capture flows, HubSpot integration, 5–7 email nurture sequences.</p>
+      </a>
+      <a href="services.html#content" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="4">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h4>Content Creation</h4>
+        <p>CONTENT + EDITOR agents. 30-day calendars, sermon-to-social, Reel scripts, email newsletters.</p>
+      </a>
+      <a href="services.html#brand" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="1">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>Brand Strategy</h4>
+        <p>SCOUT + CONTENT. Identity, voice, visual direction, and Sonship-grounded messaging architecture.</p>
+      </a>
+      <a href="services.html#automation" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="2">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg>
+        </div>
+        <h4>AI Automation</h4>
+        <p>HERALD + FUNNEL. N8N workflows, human-in-the-loop email management, Twilio SMS, CRM automation.</p>
+      </a>
+      <a href="services.html#media" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="3">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h4>AI Media Production</h4>
+        <p>Content agent team. AI-enhanced photos, videos, social graphics, and ministry media assets.</p>
+      </a>
+      <a href="services.html#training" class="service-snap" style="text-decoration:none;color:inherit;" data-animate data-animate-delay="4">
+        <div class="service-snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h4>AI Training Camp</h4>
+        <p>4-week intensive. Learn Claude Code, Anthropic API, N8N, Google Stitch, and MCP — live projects only.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section style="background:var(--color-bg);">
+  <div class="container">
+    <div class="portfolio-cta" data-animate>
+      <div class="portfolio-cta-inner">
+        <div class="badge badge-gold" style="margin:0 auto var(--space-5);width:fit-content;">Your Turn</div>
+        <h2>Ready to Be Our Next<br>Success Story?</h2>
+        <p>Every case study in this portfolio started with a conversation. One free strategy call with Andrew — 45 minutes — and you'll walk away with a clear picture of your complete digital problem and the exact agent team that solves it.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-6);">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            Book a Free Strategy Call
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="pricing.html" class="btn btn-outline btn-lg">View Pricing</a>
+        </div>
+        <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.45);">Andrew Rocha · (561) 305-0404 · rocha@yahwaylove.com · Fort Worth, Texas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">YAHWAY<span>LOVE</span> LLC</div>
+        <p class="footer-tagline">The only faith-first AI marketing agency. Built to serve the Kingdom, engineered for growth.</p>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+15613050404" style="color:rgba(255,255,255,0.65);text-decoration:none;">(561) 305-0404</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:rocha@yahwaylove.com" style="color:rgba(255,255,255,0.65);text-decoration:none;">rocha@yahwaylove.com</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fort Worth, Texas</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul role="list">
+          <li><a href="services.html#meta-ads">Meta Ads Strategy</a></li>
+          <li><a href="services.html#web-dev">Web Development</a></li>
+          <li><a href="services.html#funnels">Lead Gen Funnels</a></li>
+          <li><a href="services.html#content">Content Creation</a></li>
+          <li><a href="services.html#brand">Brand Strategy</a></li>
+          <li><a href="services.html#automation">AI Automation</a></li>
+          <li><a href="services.html#media">AI Media Production</a></li>
+          <li><a href="services.html#training">AI Training Camp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul role="list">
+          <li><a href="about.html">About Andrew</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:rocha@yahwaylove.com">Email Us</a></li>
+          <li><a href="tel:+15613050404">Call Us</a></li>
+          <li><a href="contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 YAHWAYLOVE LLC · Andrew Rocha · Fort Worth, Texas · All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="mailto:rocha@yahwaylove.com" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        <a href="tel:+15613050404" aria-label="Phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -415,6 +415,158 @@
 
     .section-offset { background: var(--color-surface-2); }
 
+    /* ---- AI TRAINING CAMP ---- */
+    .camp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 900px) {
+      .camp-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .camp-grid { grid-template-columns: 1fr; }
+    }
+    .camp-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+      position: relative;
+    }
+    .camp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201,162,39,0.45);
+    }
+    .camp-card.featured-camp {
+      background: linear-gradient(160deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-color: var(--brand-gold);
+      box-shadow: var(--shadow-gold);
+    }
+    .camp-card.featured-camp .camp-name,
+    .camp-card.featured-camp .camp-price { color: var(--brand-white); }
+    .camp-card.featured-camp .camp-desc { color: rgba(255,255,255,0.7); }
+    .camp-card.coming-soon { opacity: 0.7; }
+    .camp-badge {
+      position: absolute;
+      top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--brand-gold);
+      color: var(--brand-navy);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: 3px var(--space-4);
+      border-radius: var(--radius-full);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .camp-name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .camp-price {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-gold);
+      line-height: 1;
+    }
+    .camp-price span {
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+    .camp-meta {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+    .camp-card.featured-camp .camp-meta { color: var(--brand-gold-light); }
+    .camp-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .curriculum-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+    .curriculum-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    .curriculum-item svg { color: var(--color-primary); flex-shrink: 0; }
+    .camp-card.featured-camp .curriculum-item { color: rgba(255,255,255,0.7); }
+    .camp-card.featured-camp .curriculum-item svg { color: var(--brand-gold); }
+
+    /* ---- MCP CALLOUT ---- */
+    .mcp-callout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-8);
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8) var(--space-10);
+      margin-bottom: var(--space-10);
+    }
+    @media (max-width: 640px) {
+      .mcp-callout { grid-template-columns: 1fr; padding: var(--space-6); text-align: center; }
+      .mcp-stat { margin: 0 auto; }
+    }
+    .mcp-stat {
+      text-align: center;
+      background: rgba(201,162,39,0.1);
+      border: 1.5px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      min-width: 140px;
+    }
+    .mcp-stat-number {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--brand-gold);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .mcp-stat-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .mcp-body h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-3);
+    }
+    .mcp-body p {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-width: none;
+    }
+
     /* ---- TECH STACK ---- */
     .tech-stack-grid { }
     @media (max-width: 900px) {
@@ -717,6 +869,18 @@
         <p class="section-sub" style="color:rgba(255,255,255,0.65);margin:0 auto;">These aren't tools you log into. They're a working team — assigned to your account, executing around the clock.</p>
       </div>
 
+      <!-- MCP callout -->
+      <div class="mcp-callout" data-animate>
+        <div class="mcp-stat">
+          <div class="mcp-stat-number">110M</div>
+          <div class="mcp-stat-label">Monthly Downloads</div>
+        </div>
+        <div class="mcp-body">
+          <h4>MCP — The Protocol That Makes All of This Possible</h4>
+          <p>Model Context Protocol (MCP) by Anthropic is the connective layer that allows every YAHWAYLOVE agent to communicate with external platforms in real time — reading your Meta Ads account, writing to HubSpot, triggering Twilio messages, pulling Google Analytics data, and coordinating with other agents. With 110 million monthly downloads and growing, MCP is becoming the standard for how AI connects to the world. Every YAHWAYLOVE retainer runs on it.</p>
+        </div>
+      </div>
+
       <!-- Claude / Anthropic paragraph -->
       <div style="max-width:800px;margin:0 auto var(--space-12);background:rgba(201,162,39,0.06);border:1.5px solid rgba(201,162,39,0.22);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-10);" data-animate>
         <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
@@ -955,6 +1119,102 @@
     </div>
   </section>
 
+  <!-- AI TRAINING CAMP -->
+  <section>
+    <div class="container">
+      <div style="margin-bottom:var(--space-10);" data-animate>
+        <span class="section-label">New Revenue Stream · Education</span>
+        <h2 class="section-title">AI Training Camp</h2>
+        <p class="section-sub">Learn to build with Claude. Andrew teaches church staff, ministry leaders, and faith-based entrepreneurs how to deploy AI systems for their own organizations — hands-on, practical, and built around real use cases from the Kingdom economy.</p>
+      </div>
+
+      <div class="camp-grid" style="margin-bottom:var(--space-12);">
+
+        <div class="camp-card" data-animate data-animate-delay="1">
+          <div class="camp-meta">Virtual · Group</div>
+          <div class="camp-name">Group Workshop</div>
+          <div class="camp-price">$297<span>/person</span></div>
+          <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(var(--space-1)*-1);">3 hrs · minimum 5 people</div>
+          <p class="camp-desc">Interactive virtual workshop covering Claude fundamentals, prompt engineering, and your first AI workflow — built live during the session.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:auto;">Book for My Team →</a>
+        </div>
+
+        <div class="camp-card featured-camp" data-animate data-animate-delay="2">
+          <div class="camp-badge">Most Impactful</div>
+          <div class="camp-meta">1-on-1 · Virtual</div>
+          <div class="camp-name">AI Implementation Session</div>
+          <div class="camp-price">$497<span> flat</span></div>
+          <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5);margin-top:calc(var(--space-1)*-1);">2 hrs · with Andrew directly</div>
+          <p class="camp-desc">Private session with Andrew. You bring your workflow problem; Andrew builds the Claude-powered solution with you, live on screen. You leave with a working system.</p>
+          <a href="contact.html" class="btn btn-primary" style="font-size:0.75rem;padding:var(--space-2) var(--space-5);margin-top:auto;">Book a Session →</a>
+        </div>
+
+        <div class="camp-card" data-animate data-animate-delay="2">
+          <div class="camp-meta">Organization · Custom</div>
+          <div class="camp-name">Team Training</div>
+          <div class="camp-price">$2,500<span> flat</span></div>
+          <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(var(--space-1)*-1);">Up to 20 people · custom curriculum</div>
+          <p class="camp-desc">Full-organization AI rollout training for your church staff or business team. Custom curriculum built around your tools, platforms, and ministry goals.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:auto;">Request a Proposal →</a>
+        </div>
+
+        <div class="camp-card coming-soon" data-animate data-animate-delay="3">
+          <div class="camp-meta">Self-Paced · Online</div>
+          <div class="camp-name">Course Bundle</div>
+          <div class="camp-price">$197<span> flat</span></div>
+          <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(var(--space-1)*-1);">Lifetime access · coming soon</div>
+          <p class="camp-desc">On-demand video course covering the full Andrew Rocha AI curriculum — work through it at your own pace, on your own schedule.</p>
+          <span class="badge badge-gold" style="margin-top:auto;">Coming Soon — Join Waitlist</span>
+        </div>
+
+      </div>
+
+      <!-- Curriculum -->
+      <div style="background:var(--color-surface-2);border:1.5px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-10);" data-animate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-10);align-items:start;">
+          <div>
+            <span class="section-label">The Curriculum</span>
+            <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);">What You'll Learn to Build</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-5);">Andrew's curriculum is drawn from the exact tools he uses to run YAHWAYLOVE — real systems, not theory. Every session ends with a working deliverable.</p>
+            <a href="contact.html" class="btn btn-primary">Register for Training →</a>
+          </div>
+          <div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);">
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">Claude Code + Openclaw</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">Prompt Engineering Mastery</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">Google Gemini + NotebookLM</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">GitHub Workflows</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">JSON Context Profiles</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">Perplexity Computer</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);grid-column:span 2;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style="font-size:var(--text-xs);font-weight:600;color:var(--color-text);">VS Code for AI Development</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ONE-TIME PROJECT PRICING -->
   <section class="section-offset">
     <div class="container">
@@ -992,6 +1252,24 @@
           <div class="one-time-name">Google Ad Grant Setup</div>
           <div class="one-time-price">$750</div>
           <p class="one-time-desc">Application, account setup, and initial campaign structure for the $10K/month free Google Ads grant for nonprofits and churches — ARIA-led.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="3">
+          <div class="one-time-name">AI Media Package</div>
+          <div class="one-time-price">$750</div>
+          <p class="one-time-desc">10 AI-enhanced ministry images + 5 polished ad creatives, produced and refined by CONTENT agent for immediate campaign use.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="1">
+          <div class="one-time-name">AI Video Production Package</div>
+          <div class="one-time-price">$500</div>
+          <p class="one-time-desc">3 Reel scripts + storyboards + 10 B-roll prompts — fully scripted and production-ready for your video team or creator.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="2">
+          <div class="one-time-name">Full AI Brand Media Kit</div>
+          <div class="one-time-price">$1,800</div>
+          <p class="one-time-desc">Complete media production bundle — AI-enhanced photos, video assets, and ad creatives in one cohesive, on-brand package.</p>
           <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
         </div>
       </div>

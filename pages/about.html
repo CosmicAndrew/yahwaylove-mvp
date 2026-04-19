@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Andrew Rocha — YAHWAYLOVE LLC | Faith-First AI Marketing</title>
+  <meta name="description" content="Andrew Rocha is a Fort Worth-based digital strategist, man of faith, and founder of YAHWAYLOVE LLC — the only faith-first AI marketing agency powered by a 10-agent team on Claude Code and Anthropic API." />
+  <meta name="author" content="Andrew Rocha" />
+  <meta property="og:title" content="About Andrew Rocha — YAHWAYLOVE LLC" />
+  <meta property="og:description" content="From SWAT to Sonship. The story behind the only faith-first AI marketing agency in Fort Worth, Texas." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://yahwaylove.com/pages/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <style>
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      background: linear-gradient(160deg, #040818 0%, #0a0f2e 55%, #131840 100%);
+      padding: calc(var(--space-32) + var(--space-8)) var(--space-8) var(--space-20);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero-particles {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201,162,39,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201,162,39,0.05) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 2; max-width: var(--content-default); margin: 0 auto; }
+    .page-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-full); padding: var(--space-2) var(--space-4);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--brand-gold); margin-bottom: var(--space-6);
+    }
+    .page-hero-title {
+      font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 800;
+      color: var(--brand-white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: var(--space-6);
+    }
+    .page-hero-title .accent { color: var(--brand-gold); }
+    .page-hero-sub {
+      font-size: var(--text-lg); color: rgba(255,255,255,0.68); line-height: 1.7;
+      max-width: 58ch; margin: 0 auto var(--space-8);
+    }
+
+    /* ---- STORY SECTION ---- */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-16); align-items: start;
+    }
+    .story-sidebar {
+      position: sticky; top: 120px;
+    }
+    .story-photo-frame {
+      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-xl);
+      background: linear-gradient(160deg, var(--brand-navy-mid), var(--brand-navy-soft));
+      border: 2px solid rgba(201,162,39,0.25); overflow: hidden; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .story-photo-initials {
+      font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800; color: var(--brand-gold); letter-spacing: -0.03em;
+      position: relative; z-index: 2;
+    }
+    .story-photo-frame::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 40% 30%, rgba(201,162,39,0.12) 0%, transparent 65%);
+    }
+    .story-photo-quote {
+      margin-top: var(--space-6); padding: var(--space-5);
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-left: 3px solid var(--brand-gold); border-radius: var(--radius-lg);
+      font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic;
+      line-height: 1.7;
+    }
+    .story-photo-quote cite {
+      display: block; margin-top: var(--space-3); font-style: normal;
+      font-weight: 700; font-size: var(--text-xs); color: var(--brand-gold);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    .story-chapters { display: flex; flex-direction: column; gap: var(--space-12); }
+    .story-chapter { position: relative; }
+    .story-chapter-num {
+      font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 800;
+      color: rgba(201,162,39,0.10); line-height: 1; margin-bottom: var(--space-2);
+    }
+    .story-chapter-label {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brand-gold); margin-bottom: var(--space-3);
+      display: block;
+    }
+    .story-chapter h3 {
+      font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700;
+      color: var(--color-text); line-height: 1.15; margin-bottom: var(--space-4);
+    }
+    .story-chapter p {
+      font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.75;
+      margin-bottom: var(--space-4);
+    }
+    .story-chapter p:last-child { margin-bottom: 0; }
+    .verse-callout {
+      display: flex; gap: var(--space-4); padding: var(--space-5);
+      background: var(--color-primary-highlight); border-radius: var(--radius-lg);
+      border-left: 3px solid var(--brand-gold); margin-top: var(--space-5);
+    }
+    .verse-callout .verse-icon {
+      flex-shrink: 0; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--brand-gold);
+    }
+    .verse-callout p {
+      font-style: italic; color: var(--color-text); font-size: var(--text-sm);
+      margin-bottom: var(--space-1) !important; line-height: 1.65;
+    }
+    .verse-callout cite {
+      font-style: normal; font-size: var(--text-xs); font-weight: 700;
+      color: var(--brand-gold); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* ---- SONSHIP CALLOUT ---- */
+    .sonship-callout {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-radius: var(--radius-xl); padding: var(--space-10) var(--space-12);
+      border: 1px solid rgba(201,162,39,0.25); position: relative; overflow: hidden;
+    }
+    .sonship-callout::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(201,162,39,0.08) 0%, transparent 70%);
+    }
+    .sonship-callout-inner { position: relative; z-index: 1; }
+    .sonship-table {
+      width: 100%; border-collapse: collapse; margin-top: var(--space-6);
+    }
+    .sonship-table th {
+      padding: var(--space-3) var(--space-5); text-align: left;
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; border-bottom: 1px solid rgba(201,162,39,0.2);
+    }
+    .sonship-table th:first-child { color: rgba(255,255,255,0.4); }
+    .sonship-table th:last-child { color: var(--brand-gold); }
+    .sonship-table td {
+      padding: var(--space-3) var(--space-5); font-size: var(--text-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top;
+      line-height: 1.5;
+    }
+    .sonship-table td:first-child { color: rgba(255,255,255,0.45); }
+    .sonship-table td:last-child { color: rgba(255,255,255,0.85); }
+
+    /* ---- PILLARS ---- */
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6);
+    }
+    .pillar-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-8);
+      box-shadow: var(--shadow-sm); transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pillar-icon {
+      width: 60px; height: 60px; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 1.5px solid rgba(201,162,39,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--brand-gold); margin-bottom: var(--space-5);
+      box-shadow: var(--shadow-gold);
+    }
+    .pillar-card h3 {
+      font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700;
+      color: var(--color-text); margin-bottom: var(--space-3);
+    }
+    .pillar-card p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      padding-block: var(--space-16); position: relative; overflow: hidden;
+    }
+    .stats-bar::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.10) 0%, transparent 60%);
+    }
+    .stats-bar-inner {
+      position: relative; z-index: 1; max-width: var(--content-wide); margin: 0 auto; padding: 0 var(--space-8);
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-8);
+    }
+    .stat-item { text-align: center; }
+    .stat-item .stat-value { color: var(--brand-gold); }
+    .stat-item .stat-label { color: rgba(255,255,255,0.55); }
+    .stat-divider {
+      width: 1px; background: rgba(201,162,39,0.2);
+      height: 60px; align-self: center; justify-self: center;
+    }
+
+    /* ---- AGENT GRID ---- */
+    .agent-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-5);
+    }
+    .agent-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-6); text-align: center;
+      box-shadow: var(--shadow-sm); transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .agent-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(201,162,39,0.35); }
+    .agent-avatar {
+      width: 64px; height: 64px; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border: 2px solid rgba(201,162,39,0.25); display: flex; align-items: center;
+      justify-content: center; color: var(--brand-gold); margin: 0 auto var(--space-4);
+      box-shadow: var(--shadow-gold);
+    }
+    .agent-codename {
+      font-family: var(--font-display); font-size: var(--text-base); font-weight: 800;
+      color: var(--color-text); letter-spacing: 0.02em; margin-bottom: var(--space-1);
+    }
+    .agent-role {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--brand-gold); margin-bottom: var(--space-3);
+    }
+    .agent-blurb {
+      font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6;
+      margin-bottom: var(--space-4);
+    }
+    .agent-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: center; }
+    .agent-tag {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(201,162,39,0.1); color: var(--brand-gold-dim);
+      border: 1px solid rgba(201,162,39,0.2); border-radius: var(--radius-full);
+      padding: 2px 8px;
+    }
+    [data-theme='dark'] .agent-tag { color: var(--brand-gold-light); }
+
+    /* ---- TECH STACK CALLOUT ---- */
+    .tech-stack-callout {
+      background: linear-gradient(160deg, #040818 0%, #0a0f2e 60%, #131840 100%);
+      border-radius: var(--radius-xl); padding: var(--space-12) var(--space-10);
+      border: 1px solid rgba(201,162,39,0.25); position: relative; overflow: hidden;
+      margin-top: var(--space-10);
+    }
+    .tech-stack-callout::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(201,162,39,0.07) 0%, transparent 60%);
+    }
+    .tech-stack-inner { position: relative; z-index: 1; }
+    .tech-stack-quote {
+      font-size: var(--text-lg); color: rgba(255,255,255,0.85); line-height: 1.7;
+      font-style: italic; margin-bottom: var(--space-8); max-width: 72ch;
+    }
+    .tech-stack-quote strong { color: var(--brand-gold); font-style: normal; }
+    .tech-badges {
+      display: flex; flex-wrap: wrap; gap: var(--space-3);
+    }
+    .tech-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.25);
+      border-radius: var(--radius-full); padding: var(--space-2) var(--space-4);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--brand-gold);
+    }
+
+    /* ---- SIGNATURE TOOLS ---- */
+    .tools-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5);
+    }
+    .tool-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-6);
+      box-shadow: var(--shadow-sm); display: flex; gap: var(--space-5); align-items: flex-start;
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .tool-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .tool-icon-wrap {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 1.5px solid rgba(201,162,39,0.2); display: flex; align-items: center;
+      justify-content: center; color: var(--brand-gold);
+    }
+    .tool-card-content h4 {
+      font-family: var(--font-display); font-size: var(--text-base); font-weight: 700;
+      color: var(--color-text); margin-bottom: var(--space-2);
+    }
+    .tool-card-content p {
+      font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65;
+    }
+
+    /* ---- CTA SECTION ---- */
+    .about-cta {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-radius: var(--radius-xl); padding: var(--space-16) var(--space-12);
+      border: 1px solid rgba(201,162,39,0.25); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .about-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,162,39,0.08) 0%, transparent 70%);
+    }
+    .about-cta-inner { position: relative; z-index: 1; }
+    .about-cta h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700;
+      color: var(--brand-white); margin-bottom: var(--space-4); line-height: 1.1;
+    }
+    .about-cta p {
+      font-size: var(--text-lg); color: rgba(255,255,255,0.7); margin-bottom: var(--space-8);
+      max-width: 52ch; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .agent-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-sidebar { position: static; display: flex; flex-direction: row; gap: var(--space-6); align-items: flex-start; }
+      .story-photo-frame { width: 180px; flex-shrink: 0; }
+      .story-photo-quote { flex: 1; margin-top: 0; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: repeat(3, 1fr); }
+      .tools-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .sonship-callout { padding: var(--space-8); }
+    }
+    @media (max-width: 640px) {
+      .page-hero { padding-top: calc(var(--space-24) + var(--space-8)); }
+      .agent-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-sidebar { flex-direction: column; }
+      .story-photo-frame { width: 100%; }
+      .about-cta { padding: var(--space-10) var(--space-6); }
+      .tech-stack-callout { padding: var(--space-8) var(--space-6); }
+    }
+    @media (max-width: 480px) {
+      .agent-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="YAHWAYLOVE Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#C9A227"/>
+        <path d="M18 6 L28 14 L28 26 L18 30 L8 26 L8 14 Z" fill="none" stroke="#0A0F2E" stroke-width="2"/>
+        <path d="M18 6 L18 30 M8 14 L28 14 M8 26 L28 26" stroke="#0A0F2E" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="18" cy="20" r="4" fill="#0A0F2E"/>
+        <circle cx="18" cy="20" r="2" fill="#C9A227"/>
+      </svg>
+      <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
+    </a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== PAGE HERO ====== -->
+<section class="page-hero" aria-label="About Hero">
+  <div class="page-hero-particles" aria-hidden="true"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow" data-animate>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Fort Worth, TX · Man of Faith · Builder of Systems · Eph 2:10
+    </div>
+    <h1 class="page-hero-title" data-animate data-animate-delay="1">
+      Built by Faith.<br><span class="accent">Powered by Strategy.</span>
+    </h1>
+    <p class="page-hero-sub" data-animate data-animate-delay="2">
+      Andrew Rocha is a Fort Worth-based entrepreneur, digital strategist, and man of faith who has spent years at the intersection of technology, storytelling, and Kingdom purpose — building systems that serve the mission He placed on each client's life.
+    </p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-4);flex-wrap:wrap;" data-animate data-animate-delay="3">
+      <a href="contact.html" class="btn btn-primary btn-lg">
+        Start the Conversation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#agent-team" class="btn btn-outline btn-lg">Meet the Agent Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ANDREW'S STORY ====== -->
+<section style="background:var(--color-bg);">
+  <div class="container">
+    <div class="story-grid">
+
+      <!-- Sidebar -->
+      <div class="story-sidebar" data-animate>
+        <div class="story-photo-frame" aria-label="Andrew Rocha">
+          <div class="story-photo-initials">AR</div>
+        </div>
+        <blockquote class="story-photo-quote">
+          <p>"I am God's workmanship, created in Christ Jesus to do good works, which God prepared in advance for me to do."</p>
+          <cite>Ephesians 2:10 — Andrew's life verse</cite>
+        </blockquote>
+      </div>
+
+      <!-- Story Chapters -->
+      <div class="story-chapters">
+
+        <!-- Chapter 1 -->
+        <div class="story-chapter" data-animate>
+          <div class="story-chapter-num">01</div>
+          <span class="story-chapter-label">The Foundation</span>
+          <h3>Discipline Forged in Service</h3>
+          <p>Before the agency, there was the badge. Andrew spent years in law enforcement — including time on a SWAT team — where every decision had weight and every second demanded precision. He learned what it meant to operate under pressure with other people's lives on the line.</p>
+          <p>Those same values — discipline, high-stakes execution, protecting what matters most — became the bedrock of how he runs client campaigns today. He doesn't manage marketing like it's a soft skill. He manages it like a mission briefing: clear objective, precise execution, no excuses.</p>
+          <div class="verse-callout">
+            <div class="verse-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <p>"For God has not given us a spirit of fear, but of power and of love and of a sound mind."</p>
+              <cite>2 Timothy 1:7</cite>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div class="story-chapter" data-animate>
+          <div class="story-chapter-num">02</div>
+          <span class="story-chapter-label">The Calling</span>
+          <h3>When Faith Took Center Stage</h3>
+          <p>Faith didn't stay in the background. As Andrew pursued theological study at Liberty Christian University, something became undeniable: the Church was being left behind digitally. His work with <strong>Thy Kingdom Come Productions</strong> and <strong>Saint Joseph's College</strong> revealed the gap in plain sight — faith organizations working with gospel-level conviction but orphan-level digital infrastructure.</p>
+          <p>Generic agencies didn't understand the mission. Cookie-cutter funnels couldn't carry the weight of a calling. Andrew saw ministries striving, performing, comparing — marketing from fear rather than from their identity as sons and daughters of the Most High.</p>
+          <div class="verse-callout">
+            <div class="verse-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <p>"And who knows whether you have not come to the kingdom for such a time as this?"</p>
+              <cite>Esther 4:14</cite>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="story-chapter" data-animate>
+          <div class="story-chapter-num">03</div>
+          <span class="story-chapter-label">The Mission</span>
+          <h3>YAHWAYLOVE Was Born from That Gap</h3>
+          <p>Andrew founded YAHWAYLOVE LLC to bridge it. He combined his Meta Ads expertise, Claude Code mastery, AI automation architecture, and faith conviction into one agency built specifically for churches, ministries, and Christian-founded businesses. No more digital scraps. No more orphan marketing.</p>
+          <p>Outside the agency, Andrew is a HandPan musician — an instrument rare, resonant, and meditative. That creative current — music, worship, beauty, storytelling — flows through every piece of content and every campaign his team builds. He is God's workmanship. So are his clients. The marketing should reflect that.</p>
+          <div class="verse-callout">
+            <div class="verse-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <p>"Being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."</p>
+              <cite>Philippians 1:6</cite>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SONSHIP FRAMEWORK ====== -->
+<section style="background:var(--color-surface-2);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+      <span class="section-label">The Heart of Everything</span>
+      <h2 class="section-title">From Orphan Marketing<br>to <span class="text-gold">Sonship Marketing</span></h2>
+      <p class="section-sub" style="margin: 0 auto;">Most faith-based organizations are marketing from an orphan mindset — striving, performing, comparing, and building from a place of scarcity and fear. YAHWAYLOVE helps you market from your true identity.</p>
+    </div>
+
+    <div class="sonship-callout" data-animate>
+      <div class="sonship-callout-inner">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-8);">
+          <div>
+            <p style="font-size:var(--text-lg);color:rgba(255,255,255,0.85);line-height:1.7;font-style:italic;">"Stop marketing from fear. Start from your inheritance."</p>
+          </div>
+          <div>
+            <p style="font-size:var(--text-lg);color:rgba(255,255,255,0.85);line-height:1.7;font-style:italic;">"Your ministry deserves a digital inheritance, not digital scraps."</p>
+          </div>
+        </div>
+        <table class="sonship-table" aria-label="Orphan vs Sonship marketing mindset comparison">
+          <thead>
+            <tr>
+              <th>Orphan Mindset (Old Way)</th>
+              <th>Sonship Mindset (YAHWAYLOVE Way)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Striving, performing, competing for attention</td>
+              <td>Resting in God-given purpose and identity</td>
+            </tr>
+            <tr>
+              <td>Generic agency templates for every client</td>
+              <td>Custom agent systems scoped to your specific mission</td>
+            </tr>
+            <tr>
+              <td>Treating marketing as a cost center and burden</td>
+              <td>Marketing as stewardship of divine assignment</td>
+            </tr>
+            <tr>
+              <td>Hiding behind inconsistency and excuses</td>
+              <td>Radical transparency — you see every agent action</td>
+            </tr>
+            <tr>
+              <td>Fear-driven messaging that repels the right people</td>
+              <td>Identity-based messaging that attracts your true tribe</td>
+            </tr>
+            <tr>
+              <td>Chasing vanity metrics that mean nothing</td>
+              <td>Kingdom ROI — souls reached, lives changed, missions funded</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:var(--text-base);color:rgba(255,255,255,0.6);margin-top:var(--space-6);font-style:italic;">"We don't hustle for clients. We steward God's assignment. We build from identity, not insecurity. God's workmanship deserves God-level marketing."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHY YAHWAYLOVE — 4 PILLARS ====== -->
+<section style="background:var(--color-bg);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+      <span class="section-label">Our Foundation</span>
+      <h2 class="section-title">Why YAHWAYLOVE</h2>
+      <p class="section-sub" style="margin:0 auto;">Four pillars that define how we work, who we serve, and what we refuse to compromise on.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card" data-animate data-animate-delay="1">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Faith Authenticity</h3>
+        <p>We are not a secular agency with a Bible verse in the footer. Faith is the operating system. Every strategy, every script, every automation is reviewed through a Kingdom lens. Theology accuracy is not optional — EDITOR checks it before anything publishes.</p>
+      </div>
+      <div class="pillar-card" data-animate data-animate-delay="2">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Technical Excellence</h3>
+        <p>Claude Code, Anthropic API, MCP connectors, N8N automation, Google Stitch, GitHub, Vercel. We don't just understand the tools — we build production systems with them. Your deliverables are code-quality assets, not slide decks.</p>
+      </div>
+      <div class="pillar-card" data-animate data-animate-delay="3">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3>Radical Transparency</h3>
+        <p>Every agent action is logged. Every campaign decision has a rationale. PULSE sends you plain-English reports every week. You know exactly which agents are running, what they're doing, and what results they produced. No black box.</p>
+      </div>
+      <div class="pillar-card" data-animate data-animate-delay="4">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Kingdom ROI</h3>
+        <p>We don't optimize for vanity metrics. We optimize for mission outcomes: souls reached, inquiries converted, events filled, programs funded, communities grown. Return on investment measured in Kingdom impact first, dollars second.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATS BAR ====== -->
+<div class="stats-bar" aria-label="YAHWAYLOVE by the numbers">
+  <div class="stats-bar-inner">
+    <div class="stat-item" data-animate data-animate-delay="1">
+      <div class="stat-value">6+</div>
+      <div class="stat-label">Years in Digital Marketing</div>
+    </div>
+    <div class="stat-item" data-animate data-animate-delay="2">
+      <div class="stat-value">40+</div>
+      <div class="stat-label">Clients Served</div>
+    </div>
+    <div class="stat-item" data-animate data-animate-delay="3">
+      <div class="stat-value">120+</div>
+      <div class="stat-label">Campaigns Launched</div>
+    </div>
+    <div class="stat-item" data-animate data-animate-delay="4">
+      <div class="stat-value">4.2×</div>
+      <div class="stat-label">Average ROAS</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== AI AGENT TEAM ====== -->
+<section id="agent-team" style="background:var(--color-bg);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-4);" data-animate>
+      <span class="section-label">The Workforce</span>
+      <h2 class="section-title">Meet the Agent Team</h2>
+    </div>
+    <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+      <p class="section-sub" style="margin:0 auto;">These agents are not assistants. They are the delivery team. They research, build, launch, monitor, optimize, and report — continuously, autonomously, and with Kingdom intention. Every service YAHWAYLOVE offers is executed by one or more of these 10 specialized agents running on Claude Code and the Anthropic API.</p>
+    </div>
+
+    <div class="agent-grid">
+
+      <!-- ARIA -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <!-- Target/crosshair icon for ad targeting -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <div class="agent-codename">ARIA</div>
+        <div class="agent-role">Ad Research &amp; Intelligence</div>
+        <p class="agent-blurb">End-to-end Meta Ads execution. Audience research, interest stacking, creative briefs, A/B testing, daily account scanning, and weekly performance reports.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Meta Ads</span>
+          <span class="agent-tag">Audiences</span>
+          <span class="agent-tag">A/B Testing</span>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <!-- Pen/compose icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="agent-codename">CONTENT</div>
+        <div class="agent-role">Content Generation Orchestrator</div>
+        <p class="agent-blurb">Social captions, sermon-to-social, 30-day calendars, Reel scripts, blog posts, email newsletters, video storyboards. Auto-adjusts strategy from PULSE data.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Social</span>
+          <span class="agent-tag">Email</span>
+          <span class="agent-tag">Scripts</span>
+        </div>
+      </div>
+
+      <!-- FUNNEL -->
+      <div class="agent-card" data-animate data-animate-delay="3">
+        <div class="agent-avatar">
+          <!-- Filter/funnel icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        </div>
+        <div class="agent-codename">FUNNEL</div>
+        <div class="agent-role">Funnel Architecture &amp; Email</div>
+        <p class="agent-blurb">Lead capture flows, 5–7 email nurture sequences, HubSpot automation triggers, and conversion drop-off monitoring. Turns browsers into committed followers.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Lead Gen</span>
+          <span class="agent-tag">HubSpot</span>
+          <span class="agent-tag">Nurture</span>
+        </div>
+      </div>
+
+      <!-- BUILD -->
+      <div class="agent-card" data-animate data-animate-delay="4">
+        <div class="agent-avatar">
+          <!-- Code bracket icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="agent-codename">BUILD</div>
+        <div class="agent-role">Web Development</div>
+        <p class="agent-blurb">Builds landing pages and full websites via Claude Code + Vibe Design (Google Stitch). Creates ad creatives, carousels, graphic templates. GitHub + Vercel deployment.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Claude Code</span>
+          <span class="agent-tag">Vercel</span>
+          <span class="agent-tag">Stitch</span>
+        </div>
+      </div>
+
+      <!-- PULSE -->
+      <div class="agent-card" data-animate data-animate-delay="5">
+        <div class="agent-avatar">
+          <!-- Activity/chart icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="agent-codename">PULSE</div>
+        <div class="agent-role">Analytics &amp; Optimization</div>
+        <p class="agent-blurb">Aggregates Meta Ads Manager, Google Analytics, and HubSpot. Automated weekly plain-English reports, flags anomalies, recommends budget shifts.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Analytics</span>
+          <span class="agent-tag">Reporting</span>
+          <span class="agent-tag">Optimization</span>
+        </div>
+      </div>
+
+      <!-- HERALD -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <!-- Send/mail icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+        <div class="agent-codename">HERALD</div>
+        <div class="agent-role">Outreach &amp; Communication</div>
+        <p class="agent-blurb">Cold outreach sequences, email newsletter delivery, SMS via Twilio. Human-in-the-loop email management via N8N — AI drafts, you approve via Telegram before anything sends.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">N8N</span>
+          <span class="agent-tag">Twilio</span>
+          <span class="agent-tag">Outreach</span>
+        </div>
+      </div>
+
+      <!-- VOICE -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <!-- Phone/voice icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="agent-codename">VOICE</div>
+        <div class="agent-role">Call Intelligence &amp; Follow-Up</div>
+        <p class="agent-blurb">AI voice calls via VAPI/Bland.ai. Transcribes, summarizes, and logs every call to HubSpot automatically. Sends a personalized post-call SMS within minutes.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">VAPI</span>
+          <span class="agent-tag">HubSpot</span>
+          <span class="agent-tag">SMS</span>
+        </div>
+      </div>
+
+      <!-- SCOUT -->
+      <div class="agent-card" data-animate data-animate-delay="3">
+        <div class="agent-avatar">
+          <!-- Search/binoculars icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="agent-codename">SCOUT</div>
+        <div class="agent-role">Competitive Intelligence</div>
+        <p class="agent-blurb">Monitors competitor ad libraries weekly, tracks trending faith content, and delivers monthly "Kingdom Landscape" reports. You always know what's winning in your space.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Research</span>
+          <span class="agent-tag">Competitors</span>
+          <span class="agent-tag">Trends</span>
+        </div>
+      </div>
+
+      <!-- EDITOR -->
+      <div class="agent-card" data-animate data-animate-delay="4">
+        <div class="agent-avatar">
+          <!-- Check/review icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="agent-codename">EDITOR</div>
+        <div class="agent-role">Content QA &amp; Brand Voice</div>
+        <p class="agent-blurb">Reviews all CONTENT output for brand voice, theology accuracy, grammar, and tone. Nothing publishes without EDITOR's approval — the faith guardrail in every workflow.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">QA</span>
+          <span class="agent-tag">Theology</span>
+          <span class="agent-tag">Brand Voice</span>
+        </div>
+      </div>
+
+      <!-- DIRECTOR -->
+      <div class="agent-card" data-animate data-animate-delay="5">
+        <div class="agent-avatar">
+          <!-- Coordinate/hub icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <div class="agent-codename">DIRECTOR</div>
+        <div class="agent-role">Campaign Orchestration — Team Lead</div>
+        <p class="agent-blurb">Coordinates all 10 agents per client, routes tasks based on priority, manages timelines, and sends one unified status update weekly. The client's single point of truth.</p>
+        <div class="agent-tags">
+          <span class="agent-tag">Orchestration</span>
+          <span class="agent-tag">Coordination</span>
+          <span class="agent-tag">Strategy</span>
+        </div>
+      </div>
+
+    </div><!-- /.agent-grid -->
+
+    <!-- Tech Stack Callout -->
+    <div class="tech-stack-callout" data-animate>
+      <div class="tech-stack-inner">
+        <div class="badge badge-gold" style="margin-bottom:var(--space-5);">Powered by Claude Code + Anthropic API</div>
+        <p class="tech-stack-quote">
+          <strong>"Each agent is built using Claude's tool-use API</strong>, enabling true multi-step autonomous execution, real-time web access, code generation, and cross-agent coordination. This is not a chatbot. This is a <strong>production-grade AI workforce</strong> — built on the same API powering enterprise teams at Fortune 500 companies, deployed for Kingdom-focused organizations."
+        </p>
+        <div class="tech-badges">
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            Anthropic Claude API
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Claude Code
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg>
+            Multi-Agent Orchestration
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            Tool Use &amp; Computer Use
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub Integration
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Vercel Deployment
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            HubSpot CRM
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>
+            Twilio SMS
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>
+            VAPI Voice AI
+          </span>
+          <span class="tech-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Meta Ads API
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== ANDREW'S SIGNATURE TOOLS ====== -->
+<section style="background:var(--color-surface-2);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+      <span class="section-label">AI Training Camp Curriculum</span>
+      <h2 class="section-title">Andrew's Signature Tools</h2>
+      <p class="section-sub" style="margin:0 auto;">Every tool Andrew teaches in the AI Training Camp is a tool he uses daily to deliver client results. No filler. No theory-only content. These are the exact instruments behind every campaign, every website, every automation YAHWAYLOVE builds.</p>
+    </div>
+
+    <div class="tools-grid">
+
+      <div class="tool-card" data-animate data-animate-delay="1">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>Claude Code</h4>
+          <p>Andrew's primary development environment. Builds every agent system, every client website, every automation workflow. The BUILD agent runs entirely inside Claude Code sessions connected to GitHub and Vercel.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="2">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>Anthropic API</h4>
+          <p>The backbone of all 10 agents. Andrew builds each agent using Claude's tool-use API, enabling multi-step autonomous execution, real-time research, code generation, and cross-agent coordination on client campaigns.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="3">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>Prompt Engineering</h4>
+          <p>The core craft behind every agent. Andrew has developed proprietary prompt systems — including the Sony A1 Enhancement framework — that give agents consistent voice, precision, and context memory across client accounts.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="4">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>Google Gemini</h4>
+          <p>Used for research cross-referencing and content ideation. SCOUT and CONTENT agents use Gemini for long-context analysis, multi-document synthesis, and competitive landscape comparisons that benefit from a second model's perspective.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="1">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>NotebookLM</h4>
+          <p>Andrew's knowledge management backbone. Used to upload sermon transcripts, client strategy documents, and research sources — then query them conversationally. Powers the sermon-to-social feature that CONTENT agent uses for church clients.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="2">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>GitHub</h4>
+          <p>Version control for every BUILD agent output. Every client website, every automation script, every landing page is committed to a GitHub repo — meaning full version history, rollback capability, and clean code handoff on project completion.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="3">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>JSON Context Profiles</h4>
+          <p>Custom memory and persona files for each agent and each client. These JSON profiles give agents persistent context — brand voice, audience profile, past campaign data, theological convictions — so they never start from scratch on client work.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="4">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>Perplexity AI</h4>
+          <p>Real-time research engine powering SCOUT and ARIA. Used daily to track competitor ad activity, identify trending faith content, monitor algorithm changes on Meta, and pull fresh market data for campaign briefs.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="1">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>VS Code</h4>
+          <p>Primary IDE for all Claude Code workflows. Andrew runs Claude Code extensions inside VS Code for AI-assisted development, integrating directly with GitHub for version control and Vercel for instant deployment on every BUILD project.</p>
+        </div>
+      </div>
+
+      <div class="tool-card" data-animate data-animate-delay="2">
+        <div class="tool-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <div class="tool-card-content">
+          <h4>MCP Connectors</h4>
+          <p>Anthropic's Model Context Protocol — the bridge between Claude agents and the real world. Andrew uses MCP to connect agents directly to Meta Ads, HubSpot, Twilio, Google Analytics, GitHub, and Vercel. 110M+ monthly downloads. Enterprise power, Kingdom price.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vibe Design Workflow callout -->
+    <div style="margin-top:var(--space-10);padding:var(--space-8);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);border-left:3px solid var(--brand-gold);" data-animate>
+      <div style="display:flex;gap:var(--space-6);align-items:flex-start;flex-wrap:wrap;">
+        <div style="flex-shrink:0;width:52px;height:52px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--brand-navy),var(--brand-navy-soft));border:1.5px solid rgba(201,162,39,0.25);display:flex;align-items:center;justify-content:center;color:var(--brand-gold);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div style="flex:1;min-width:220px;">
+          <div style="font-size:var(--text-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--brand-gold);margin-bottom:var(--space-2);">Proprietary Workflow</div>
+          <h4 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);">Vibe Design — The AI-Native Build Process</h4>
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;">Andrew describes what clients want users to <em>feel</em> — not what a site looks like. Google Stitch generates 5 designer-level UI directions in 90 seconds. The winning direction goes straight into Claude Code. Claude Code builds it. Vercel deploys it. Think like a founder. Build like a professional. Launch before lunch.</p>
+          <div style="margin-top:var(--space-4);display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);">
+            <span style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:var(--radius-full);padding:2px 10px;font-weight:700;color:var(--brand-gold);">Google Stitch MCP</span>
+            <span>→</span>
+            <span style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:var(--radius-full);padding:2px 10px;font-weight:700;color:var(--brand-gold);">Claude Code</span>
+            <span>→</span>
+            <span style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:var(--radius-full);padding:2px 10px;font-weight:700;color:var(--brand-gold);">Vercel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section style="background:var(--color-bg);">
+  <div class="container">
+    <div class="about-cta" data-animate>
+      <div class="about-cta-inner">
+        <div class="badge badge-gold" style="margin:0 auto var(--space-5);width:fit-content;">Start Today</div>
+        <h2>You're God's Workmanship.<br>Your Marketing Should Reflect That.</h2>
+        <p>Stop striving from an orphan mindset. Your ministry, your business, your Kingdom assignment deserves digital infrastructure built with the same care and precision God put into creating you. Let's build it together.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-4);flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            Book a Free Strategy Call
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="services.html" class="btn btn-outline btn-lg">Explore Our Services</a>
+        </div>
+        <p style="margin-top:var(--space-6);font-size:var(--text-sm);color:rgba(255,255,255,0.45);">Andrew Rocha · (561) 305-0404 · rocha@yahwaylove.com · Fort Worth, Texas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">YAHWAY<span>LOVE</span> LLC</div>
+        <p class="footer-tagline">The only faith-first AI marketing agency. Built to serve the Kingdom, engineered for growth.</p>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+15613050404" style="color:rgba(255,255,255,0.65);text-decoration:none;">(561) 305-0404</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:rocha@yahwaylove.com" style="color:rgba(255,255,255,0.65);text-decoration:none;">rocha@yahwaylove.com</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fort Worth, Texas</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul role="list">
+          <li><a href="services.html#meta-ads">Meta Ads Strategy</a></li>
+          <li><a href="services.html#web-dev">Web Development</a></li>
+          <li><a href="services.html#funnels">Lead Gen Funnels</a></li>
+          <li><a href="services.html#content">Content Creation</a></li>
+          <li><a href="services.html#brand">Brand Strategy</a></li>
+          <li><a href="services.html#automation">AI Automation</a></li>
+          <li><a href="services.html#media">AI Media Production</a></li>
+          <li><a href="services.html#training">AI Training Camp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul role="list">
+          <li><a href="about.html">About Andrew</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:rocha@yahwaylove.com">Email Us</a></li>
+          <li><a href="tel:+15613050404">Call Us</a></li>
+          <li><a href="contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 YAHWAYLOVE LLC · Andrew Rocha · Fort Worth, Texas · All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="mailto:rocha@yahwaylove.com" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        <a href="tel:+15613050404" aria-label="Phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
