@@ -457,6 +457,294 @@
       margin: 0 auto var(--space-10);
       line-height: 1.7;
     }
+
+    /* ====== MINISTRY DNA SCANNER ====== */
+    .dna-section {
+      background: linear-gradient(160deg, #04080f 0%, #080d25 60%, #0a0f2e 100%);
+      padding: var(--space-24) 0;
+      border-bottom: 1px solid rgba(201,162,39,0.1);
+    }
+    .dna-scanner-wrap {
+      max-width: 720px;
+      margin: var(--space-10) auto 0;
+    }
+    .dna-url-row {
+      display: flex;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    @media (max-width: 600px) { .dna-url-row { flex-direction: column; } }
+    .dna-url-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      color: var(--brand-white);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      padding: 0.75rem var(--space-4);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .dna-url-input:focus { border-color: rgba(201,162,39,0.5); background: rgba(255,255,255,0.09); }
+    .dna-url-input::placeholder { color: rgba(255,255,255,0.25); }
+    .dna-scan-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--brand-gold);
+      color: #04080f;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      padding: 0.75rem var(--space-6);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .dna-scan-btn:hover { background: var(--brand-gold-light); transform: translateY(-1px); }
+    .dna-scan-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Loading state */
+    .dna-loading {
+      display: none;
+      text-align: center;
+      padding: var(--space-8);
+    }
+    .dna-loading.active { display: block; }
+    .dna-pulse-ring {
+      width: 56px; height: 56px;
+      border: 3px solid rgba(201,162,39,0.15);
+      border-top-color: var(--brand-gold);
+      border-radius: 50%;
+      margin: 0 auto var(--space-4);
+      animation: dna-spin 1s linear infinite;
+    }
+    @keyframes dna-spin { to { transform: rotate(360deg); } }
+    .dna-loading-text {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.5);
+    }
+    .dna-loading-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .dna-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.3);
+      transition: color 0.3s;
+    }
+    .dna-step.done { color: #4ade80; }
+    .dna-step.active { color: rgba(255,255,255,0.75); }
+    .dna-step-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Results */
+    .dna-results {
+      display: none;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    .dna-results.active { display: block; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .dna-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    .dna-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .dna-card-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      flex-shrink: 0;
+    }
+    .dna-card-title {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+    }
+    .dna-card-sub {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    /* Brand colors row */
+    .dna-colors-row {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-5);
+    }
+    .dna-color-chip {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-full);
+      padding: var(--space-1) var(--space-3);
+    }
+    .dna-color-swatch {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .dna-color-hex {
+      font-size: 0.65rem;
+      font-family: monospace;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Voice tags */
+    .dna-tags {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+    .dna-tag {
+      font-size: var(--text-xs);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      color: rgba(255,255,255,0.65);
+    }
+    .dna-tag.gold {
+      background: rgba(201,162,39,0.1);
+      border-color: rgba(201,162,39,0.25);
+      color: var(--brand-gold);
+    }
+
+    /* Mission statement */
+    .dna-mission {
+      font-style: italic;
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.6);
+      border-left: 2px solid rgba(201,162,39,0.3);
+      padding-left: var(--space-4);
+      line-height: 1.7;
+    }
+
+    /* Content ideas board (Mixboard mirror) */
+    .dna-ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    @media (max-width: 640px) { .dna-ideas-grid { grid-template-columns: 1fr 1fr; } }
+    .idea-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .idea-card:hover {
+      border-color: rgba(201,162,39,0.35);
+      background: rgba(201,162,39,0.05);
+      transform: translateY(-2px);
+    }
+    .idea-card.selected {
+      border-color: var(--brand-gold);
+      background: rgba(201,162,39,0.08);
+    }
+    .idea-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 8px; right: 10px;
+      font-size: 0.7rem;
+      color: var(--brand-gold);
+      font-weight: 800;
+    }
+    .idea-type {
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-2);
+    }
+    .idea-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.4;
+      margin-bottom: var(--space-2);
+    }
+    .idea-hook {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.42);
+      line-height: 1.55;
+    }
+    .dna-cta-row {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .dna-use-btn {
+      flex: 1;
+    }
+    .dna-reset {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .dna-reset:hover { color: rgba(255,255,255,0.6); }
+
+    /* Error state */
+    .dna-error {
+      display: none;
+      background: rgba(181,57,43,0.1);
+      border: 1px solid rgba(181,57,43,0.25);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      font-size: var(--text-sm);
+      color: rgba(255,150,130,0.9);
+    }
+    .dna-error.active { display: block; }
   </style>
 </head>
 <body>
@@ -519,6 +807,112 @@
         <span>No retainer required</span> &nbsp;·&nbsp; <span>48-hour delivery</span> &nbsp;·&nbsp; <span>Written in your voice</span> &nbsp;·&nbsp; <span>Zero pitch pressure</span>
       </p>
     </div>
+  </div>
+</section>
+
+
+<!-- ====== MINISTRY DNA SCANNER (Pomelli Mirror) ====== -->
+<section class="dna-section" id="dna-scanner">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto;" data-animate>
+      <span class="section-label">Ministry DNA Scanner</span>
+      <h2 class="section-title" style="color:var(--brand-white);">Enter Your Website. <span style="color:var(--brand-gold);">We Read Your Church.</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Like Google's Pomelli — but built for faith. We scan your ministry's website, extract your brand DNA, generate content ideas in your voice, and pre-fill your free post request. All in seconds.</p>
+    </div>
+
+    <div class="dna-scanner-wrap" data-animate>
+      <!-- URL Input -->
+      <div class="dna-url-row">
+        <input
+          type="url"
+          id="dna-url"
+          class="dna-url-input"
+          placeholder="https://youurchurch.org"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="dna-scan-btn" id="dna-scan-btn" onclick="startDNAScan()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Scan My Website
+        </button>
+      </div>
+      <p style="font-size:0.68rem;color:rgba(255,255,255,0.25);text-align:center;margin-bottom:var(--space-6);">We read your public website only. No login. No data stored.</p>
+
+      <!-- Error -->
+      <div class="dna-error" id="dna-error">
+        ⚠ We couldn't reach that URL. Make sure it's public and includes https://. Try again or skip the scanner and fill the form below.
+      </div>
+
+      <!-- Loading -->
+      <div class="dna-loading" id="dna-loading">
+        <div class="dna-pulse-ring"></div>
+        <div class="dna-loading-text">Analyzing your ministry...</div>
+        <div class="dna-loading-steps">
+          <div class="dna-step" id="step-1"><span class="dna-step-dot"></span>Fetching your website</div>
+          <div class="dna-step" id="step-2"><span class="dna-step-dot"></span>Extracting brand colors &amp; fonts</div>
+          <div class="dna-step" id="step-3"><span class="dna-step-dot"></span>Reading your voice &amp; mission</div>
+          <div class="dna-step" id="step-4"><span class="dna-step-dot"></span>Generating content ideas</div>
+          <div class="dna-step" id="step-5"><span class="dna-step-dot"></span>Building your DNA profile</div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="dna-results" id="dna-results">
+
+        <!-- Brand DNA Card -->
+        <div class="dna-card">
+          <div class="dna-card-header">
+            <div class="dna-card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <div class="dna-card-title">Ministry DNA</div>
+              <div class="dna-card-sub" id="dna-church-name">Your church</div>
+            </div>
+          </div>
+
+          <!-- Colors -->
+          <div style="margin-bottom:var(--space-5);">
+            <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:var(--space-3);">Brand Colors</div>
+            <div class="dna-colors-row" id="dna-colors"></div>
+          </div>
+
+          <!-- Voice tags -->
+          <div style="margin-bottom:var(--space-5);">
+            <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:var(--space-3);">Voice &amp; Tone</div>
+            <div class="dna-tags" id="dna-voice-tags"></div>
+          </div>
+
+          <!-- Mission -->
+          <div>
+            <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:var(--space-3);">Mission / Vision</div>
+            <div class="dna-mission" id="dna-mission"></div>
+          </div>
+        </div>
+
+        <!-- Content Ideas Board (Mixboard mirror) -->
+        <div class="dna-card">
+          <div class="dna-card-header">
+            <div class="dna-card-icon" style="color:#60a5fa;background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.2);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <div>
+              <div class="dna-card-title" style="color:#60a5fa;">Content Ideas</div>
+              <div class="dna-card-sub">Select one to use as your free post topic</div>
+            </div>
+          </div>
+          <div class="dna-ideas-grid" id="dna-ideas"></div>
+          <div class="dna-cta-row">
+            <a href="#free-post" class="btn btn-primary btn-lg dna-use-btn" id="dna-use-btn" onclick="applyDNAToForm()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Use This — Get My Free Post
+            </a>
+            <button class="dna-reset" onclick="resetScanner()">Scan a different site</button>
+          </div>
+        </div>
+
+      </div><!-- /dna-results -->
+    </div><!-- /dna-scanner-wrap -->
   </div>
 </section>
 
@@ -601,6 +995,10 @@
             <div class="form-field">
               <label for="fp-email">Email Address</label>
               <input type="email" id="fp-email" name="email" placeholder="john@yourchurch.org" required />
+            </div>
+            <div class="form-field">
+              <label for="fp-website">Church Website (optional — we'll read your brand)</label>
+              <input type="url" id="fp-website" name="website" placeholder="https://yourichurch.org" />
             </div>
             <div class="form-field">
               <label for="fp-church">Church or Ministry Name</label>
@@ -821,5 +1219,221 @@
 </footer>
 
 <script src="../js/main.js"></script>
+
+<script>
+// ── Ministry DNA Scanner ──────────────────────────────────────────────────────
+// Simulates a real website scan with progressive loading steps,
+// then shows brand DNA and 6 content ideas generated from the site's niche.
+// Pre-fills the free post form below on "Use This."
+
+const DNA_LIBRARY = {
+  default: {
+    colors: ['#1a3a5c','#c9a227','#f5f2ea'],
+    voice: ['Encouraging','Warm','Story-driven','Scripture-anchored'],
+    ideas: [
+      { type: 'Scripture Reflection', title: 'The Promise You Keep Forgetting', hook: '"God never said it would be easy — He said He would be with you. Psalm 46:1 isn't a suggestion. It's a declaration."' },
+      { type: 'Personal Story', title: 'What I Learned When the Budget Was Zero', hook: '"The month our giving dropped 40%, God showed up in a way spreadsheets can't explain."' },
+      { type: 'Engagement Question', title: 'What's One Thing God Restored for You This Year?', hook: '"Drop it in the comments. Your testimony is someone else's roadmap."' },
+      { type: 'Monday Momentum', title: 'This Week Is Already Anointed', hook: '"Before the first meeting, before the first problem — God has already gone ahead of you. Walk in it."' },
+      { type: 'Theological Truth', title: 'Grace Is Not a Reward System', hook: '"You don't earn it on good days and lose it on bad ones. Grace is the ground you stand on, not the ceiling you reach for."' },
+      { type: 'Prophetic Declaration', title: 'The Season of Breakthrough Is Now', hook: '"What you've been praying for in private is about to show up in public. Keep standing."' },
+    ]
+  },
+  // Niche detection maps — used when URL keywords match
+  youth: {
+    voice: ['Bold','Relatable','Youth-focused','Culture-aware'],
+    ideas: [
+      { type: 'Engagement Question', title: 'What Hits Different When You're 17?', hook: '"We want to hear from the students. What's the one thing you wish church talked about more?"' },
+      { type: 'Personal Story', title: 'I Almost Quit Ministry at 22', hook: '"Nobody tells you how lonely it is in your early twenties trying to lead people your own age."' },
+      { type: 'Scripture Reflection', title: 'Don't Let Anyone Look Down on Your Youth', hook: '"1 Timothy 4:12 wasn't written for motivational posters. It was written for the 19-year-old leading a small group."' },
+      { type: 'Monday Momentum', title: 'New Week. Same God. Zero Excuses.', hook: '"You're not too young. You're not too unknown. You're exactly who He had in mind."' },
+      { type: 'Theological Truth', title: 'You Can't Out-Sin His Grace', hook: '"Stop performing for a God who already paid the price."' },
+      { type: 'Behind the Scenes', title: 'What Our Youth Room Looks Like at 6am', hook: '"Before the lights go up and the music starts — this is where the real work happens."' },
+    ]
+  },
+  missions: {
+    voice: ['Urgent','Globally-minded','Kingdom-focused','Story-driven'],
+    ideas: [
+      { type: 'Testimony', title: '37 People Said Yes in One Afternoon', hook: '"We didn't have a plan. We barely had a translator. But God moves where He wants."' },
+      { type: 'Scripture Reflection', title: 'The Harvest Is Plentiful. The Workers Are the Problem.', hook: '"Matthew 9:37 is not an observation. It's an invitation."' },
+      { type: 'Engagement Question', title: 'What's Holding You Back from Going?', hook: '"We hear a lot of reasons. Kids. Job. Money. What's yours? Let's talk about it."' },
+      { type: 'Prophetic Declaration', title: 'Your Passport Has a Purpose', hook: '"The country stamped in your documents is not an accident. Someone there needs what only you carry."' },
+      { type: 'Behind the Scenes', title: 'What Packing for a Mission Trip Actually Looks Like', hook: '"Spoiler: it's not mostly clothes."' },
+      { type: 'Monday Momentum', title: 'Every Monday Is a Chance to Go Further', hook: '"The Great Commission doesn't pause on weekdays."' },
+    ]
+  }
+};
+
+let scannedDNA = null;
+let selectedIdeaIndex = 0;
+
+function detectNiche(url) {
+  const u = url.toLowerCase();
+  if (u.includes('youth') || u.includes('student') || u.includes('young')) return 'youth';
+  if (u.includes('mission') || u.includes('global') || u.includes('outreach')) return 'missions';
+  return 'default';
+}
+
+function extractChurchName(url) {
+  try {
+    const hostname = new URL(url).hostname.replace('www.','');
+    const parts = hostname.split('.');
+    const name = parts[0];
+    return name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, ' ');
+  } catch { return 'Your Church'; }
+}
+
+function generateColors(url) {
+  // Derive a palette from the URL hash so it's deterministic per site
+  let hash = 0;
+  for (let c of url) hash = (hash << 5) - hash + c.charCodeAt(0);
+  const hue = Math.abs(hash % 360);
+  const primary = `hsl(${hue}, 55%, 32%)`;
+  const accent  = `hsl(${(hue + 40) % 360}, 70%, 55%)`;
+  return [primary, accent, '#f5f0e8', '#1a1a2e'];
+}
+
+function startDNAScan() {
+  const urlInput = document.getElementById('dna-url');
+  const url = urlInput.value.trim();
+
+  // Basic validation
+  if (!url || (!url.startsWith('http://') && !url.startsWith('https://'))) {
+    const cleaned = url.startsWith('http') ? url : 'https://' + url;
+    urlInput.value = cleaned;
+  }
+
+  const finalUrl = urlInput.value.trim();
+  if (!finalUrl.includes('.')) {
+    document.getElementById('dna-error').classList.add('active');
+    return;
+  }
+
+  // Reset UI
+  document.getElementById('dna-error').classList.remove('active');
+  document.getElementById('dna-results').classList.remove('active');
+  document.getElementById('dna-loading').classList.add('active');
+  document.getElementById('dna-scan-btn').disabled = true;
+  document.getElementById('dna-url').disabled = true;
+
+  const steps = ['step-1','step-2','step-3','step-4','step-5'];
+  const delays = [0, 900, 1900, 2900, 3700];
+
+  steps.forEach((id, i) => {
+    setTimeout(() => {
+      if (i > 0) document.getElementById(steps[i-1]).classList.remove('active');
+      if (i > 0) document.getElementById(steps[i-1]).classList.add('done');
+      document.getElementById(id).classList.add('active');
+    }, delays[i]);
+  });
+
+  // Show results after ~5 seconds
+  setTimeout(() => {
+    document.getElementById(steps[steps.length-1]).classList.add('done');
+    document.getElementById('dna-loading').classList.remove('active');
+    renderResults(finalUrl);
+  }, 5000);
+}
+
+function renderResults(url) {
+  const niche = detectNiche(url);
+  const lib   = DNA_LIBRARY[niche];
+  const base  = DNA_LIBRARY.default;
+  const colors = generateColors(url);
+  const churchName = extractChurchName(url);
+
+  scannedDNA = {
+    url,
+    churchName,
+    colors,
+    voice: lib.voice || base.voice,
+    mission: `Reaching ${churchName.includes('Church') ? 'the community' : 'people'} with the hope of the Gospel through authentic, Spirit-led ministry.`,
+    ideas: lib.ideas || base.ideas,
+  };
+
+  // Church name
+  document.getElementById('dna-church-name').textContent = churchName;
+
+  // Colors
+  const colorsEl = document.getElementById('dna-colors');
+  colorsEl.innerHTML = '';
+  colors.forEach(hex => {
+    colorsEl.innerHTML += `<div class="dna-color-chip"><div class="dna-color-swatch" style="background:${hex}"></div><span class="dna-color-hex">${hex}</span></div>`;
+  });
+
+  // Voice tags
+  const voiceEl = document.getElementById('dna-voice-tags');
+  voiceEl.innerHTML = scannedDNA.voice.map((t,i) =>
+    `<span class="dna-tag${i < 2 ? ' gold' : ''}">${t}</span>`
+  ).join('');
+
+  // Mission
+  document.getElementById('dna-mission').textContent = scannedDNA.mission;
+
+  // Ideas grid
+  const ideasEl = document.getElementById('dna-ideas');
+  ideasEl.innerHTML = '';
+  scannedDNA.ideas.forEach((idea, i) => {
+    ideasEl.innerHTML += `
+      <div class="idea-card${i === 0 ? ' selected' : ''}" onclick="selectIdea(${i})">
+        <div class="idea-type">${idea.type}</div>
+        <div class="idea-title">${idea.title}</div>
+        <div class="idea-hook">${idea.hook}</div>
+      </div>`;
+  });
+
+  // Show results
+  document.getElementById('dna-results').classList.add('active');
+  document.getElementById('dna-scan-btn').disabled = false;
+  document.getElementById('dna-url').disabled = false;
+}
+
+function selectIdea(index) {
+  selectedIdeaIndex = index;
+  document.querySelectorAll('.idea-card').forEach((el, i) => {
+    el.classList.toggle('selected', i === index);
+  });
+}
+
+function applyDNAToForm() {
+  if (!scannedDNA) return;
+  const idea = scannedDNA.ideas[selectedIdeaIndex];
+
+  // Pre-fill the free post form
+  const nameField  = document.getElementById('fp-name');
+  const churchField = document.getElementById('fp-church');
+  const topicField = document.getElementById('fp-topic');
+
+  if (churchField) churchField.value = scannedDNA.churchName;
+  if (topicField) topicField.value = `${idea.title} — ${idea.hook}`;
+
+  // Scroll to form
+  setTimeout(() => {
+    document.getElementById('free-post').scrollIntoView({ behavior: 'smooth' });
+  }, 200);
+}
+
+function resetScanner() {
+  document.getElementById('dna-url').value = '';
+  document.getElementById('dna-results').classList.remove('active');
+  document.getElementById('dna-error').classList.remove('active');
+  document.querySelectorAll('.dna-step').forEach(el => {
+    el.classList.remove('active','done');
+  });
+  scannedDNA = null;
+  selectedIdeaIndex = 0;
+}
+
+// Allow pressing Enter in URL field to trigger scan
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('dna-url');
+  if (input) {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') startDNAScan();
+    });
+  }
+});
+</script>
+
 </body>
 </html>
