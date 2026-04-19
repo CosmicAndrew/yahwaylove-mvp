@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Agent Team — YAHWAYLOVE LLC</title>
+  <meta name="description" content="Meet the 10 specialized AI agents that execute every YAHWAYLOVE service — from Meta Ads to email newsletters, call follow-ups, content creation, analytics, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ---- AGENT HERO ---- */
+    .agent-hero {
+      background: linear-gradient(160deg, #030710 0%, #0a0f2e 60%, #131840 100%);
+      padding: clamp(var(--space-24), 10vw, var(--space-32)) 0 clamp(var(--space-16), 6vw, var(--space-24));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(201,162,39,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(78,122,160,0.05) 0%, transparent 40%);
+    }
+    .agent-hero-content { position: relative; z-index: 1; }
+    .agent-hero h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--brand-white);
+      line-height: 1.05;
+      margin-bottom: var(--space-5);
+      letter-spacing: -0.02em;
+    }
+    .agent-hero h1 span { color: var(--brand-gold); }
+    .agent-hero p {
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.65);
+      max-width: 52ch;
+      margin: 0 auto var(--space-8);
+      line-height: 1.7;
+    }
+    .agent-count-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-12);
+      flex-wrap: wrap;
+      margin-top: var(--space-10);
+      padding-top: var(--space-10);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .agent-count-item { text-align: center; }
+    .agent-count-num {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--brand-gold);
+      line-height: 1;
+    }
+    .agent-count-label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: var(--space-1);
+    }
+
+    /* ---- AGENT GRID ---- */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    @media (max-width: 960px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .agents-grid { grid-template-columns: 1fr; } }
+
+    .agent-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .agent-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(201, 162, 39, 0.4);
+    }
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-navy), var(--brand-gold), var(--brand-navy-soft));
+      opacity: 0;
+      transition: opacity var(--transition-interactive);
+    }
+    .agent-card:hover::before { opacity: 1; }
+
+    /* Director card — featured */
+    .agent-card.director {
+      grid-column: span 3;
+      border-color: rgba(201,162,39,0.3);
+      background: linear-gradient(135deg, var(--brand-navy) 0%, #131840 100%);
+    }
+    .agent-card.director .agent-name,
+    .agent-card.director .agent-role,
+    .agent-card.director .agent-desc { color: var(--brand-white); }
+    .agent-card.director .agent-desc { color: rgba(255,255,255,0.7); }
+    .agent-card.director .agent-tag {
+      background: rgba(201,162,39,0.15);
+      color: var(--brand-gold);
+      border-color: rgba(201,162,39,0.3);
+    }
+    .agent-card.director::before { opacity: 1; }
+
+    @media (max-width: 960px) { .agent-card.director { grid-column: span 2; } }
+    @media (max-width: 560px) { .agent-card.director { grid-column: span 1; } }
+
+    .agent-card.director .agent-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .agent-card.director .agent-inner { grid-template-columns: 1fr; }
+    }
+
+    .agent-avatar {
+      width: 72px; height: 72px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 2px solid rgba(201, 162, 39, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-5);
+      flex-shrink: 0;
+    }
+    .agent-card.director .agent-avatar {
+      width: 88px; height: 88px;
+      margin-bottom: 0;
+      border-color: rgba(201,162,39,0.5);
+      background: rgba(201,162,39,0.08);
+    }
+
+    .agent-codename {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-1);
+    }
+    .agent-name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+      line-height: 1.2;
+    }
+    .agent-role {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+    }
+    .agent-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+    .agent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .agent-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-full);
+      background: rgba(10,15,46,0.07);
+      color: var(--brand-navy);
+      border: 1px solid rgba(10,15,46,0.12);
+    }
+    [data-theme='dark'] .agent-tag {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .agent-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: #2e7d50;
+      font-weight: 600;
+      margin-bottom: var(--space-5);
+    }
+    .agent-status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #2e7d50;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(46,125,80,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(46,125,80,0); }
+    }
+
+    /* ---- HOW AGENTS WORK ---- */
+    .workflow-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      padding: var(--space-6) 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .workflow-step:last-child { border-bottom: none; }
+    .workflow-num {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 2px solid rgba(201,162,39,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-base);
+      color: var(--brand-gold);
+      flex-shrink: 0;
+    }
+    .workflow-text h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .workflow-text p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+    .workflow-agent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-radius: var(--radius-full);
+      padding: 2px var(--space-2);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brand-gold-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: var(--space-2);
+    }
+    [data-theme='dark'] .workflow-agent-badge { color: var(--brand-gold); }
+
+    /* ---- DARK SECTION ---- */
+    .section-dark {
+      background: linear-gradient(160deg, var(--brand-navy) 0%, #0d1235 100%);
+    }
+    .section-dark .section-title { color: var(--brand-white); }
+    .section-dark .section-sub { color: rgba(255,255,255,0.65); }
+    .section-dark .section-label { color: var(--brand-gold); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="8" fill="#C9A227"/>
+        <path d="M18 6 L28 14 L28 26 L18 30 L8 26 L8 14 Z" fill="none" stroke="#0A0F2E" stroke-width="2"/>
+        <path d="M18 6 L18 30 M8 14 L28 14 M8 26 L28 26" stroke="#0A0F2E" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="18" cy="20" r="4" fill="#0A0F2E"/>
+        <circle cx="18" cy="20" r="2" fill="#C9A227"/>
+      </svg>
+      <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
+    </a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="agent-hero">
+  <div class="container agent-hero-content">
+    <span class="badge badge-gold" style="margin-bottom:var(--space-5);">
+      <span class="agent-status-dot" style="background:var(--brand-gold);animation:pulse-dot 2s infinite;"></span>
+      10 Agents · All Systems Active
+    </span>
+    <h1 data-animate>Meet the <span>Agent Team</span><br/>That Does the Work</h1>
+    <p data-animate data-animate-delay="1">
+      Every service YAHWAYLOVE delivers is executed by a specialized AI agent — running 24/7, logging every action, and reporting to Andrew. This isn't AI-assisted marketing. This is AI-operated ministry growth.
+    </p>
+    <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;" data-animate data-animate-delay="2">
+      <a href="contact.html" class="btn btn-primary btn-lg">Deploy the Team for My Ministry</a>
+      <a href="pricing.html" class="btn btn-outline btn-lg">See Pricing</a>
+    </div>
+    <div class="agent-count-row" data-animate data-animate-delay="3">
+      <div class="agent-count-item">
+        <div class="agent-count-num">10</div>
+        <div class="agent-count-label">Specialized Agents</div>
+      </div>
+      <div class="agent-count-item">
+        <div class="agent-count-num">24/7</div>
+        <div class="agent-count-label">Always Running</div>
+      </div>
+      <div class="agent-count-item">
+        <div class="agent-count-num">0</div>
+        <div class="agent-count-label">Sick Days</div>
+      </div>
+      <div class="agent-count-item">
+        <div class="agent-count-num">5min</div>
+        <div class="agent-count-label">Lead Response Time</div>
+      </div>
+      <div class="agent-count-item">
+        <div class="agent-count-num">100%</div>
+        <div class="agent-count-label">Logged & Transparent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT GRID -->
+<section>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+      <span class="section-label">The Roster</span>
+      <h2 class="section-title">Your Dedicated Agent Team</h2>
+      <p class="section-sub" style="margin:0 auto;">Each agent is purpose-built, domain-specialized, and faith-aligned. Together they form the most capable ministry marketing team available — at any price point.</p>
+    </div>
+
+    <div class="agents-grid">
+
+      <!-- DIRECTOR — Spanning card -->
+      <div class="agent-card director" data-animate>
+        <div class="agent-inner">
+          <div>
+            <div class="agent-avatar">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div class="agent-status"><div class="agent-status-dot"></div> Online — Orchestrating 24/7</div>
+            <div class="agent-codename">DIRECTOR</div>
+            <div class="agent-name">Campaign Orchestration Agent</div>
+            <div class="agent-role">Team Lead · Client Account Commander</div>
+            <div class="agent-desc">DIRECTOR is the brain of the operation. For every client account, DIRECTOR coordinates all 9 other agents — routing tasks, managing priorities, resolving conflicts, and delivering unified daily status updates to Andrew. Every campaign runs through DIRECTOR. Nothing ships without DIRECTOR's sign-off. Clients only need to communicate with Andrew — DIRECTOR handles everything behind the scenes.</div>
+            <div class="agent-tags">
+              <span class="agent-tag">Team Coordination</span>
+              <span class="agent-tag">Task Routing</span>
+              <span class="agent-tag">Client Reporting</span>
+              <span class="agent-tag">Priority Management</span>
+              <span class="agent-tag">Account Command</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARIA -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Scanning Ad Accounts</div>
+        <div class="agent-codename">ARIA</div>
+        <div class="agent-name">Ad Research & Intelligence Agent</div>
+        <div class="agent-role">Meta Ads Specialist</div>
+        <div class="agent-desc">ARIA runs Meta Ads campaigns end-to-end. Audience research, faith-audience interest stacking, creative briefs, A/B test design, bid strategy, daily account scanning, budget optimization, and weekly performance reports — ARIA executes all of it continuously.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Meta Ads</span>
+          <span class="agent-tag">Audience Research</span>
+          <span class="agent-tag">A/B Testing</span>
+          <span class="agent-tag">Bid Strategy</span>
+          <span class="agent-tag">ROAS Optimization</span>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Generating Content</div>
+        <div class="agent-codename">CONTENT</div>
+        <div class="agent-name">Content Generation Orchestrator</div>
+        <div class="agent-role">Creative Engine</div>
+        <div class="agent-desc">CONTENT transforms sermon notes, bullet points, and brand briefs into full social media calendars, Reel scripts, blog posts, email newsletter copy, video storyboards, and ad creative copy. It also analyzes performance data and auto-adjusts content strategy weekly.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Social Copy</span>
+          <span class="agent-tag">Reel Scripts</span>
+          <span class="agent-tag">Newsletters</span>
+          <span class="agent-tag">Blog Posts</span>
+          <span class="agent-tag">Sermon Repurposing</span>
+        </div>
+      </div>
+
+      <!-- HERALD -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Sending Sequences</div>
+        <div class="agent-codename">HERALD</div>
+        <div class="agent-name">Outreach & Communication Agent</div>
+        <div class="agent-role">Email · SMS · Newsletter Delivery</div>
+        <div class="agent-desc">HERALD handles all outbound communications — cold email prospecting sequences, warm lead follow-ups within 5 minutes, weekly newsletter delivery to subscriber lists, and SMS/text campaigns via Twilio. Every message is personalized, timed strategically, and logged in HubSpot.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Cold Email</span>
+          <span class="agent-tag">Newsletters</span>
+          <span class="agent-tag">SMS Campaigns</span>
+          <span class="agent-tag">Lead Follow-Up</span>
+          <span class="agent-tag">Twilio</span>
+        </div>
+      </div>
+
+      <!-- VOICE -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> On Call</div>
+        <div class="agent-codename">VOICE</div>
+        <div class="agent-name">Call Intelligence & Follow-Up Agent</div>
+        <div class="agent-role">AI Voice Calls · CRM Logging · SMS Summaries</div>
+        <div class="agent-desc">VOICE makes AI-powered follow-up calls to warm leads using natural speech (via VAPI). It transcribes every call, summarizes key points, logs everything into HubSpot CRM, and sends a post-call SMS recap to the prospect. No lead goes cold. No call goes unlogged.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">AI Voice Calls</span>
+          <span class="agent-tag">Call Transcription</span>
+          <span class="agent-tag">CRM Logging</span>
+          <span class="agent-tag">Post-Call SMS</span>
+          <span class="agent-tag">VAPI</span>
+        </div>
+      </div>
+
+      <!-- FUNNEL -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Monitoring Conversions</div>
+        <div class="agent-codename">FUNNEL</div>
+        <div class="agent-name">Funnel Architecture & Email Agent</div>
+        <div class="agent-role">Lead Capture · Email Sequences · HubSpot</div>
+        <div class="agent-desc">FUNNEL designs and documents entire lead capture flows — opt-in pages, thank-you pages, tripwires, email nurture sequences (5–7 emails), CRM tagging rules, and automation triggers. It monitors conversion rates in real time and flags drop-off points before they cost clients money.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Funnel Design</span>
+          <span class="agent-tag">Email Sequences</span>
+          <span class="agent-tag">HubSpot</span>
+          <span class="agent-tag">CRM Tags</span>
+          <span class="agent-tag">Conversion Tracking</span>
+        </div>
+      </div>
+
+      <!-- BUILD -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Building</div>
+        <div class="agent-codename">BUILD</div>
+        <div class="agent-name">Web Development Agent</div>
+        <div class="agent-role">Websites · Landing Pages · Ad Creatives</div>
+        <div class="agent-desc">BUILD creates mobile-first, high-converting websites and landing pages using AI-accelerated code workflows. It also produces static ad creatives, graphic templates, and carousel layouts. Every deliverable is deployed to GitHub and live on Vercel — typically within 72 hours.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Web Dev</span>
+          <span class="agent-tag">Landing Pages</span>
+          <span class="agent-tag">Ad Creatives</span>
+          <span class="agent-tag">GitHub</span>
+          <span class="agent-tag">Vercel</span>
+        </div>
+      </div>
+
+      <!-- PULSE -->
+      <div class="agent-card" data-animate data-animate-delay="1">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Aggregating Data</div>
+        <div class="agent-codename">PULSE</div>
+        <div class="agent-name">Analytics & Reporting Agent</div>
+        <div class="agent-role">Meta · Google Analytics · HubSpot</div>
+        <div class="agent-desc">PULSE aggregates data across Meta Ads Manager, Google Analytics, and HubSpot into a single weekly plain-English report. It flags anomalies, detects spend inefficiencies, recommends budget reallocations, and tracks KPI trends over time. You always know exactly what's working.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Analytics</span>
+          <span class="agent-tag">Weekly Reports</span>
+          <span class="agent-tag">KPI Tracking</span>
+          <span class="agent-tag">Anomaly Detection</span>
+          <span class="agent-tag">Budget Recs</span>
+        </div>
+      </div>
+
+      <!-- SCOUT -->
+      <div class="agent-card" data-animate data-animate-delay="2">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Monitoring Competitors</div>
+        <div class="agent-codename">SCOUT</div>
+        <div class="agent-name">Competitive Intelligence Agent</div>
+        <div class="agent-role">Market Research · Ad Library · Trend Tracking</div>
+        <div class="agent-desc">SCOUT monitors competitor churches and ministries' Meta Ad Libraries weekly, tracks trending faith content across platforms, and delivers a monthly "Kingdom Landscape" report — so clients always know what their competition is doing and where the opportunities are.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Competitor Analysis</span>
+          <span class="agent-tag">Ad Library Monitoring</span>
+          <span class="agent-tag">Trend Research</span>
+          <span class="agent-tag">Monthly Reports</span>
+        </div>
+      </div>
+
+      <!-- EDITOR -->
+      <div class="agent-card" data-animate data-animate-delay="3">
+        <div class="agent-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <div class="agent-status"><div class="agent-status-dot"></div> Reviewing Output</div>
+        <div class="agent-codename">EDITOR</div>
+        <div class="agent-name">Content QA & Brand Voice Agent</div>
+        <div class="agent-role">Quality Control · Theology Review · Brand Consistency</div>
+        <div class="agent-desc">EDITOR reviews every piece of content produced by CONTENT before it goes live — checking for brand voice consistency, theological accuracy, grammar, tone, and compliance with the client's ministry guidelines. Nothing ships without EDITOR's approval. Excellence is non-negotiable.</div>
+        <div class="agent-tags">
+          <span class="agent-tag">Content QA</span>
+          <span class="agent-tag">Brand Voice</span>
+          <span class="agent-tag">Theology Review</span>
+          <span class="agent-tag">Grammar & Tone</span>
+        </div>
+      </div>
+
+    </div><!-- /agents-grid -->
+  </div>
+</section>
+
+<!-- HOW AGENTS COLLABORATE -->
+<section style="background:var(--color-surface-2);">
+  <div class="container">
+    <div class="grid-2" style="gap:var(--space-16);">
+      <div data-animate>
+        <span class="section-label">The Workflow</span>
+        <h2 class="section-title">How Your Agent Team Works Every Day</h2>
+        <p class="section-sub">From the moment you become a client, your entire DIRECTOR-led agent team activates. Here's what runs on autopilot for you every single day.</p>
+      </div>
+      <div data-animate data-animate-delay="1">
+        <div class="workflow-step">
+          <div class="workflow-num">1</div>
+          <div class="workflow-text">
+            <h3>Morning Account Scan (6 AM CT)</h3>
+            <p>ARIA scans your Meta Ads accounts, PULSE pulls overnight analytics, SCOUT checks competitor activity. Any anomaly triggers an immediate alert to Andrew.</p>
+            <div class="workflow-agent-badge">ARIA · PULSE · SCOUT</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">2</div>
+          <div class="workflow-text">
+            <h3>Content Production (Daily)</h3>
+            <p>CONTENT generates today's scheduled posts, captions, and any queued assets. EDITOR reviews and approves before anything goes to scheduling.</p>
+            <div class="workflow-agent-badge">CONTENT · EDITOR</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">3</div>
+          <div class="workflow-text">
+            <h3>Lead Response (Within 5 Min)</h3>
+            <p>New lead comes in. HERALD fires a personalized email and SMS instantly. VOICE queues a follow-up call within the hour. FUNNEL logs and tags in HubSpot automatically.</p>
+            <div class="workflow-agent-badge">HERALD · VOICE · FUNNEL</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">4</div>
+          <div class="workflow-text">
+            <h3>Weekly Report (Every Monday)</h3>
+            <p>PULSE compiles a full-week performance summary. DIRECTOR packages it into a clean client briefing. Andrew adds personal notes and strategic recommendations.</p>
+            <div class="workflow-agent-badge">PULSE · DIRECTOR</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">5</div>
+          <div class="workflow-text">
+            <h3>Monthly Kingdom Landscape (1st of Month)</h3>
+            <p>SCOUT delivers a competitive intelligence report — what competitors spent, what content performed industry-wide, and where the biggest growth opportunities are.</p>
+            <div class="workflow-agent-badge">SCOUT · DIRECTOR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES THIS DIFFERENT -->
+<section class="section-dark">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+      <span class="section-label">Why This Matters</span>
+      <h2 class="section-title">Not "AI-Assisted." Actually AI-Operated.</h2>
+      <p class="section-sub" style="margin:0 auto;color:rgba(255,255,255,0.65);">Most agencies say they "use AI." YAHWAYLOVE's agents ARE the team — executing deliverables, not just recommending them.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="1">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 style="color:var(--brand-white);">24/7 Execution</h3>
+        <p>Agents don't sleep, take lunch, or have off days. Your campaigns, content, and lead follow-up run continuously — including weekends and holidays.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="2">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3 style="color:var(--brand-white);">100% Logged & Auditable</h3>
+        <p>Every action every agent takes is logged, timestamped, and available for review. Full transparency — you always know exactly what was done and why.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="3">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="color:var(--brand-white);">Andrew Reviews Everything</h3>
+        <p>Agents execute. Andrew supervises. Every major deliverable — reports, campaigns, content calendars — gets Andrew's personal eyes before it reaches you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta-banner" data-animate>
+      <div class="cta-banner-content">
+        <div class="badge badge-gold" style="margin:0 auto var(--space-4);width:fit-content;">Ready to Deploy Your Team?</div>
+        <h2>10 Agents. 1 Mission. Your Ministry's Growth.</h2>
+        <p>Book a free strategy call and we'll show you exactly which agents your organization needs and what they'll execute in the first 30 days.</p>
+        <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Book Your Free Strategy Call</a>
+          <a href="funnel.html" class="btn btn-outline btn-lg">Get a Free Ministry Audit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">YAHWAY<span>LOVE</span> LLC</div>
+        <p class="footer-tagline">The only faith-first AI marketing agency. Built to serve the Kingdom, engineered for growth.</p>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+15613050404" style="color:rgba(255,255,255,0.65);text-decoration:none;">(561) 305-0404</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:rocha@yahwaylove.com" style="color:rgba(255,255,255,0.65);text-decoration:none;">rocha@yahwaylove.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Fort Worth, Texas
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul role="list">
+          <li><a href="services.html#meta-ads">Meta Ads Strategy</a></li>
+          <li><a href="services.html#web-dev">Web Development</a></li>
+          <li><a href="services.html#funnels">Lead Gen Funnels</a></li>
+          <li><a href="services.html#content">Content Creation</a></li>
+          <li><a href="services.html#brand">Brand Strategy</a></li>
+          <li><a href="services.html#automation">AI Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul role="list">
+          <li><a href="about.html">About Andrew</a></li>
+          <li><a href="agents.html">The Agent Team</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="funnel.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:rocha@yahwaylove.com">Email Us</a></li>
+          <li><a href="tel:+15613050404">Call Us</a></li>
+          <li><a href="contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 YAHWAYLOVE LLC · Andrew Rocha · Fort Worth, Texas · All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="mailto:rocha@yahwaylove.com" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="tel:+15613050404" aria-label="Phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

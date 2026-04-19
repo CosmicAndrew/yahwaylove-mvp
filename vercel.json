@@ -8,7 +8,9 @@
     { "source": "/pricing", "destination": "/pages/pricing.html" },
     { "source": "/contact", "destination": "/pages/contact.html" },
     { "source": "/audit", "destination": "/pages/funnel.html" },
-    { "source": "/free-audit", "destination": "/pages/funnel.html" }
+    { "source": "/free-audit", "destination": "/pages/funnel.html" },
+    { "source": "/agents", "destination": "/pages/agents.html" },
+    { "source": "/team", "destination": "/pages/agents.html" }
   ],
   "headers": [
     {

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — YAHWAYLOVE LLC | Faith-Based AI Marketing Agency</title>
+  <meta name="description" content="Transparent, mission-aligned pricing for churches, ministries, and faith-based businesses. Three tiers, ten AI agents, zero shortcuts." />
+  <meta name="author" content="Andrew Rocha" />
+  <meta property="og:title" content="Pricing — YAHWAYLOVE LLC" />
+  <meta property="og:description" content="Kingdom Starter, Kingdom Builder, and Kingdom Dominator plans. 10 AI agents working 24/7 for your ministry." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://yahwaylove.com/pages/pricing.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <style>
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      background: linear-gradient(160deg, #040818 0%, #0a0f2e 55%, #131840 100%);
+      padding: clamp(var(--space-20), 12vw, var(--space-32)) 0 clamp(var(--space-16), 8vw, var(--space-24));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 40%, rgba(201,162,39,0.07) 0%, transparent 55%),
+        radial-gradient(circle at 75% 60%, rgba(201,162,39,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--brand-white);
+      line-height: 1.1;
+      margin-bottom: var(--space-5);
+    }
+    .page-hero-sub {
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.65);
+      max-width: 52ch;
+      margin: 0 auto var(--space-8);
+      line-height: 1.7;
+    }
+
+    /* ---- PRICING GRID ---- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    }
+    .pricing-card { display: flex; flex-direction: column; }
+    .pricing-card.featured { transform: scale(1.03); }
+    @media (max-width: 960px) {
+      .pricing-card.featured { transform: none; }
+    }
+    .pricing-card .pricing-features { flex: 1; }
+    .pricing-card.featured .pricing-feature {
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+
+    /* ---- AGENT TAGS ---- */
+    .agent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .agent-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.25);
+      color: var(--brand-gold-dim);
+      white-space: nowrap;
+    }
+    .pricing-card.featured .agent-tag {
+      background: rgba(201,162,39,0.18);
+      border-color: rgba(201,162,39,0.4);
+      color: var(--brand-gold-light);
+    }
+    .agent-tag .agent-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--brand-gold);
+      flex-shrink: 0;
+    }
+    .pricing-card.featured .agent-tag .agent-dot {
+      background: var(--brand-gold-light);
+    }
+    .agents-label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+      display: block;
+    }
+    .pricing-card.featured .agents-label { color: var(--brand-gold-light); }
+
+    /* ---- FOR WHOM ---- */
+    .pricing-for {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-6);
+      padding: var(--space-3) var(--space-4);
+      background: rgba(201,162,39,0.08);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(201,162,39,0.2);
+    }
+    .pricing-card.featured .pricing-for {
+      background: rgba(201,162,39,0.15);
+      border-color: rgba(201,162,39,0.35);
+      color: var(--brand-gold-light);
+    }
+
+    /* ---- AGENT ROSTER SECTION ---- */
+    .agent-roster-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 1024px) {
+      .agent-roster-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .agent-roster-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .agent-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: border-color var(--transition-fast), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .agent-card:hover {
+      border-color: rgba(201,162,39,0.45);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .agent-avatar {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      border: 1.5px solid rgba(201,162,39,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      flex-shrink: 0;
+    }
+    .agent-name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .agent-role {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 2px;
+    }
+    .agent-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ---- AGENT ACCESS EXPLAINER ---- */
+    .agent-access-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 900px) {
+      .agent-access-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .agent-access-grid { grid-template-columns: 1fr; }
+    }
+
+    .agent-access-item {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+    }
+    .agent-access-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      margin: 0 auto var(--space-4);
+    }
+    .agent-access-item h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .agent-access-item p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---- ONE-TIME PRICING ---- */
+    .one-time-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 900px) {
+      .one-time-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .one-time-grid { grid-template-columns: 1fr; }
+    }
+    .one-time-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .one-time-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201,162,39,0.4);
+    }
+    .one-time-name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .one-time-price {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-gold);
+      line-height: 1;
+    }
+    .one-time-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .faq-item {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .faq-item:hover { border-color: rgba(201,162,39,0.4); }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-5) var(--space-6);
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      transition: color var(--transition-fast);
+    }
+    .faq-question:hover { color: var(--color-primary); }
+    .faq-question svg {
+      flex-shrink: 0;
+      color: var(--color-primary);
+      transition: transform var(--transition-interactive);
+    }
+    .faq-item.open .faq-question svg { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .faq-item.open .faq-answer { max-height: 500px; }
+    .faq-answer-inner {
+      padding: 0 var(--space-6) var(--space-6);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--color-divider);
+      padding-top: var(--space-4);
+    }
+
+    /* ---- GUARANTEE ---- */
+    .guarantee-block {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-radius: var(--radius-xl);
+      padding: clamp(var(--space-10), 6vw, var(--space-16)) var(--space-12);
+      text-align: center;
+      border: 1px solid rgba(201,162,39,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .guarantee-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(201,162,39,0.08) 0%, transparent 65%);
+    }
+    .guarantee-block > * { position: relative; z-index: 1; }
+    .guarantee-icon {
+      width: 72px; height: 72px;
+      background: rgba(201,162,39,0.15);
+      border: 2px solid rgba(201,162,39,0.4);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-6);
+      color: var(--brand-gold);
+    }
+    .guarantee-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-5);
+    }
+    .guarantee-text {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.75);
+      max-width: 58ch;
+      margin: 0 auto var(--space-8);
+      line-height: 1.8;
+    }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12) var(--space-10);
+      text-align: center;
+      border: 1px solid rgba(201,162,39,0.25);
+    }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: var(--space-4);
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.65);
+      max-width: 50ch;
+      margin: 0 auto var(--space-8);
+      font-size: var(--text-base);
+      line-height: 1.7;
+    }
+    .btn-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .section-offset { background: var(--color-surface-2); }
+
+    /* ---- TECH STACK ---- */
+    .tech-stack-grid { }
+    @media (max-width: 900px) {
+      .tech-stack-grid { grid-template-columns: repeat(2,1fr) !important; }
+    }
+    @media (max-width: 560px) {
+      .tech-stack-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    .tech-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .tech-item:hover {
+      border-color: rgba(201,162,39,0.35);
+      background: rgba(201,162,39,0.05);
+    }
+    .tech-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-1);
+    }
+    .tech-name {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--brand-white);
+    }
+    .tech-vendor {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+    }
+    .tech-desc {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ---- DARK SECTION ---- */
+    .section-dark {
+      background: linear-gradient(160deg, var(--brand-navy) 0%, #0d1235 100%);
+    }
+    .section-dark .section-title { color: var(--brand-white); }
+    .section-dark .section-sub { color: rgba(255,255,255,0.65); }
+    .section-dark .section-label { color: var(--brand-gold); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="YAHWAYLOVE home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#c9a227"/>
+          <path d="M8 10 L16 20 L24 10" stroke="#0a0f2e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="16" y1="20" x2="16" y2="26" stroke="#0a0f2e" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html" style="color:var(--brand-gold)">Pricing</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:var(--space-3);">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <div data-animate>
+        <span class="badge badge-gold" style="margin-bottom:var(--space-5);">10 AI Agents · Transparent Pricing</span>
+        <h1 class="page-hero-title">Plans Built for the<br><em>Kingdom's Work</em></h1>
+        <p class="page-hero-sub">No hidden fees. No lock-in contracts. Every plan deploys a named team of AI agents working 24/7 on your ministry's growth — with Andrew directing every move.</p>
+        <div class="flex-center gap-4" style="flex-wrap:wrap;">
+          <a href="#plans" class="btn btn-primary btn-lg">View Plans</a>
+          <a href="contact.html" class="btn btn-outline">Book a Free Strategy Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TIERS -->
+  <section id="plans">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+        <span class="section-label">Monthly Retainer Plans</span>
+        <h2 class="section-title">Choose Your Kingdom Tier</h2>
+        <p class="section-sub" style="margin:0 auto;">Each plan deploys a dedicated team of AI agents. More agents means more coverage, more output, and faster growth.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- TIER 1 -->
+        <div class="pricing-card" data-animate data-animate-delay="1">
+          <div class="pricing-name">Kingdom Starter</div>
+          <div class="pricing-price">$2,500<span>/month</span></div>
+          <p class="pricing-for">Small churches · Solo pastors · New ministries</p>
+          <p class="pricing-desc">Four specialized AI agents establish your digital presence and start reaching your community — running continuously, reporting monthly.</p>
+          <ul class="pricing-features" role="list">
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              1 Meta Ads campaign (up to $3K ad spend managed)
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly content calendar — 20 posts
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              1 landing page build
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              HubSpot Starter CRM setup
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly performance report
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Email support — 48-hr response
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              5-minute lead follow-up via HERALD
+            </li>
+          </ul>
+          <span class="agents-label">Your Agent Team — 4 Agents</span>
+          <div class="agent-tags">
+            <span class="agent-tag"><span class="agent-dot"></span>ARIA</span>
+            <span class="agent-tag"><span class="agent-dot"></span>CONTENT</span>
+            <span class="agent-tag"><span class="agent-dot"></span>PULSE</span>
+            <span class="agent-tag"><span class="agent-dot"></span>HERALD</span>
+          </div>
+          <a href="contact.html" class="btn btn-navy btn-lg" style="width:100%;text-align:center;margin-top:auto;">Get Started →</a>
+        </div>
+
+        <!-- TIER 2 FEATURED -->
+        <div class="pricing-card featured" data-animate data-animate-delay="2">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Kingdom Builder</div>
+          <div class="pricing-price">$4,500<span>/month</span></div>
+          <p class="pricing-for">Growing churches · Christian nonprofits · Faith-based businesses</p>
+          <p class="pricing-desc">Nine AI agents running in full coordination, with DIRECTOR managing the team so you only ever need to talk to Andrew.</p>
+          <ul class="pricing-features" role="list">
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              2 Meta Ads campaigns (up to $10K ad spend managed)
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Full 30-day content calendar + Reel scripts
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Full funnel build — opt-in page + 5-email sequence
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              HubSpot Pro setup + automation
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Brand strategy session — 2 hrs with Andrew
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Weekly performance report + 30-min strategy call
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority email + Slack support
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Google Ad Grant application (free for churches)
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Competitive landscape reporting via SCOUT
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              All output reviewed by EDITOR before delivery
+            </li>
+          </ul>
+          <span class="agents-label">Your Agent Team — 9 Agents</span>
+          <div class="agent-tags">
+            <span class="agent-tag"><span class="agent-dot"></span>ARIA</span>
+            <span class="agent-tag"><span class="agent-dot"></span>CONTENT</span>
+            <span class="agent-tag"><span class="agent-dot"></span>FUNNEL</span>
+            <span class="agent-tag"><span class="agent-dot"></span>BUILD</span>
+            <span class="agent-tag"><span class="agent-dot"></span>PULSE</span>
+            <span class="agent-tag"><span class="agent-dot"></span>HERALD</span>
+            <span class="agent-tag"><span class="agent-dot"></span>SCOUT</span>
+            <span class="agent-tag"><span class="agent-dot"></span>EDITOR</span>
+            <span class="agent-tag"><span class="agent-dot"></span>DIRECTOR</span>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-lg" style="width:100%;text-align:center;margin-top:auto;">Get Started →</a>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="pricing-card" data-animate data-animate-delay="3">
+          <div class="pricing-name">Kingdom Dominator</div>
+          <div class="pricing-price">$8,500<span>/month</span></div>
+          <p class="pricing-for">Large ministries · Christian media companies · Multi-location churches</p>
+          <p class="pricing-desc">All 10 AI agents in fully dedicated mode — running exclusively for your organization, 24 hours a day, 7 days a week.</p>
+          <ul class="pricing-features" role="list">
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited Meta Ads campaigns (up to $50K ad spend managed)
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Full content production — 60 posts + video scripts + sermon repurposing
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              3 funnel builds per quarter
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Full HubSpot Enterprise setup + ongoing management
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly brand strategy + creative direction sessions
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Daily PULSE reporting dashboard
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              AI voice follow-up on warm leads via VOICE agent
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Direct phone/WhatsApp access to Andrew
+            </li>
+            <li class="pricing-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Quarterly growth intensive — 3-hr Zoom with Andrew
+            </li>
+          </ul>
+          <span class="agents-label">Your Agent Team — All 10 Agents, Dedicated Mode</span>
+          <div class="agent-tags">
+            <span class="agent-tag"><span class="agent-dot"></span>ARIA</span>
+            <span class="agent-tag"><span class="agent-dot"></span>CONTENT</span>
+            <span class="agent-tag"><span class="agent-dot"></span>FUNNEL</span>
+            <span class="agent-tag"><span class="agent-dot"></span>BUILD</span>
+            <span class="agent-tag"><span class="agent-dot"></span>PULSE</span>
+            <span class="agent-tag"><span class="agent-dot"></span>HERALD</span>
+            <span class="agent-tag"><span class="agent-dot"></span>VOICE</span>
+            <span class="agent-tag"><span class="agent-dot"></span>SCOUT</span>
+            <span class="agent-tag"><span class="agent-dot"></span>EDITOR</span>
+            <span class="agent-tag"><span class="agent-dot"></span>DIRECTOR</span>
+          </div>
+          <a href="contact.html" class="btn btn-navy btn-lg" style="width:100%;text-align:center;margin-top:auto;">Get Started →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT "AGENT ACCESS" MEANS -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title" style="color:var(--brand-white);">What "Agent Access" Actually Means</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.65);margin:0 auto;">These aren't tools you log into. They're a working team — assigned to your account, executing around the clock.</p>
+      </div>
+
+      <!-- Claude / Anthropic paragraph -->
+      <div style="max-width:800px;margin:0 auto var(--space-12);background:rgba(201,162,39,0.06);border:1.5px solid rgba(201,162,39,0.22);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-10);" data-animate>
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+          <div style="width:40px;height:40px;border-radius:var(--radius-md);background:linear-gradient(135deg,#c97642,#e8a87c);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--brand-white);">Powered by Anthropic's Claude API</span>
+        </div>
+        <p style="font-size:var(--text-base);color:rgba(255,255,255,0.78);line-height:1.8;max-width:none;margin-bottom:0;">Built on Anthropic's Claude API — the most capable AI model available for autonomous multi-step tasks. Every agent uses Claude's tool-use capabilities to browse the web, write and execute code, read documents, make API calls, and coordinate with other agents. Your retainer isn't just buying strategy — it's deploying a Claude-powered workforce dedicated to your ministry.</p>
+      </div>
+
+      <!-- Tech Stack -->
+      <div style="margin-bottom:var(--space-10);" data-animate>
+        <span class="section-label">Infrastructure</span>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--brand-white);margin-bottom:var(--space-3);">The Tech Stack Behind Every Agent</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:var(--text-base);max-width:60ch;margin-bottom:var(--space-8);">Enterprise-grade tools, purpose-configured for faith-driven growth.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);margin-bottom:var(--space-12);" class="tech-stack-grid" data-animate>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="tech-name">Claude API</div>
+          <div class="tech-vendor">Anthropic</div>
+          <div class="tech-desc">Agent intelligence, reasoning, tool-use &amp; multi-step task execution</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="tech-name">Claude Code</div>
+          <div class="tech-vendor">Anthropic</div>
+          <div class="tech-desc">Web development, GitHub automation &amp; agentic coding tasks</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="tech-name">Meta Ads API</div>
+          <div class="tech-vendor">Meta</div>
+          <div class="tech-desc">Campaign management, audience targeting &amp; performance reporting</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="tech-name">HubSpot API</div>
+          <div class="tech-vendor">HubSpot</div>
+          <div class="tech-desc">CRM management, email sequences &amp; lead tracking automation</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 13.5A19.79 19.79 0 0 1 1.88 4.9 2 2 0 0 1 3.85 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="tech-name">Twilio</div>
+          <div class="tech-vendor">Twilio</div>
+          <div class="tech-desc">SMS &amp; voice campaigns, 5-minute lead follow-up sequences</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+          </div>
+          <div class="tech-name">VAPI</div>
+          <div class="tech-vendor">VAPI.ai</div>
+          <div class="tech-desc">AI voice call execution &amp; real-time conversation intelligence</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="tech-name">Google Analytics API</div>
+          <div class="tech-vendor">Google</div>
+          <div class="tech-desc">Website performance tracking, audience behavior &amp; conversion data</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="tech-name">Vercel + GitHub</div>
+          <div class="tech-vendor">Vercel / GitHub</div>
+          <div class="tech-desc">Deployment pipelines, version control &amp; continuous delivery</div>
+        </div>
+      </div>
+
+      <div class="agent-access-grid" style="margin-bottom:var(--space-12);">
+        <div class="agent-access-item" data-animate data-animate-delay="1">
+          <div class="agent-access-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>24/7 Operation</h4>
+          <p>Agents run continuously — no sick days, no weekends off, no holidays. Your ministry's marketing never stops.</p>
+        </div>
+        <div class="agent-access-item" data-animate data-animate-delay="2">
+          <div class="agent-access-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Deep Specialization</h4>
+          <p>Each agent masters one domain — ads, content, funnels, web, analytics, outreach, calls, research, QA, or coordination. No generalists.</p>
+        </div>
+        <div class="agent-access-item" data-animate data-animate-delay="3">
+          <div class="agent-access-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>DIRECTOR Coordinates Everything</h4>
+          <p>DIRECTOR agent manages all agent communication, prioritizes tasks, and routes work — so you only ever need to speak with Andrew directly.</p>
+        </div>
+        <div class="agent-access-item" data-animate data-animate-delay="3">
+          <div class="agent-access-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h4>Logged, Reviewed &amp; Reported</h4>
+          <p>Every agent action is logged. EDITOR reviews all content before it reaches you. PULSE compiles unified reports. Nothing ships without oversight.</p>
+        </div>
+      </div>
+
+      <!-- Full Agent Roster -->
+      <div style="margin-bottom:var(--space-8);" data-animate>
+        <span class="section-label">Full Team Roster</span>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--brand-white);margin-bottom:var(--space-3);">Meet the 10 YAHWAYLOVE Agents</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:var(--text-base);max-width:60ch;">Each agent is purpose-built, faith-informed, and relentlessly focused on your ministry's growth metrics.</p>
+      </div>
+
+      <div class="agent-roster-grid">
+
+        <div class="agent-card" data-animate data-animate-delay="1">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Ads Intelligence</div>
+            <div class="agent-name">ARIA</div>
+          </div>
+          <p class="agent-desc">Ad Research &amp; Intelligence Agent. Meta Ads strategy, audience research, creative briefs, A/B testing, daily account scans, and weekly performance reports.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="1">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Content Production</div>
+            <div class="agent-name">CONTENT</div>
+          </div>
+          <p class="agent-desc">Content Generation Orchestrator. Social captions, 30-day calendars, Reel scripts, blog posts, sermon-to-social, video storyboards, and newsletter copy.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="2">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 13.5A19.79 19.79 0 0 1 1.88 4.9 2 2 0 0 1 3.85 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Funnel Architecture</div>
+            <div class="agent-name">FUNNEL</div>
+          </div>
+          <p class="agent-desc">Funnel Architecture &amp; Email Agent. Opt-in pages, email nurture sequences (5–7 emails), HubSpot automation, and conversion monitoring.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="2">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Web Development</div>
+            <div class="agent-name">BUILD</div>
+          </div>
+          <p class="agent-desc">Web Development Agent. Landing pages, full websites, ad creative, graphic templates, and carousel layouts — deployed and live.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="3">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Analytics &amp; Reporting</div>
+            <div class="agent-name">PULSE</div>
+          </div>
+          <p class="agent-desc">Analytics, Reporting &amp; Optimization Agent. Aggregates Meta Ads, GA, and HubSpot data into weekly plain-English reports with anomaly detection.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="1">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Outreach &amp; Email</div>
+            <div class="agent-name">HERALD</div>
+          </div>
+          <p class="agent-desc">Outreach, Email Newsletter &amp; Communication Agent. Cold email sequences, newsletter delivery, SMS campaigns via Twilio, and 5-minute lead follow-up.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="2">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Call Intelligence</div>
+            <div class="agent-name">VOICE</div>
+          </div>
+          <p class="agent-desc">Call Intelligence &amp; Follow-Up Agent. AI voice calls to warm leads via VAPI/Bland.ai, call transcription, CRM logging, and post-call SMS summaries.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="2">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Competitive Intelligence</div>
+            <div class="agent-name">SCOUT</div>
+          </div>
+          <p class="agent-desc">Competitive Intelligence &amp; Market Research Agent. Monitors competitor ad libraries, tracks trending faith content, and delivers monthly Kingdom Landscape reports.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="3">
+          <div class="agent-avatar" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <div class="agent-role">Content QA &amp; Brand Voice</div>
+            <div class="agent-name">EDITOR</div>
+          </div>
+          <p class="agent-desc">Content QA &amp; Brand Voice Agent. Reviews all content for brand voice alignment, theology accuracy, and grammar — nothing ships without EDITOR approval.</p>
+        </div>
+
+        <div class="agent-card" data-animate data-animate-delay="3" style="background:linear-gradient(135deg,rgba(201,162,39,0.08),transparent);border-color:rgba(201,162,39,0.35);">
+          <div class="agent-avatar" style="background:linear-gradient(135deg,var(--brand-gold-dim),var(--brand-gold));color:var(--brand-navy);" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <div class="agent-role" style="color:var(--brand-gold-dim);">Team Lead</div>
+            <div class="agent-name">DIRECTOR</div>
+          </div>
+          <p class="agent-desc">Campaign Orchestration Agent &amp; Team Lead. Coordinates all agents per client, routes tasks, manages priorities, and sends unified client status updates to Andrew.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ONE-TIME PROJECT PRICING -->
+  <section class="section-offset">
+    <div class="container">
+      <div style="margin-bottom:var(--space-10);" data-animate>
+        <span class="section-label">One-Time Projects</span>
+        <h2 class="section-title">Project-Based Pricing</h2>
+        <p class="section-sub">Need a one-time deliverable without a monthly commitment? These fixed-scope packages are built for clarity and speed.</p>
+      </div>
+      <div class="one-time-grid">
+        <div class="one-time-card" data-animate data-animate-delay="1">
+          <div class="one-time-name">Landing Page</div>
+          <div class="one-time-price">$1,500</div>
+          <p class="one-time-desc">Conversion-optimized single page built by BUILD agent — copy, design, and form integration included.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="1">
+          <div class="one-time-name">Full Website</div>
+          <div class="one-time-price">$3,500–$6,000</div>
+          <p class="one-time-desc">5–10 page custom website with SEO structure, mobile optimization, and CMS integration by BUILD agent.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="2">
+          <div class="one-time-name">Brand Identity Package</div>
+          <div class="one-time-price">$2,000</div>
+          <p class="one-time-desc">Logo, color palette, typography, brand guidelines — CONTENT + EDITOR collaborating on your full visual identity.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="2">
+          <div class="one-time-name">Funnel Build</div>
+          <div class="one-time-price">$2,500</div>
+          <p class="one-time-desc">Complete lead funnel — opt-in page, 5-email nurture sequence, and HubSpot integration by FUNNEL + BUILD agents.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+        <div class="one-time-card" data-animate data-animate-delay="3">
+          <div class="one-time-name">Google Ad Grant Setup</div>
+          <div class="one-time-price">$750</div>
+          <p class="one-time-desc">Application, account setup, and initial campaign structure for the $10K/month free Google Ads grant for nonprofits and churches — ARIA-led.</p>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--color-text);border-color:var(--color-border);font-size:0.75rem;padding:var(--space-2) var(--space-4);margin-top:var(--space-3);">Inquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section>
+    <div class="container">
+      <div class="guarantee-block" data-animate>
+        <div class="guarantee-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <h2 class="guarantee-title">The YAHWAYLOVE Promise</h2>
+        <div class="divider" style="margin:0 auto var(--space-6);"></div>
+        <p class="guarantee-text">We offer a 30-day satisfaction guarantee. If you're not seeing progress in your first month — real movement, real metrics, real results — we'll refund your investment in full. No questions asked. God's word doesn't return void, and neither does our work. Ten agents, one mission: your ministry's growth.</p>
+        <div class="badge badge-gold" style="font-size:0.75rem;">30-Day Money-Back Guarantee</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-offset">
+    <div class="container-narrow">
+      <div class="text-center" style="margin-bottom:var(--space-10);" data-animate>
+        <span class="section-label">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list" data-animate>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do I need a big budget to get started?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Not at all. Our Kingdom Starter plan begins at $2,500/month — this includes both our management fee and up to $3,000 in ad spend, meaning the entire budget is accounted for. With four specialized AI agents (ARIA, CONTENT, PULSE, HERALD) running continuously, you get the output of a full marketing team at a fraction of the traditional cost. Start where you are.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How long until I see results?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Most clients see measurable engagement improvements within the first 2–3 weeks — ARIA begins optimizing ad performance immediately, while CONTENT and HERALD start filling your pipeline. Lead generation and conversion results typically appear by end of month one. Because our agents operate 24/7, optimization cycles that normally take weeks happen in hours.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you work with non-faith businesses?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              YAHWAYLOVE is built exclusively for faith-driven organizations — churches, ministries, Christian nonprofits, and faith-based businesses. Our agents are calibrated for this space: EDITOR reviews for theology accuracy, CONTENT speaks in the language of your congregation, and SCOUT tracks the faith media landscape. This specialization is what makes our results exceptional.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What's included in "AI Agent access"?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Each agent is a purpose-built AI system assigned to your account and running continuously. ARIA handles your ad intelligence and optimization. CONTENT generates your posts, scripts, and newsletters. FUNNEL builds and monitors your lead systems. BUILD deploys your pages. PULSE tracks everything and reports clearly. HERALD manages outreach and follow-up. VOICE calls warm leads. SCOUT monitors competitors. EDITOR approves all output. DIRECTOR coordinates the whole team. Andrew oversees every agent and reviews all strategy — you get the benefits of a 10-person team with a single point of communication.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can I cancel anytime?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. All retainer plans are month-to-month with 30-days notice for cancellation. We don't believe in trapping you in long-term contracts — we'd rather earn your continued partnership through results. All deliverables created during your engagement (content, funnels, pages, reports) belong to you upon departure.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is there a setup fee?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              There is a one-time onboarding fee equal to the first month's retainer for Kingdom Builder and Kingdom Dominator plans. This covers account setup, platform integrations, brand intake, full agent configuration for your specific ministry, and your first strategy session with Andrew. The Kingdom Starter plan has no setup fee.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section>
+    <div class="container">
+      <div class="cta-banner" data-animate>
+        <span class="section-label">Ready to Grow?</span>
+        <h2>Ten Agents Ready to Work for Your Ministry</h2>
+        <p>Start with a free 45-minute strategy call. No pressure — just clarity about your mission and what 10 AI agents working 24/7 could do for your growth in the next 90 days.</p>
+        <div class="btn-group">
+          <a href="contact.html" class="btn btn-primary btn-lg">Book a Free Strategy Call →</a>
+          <a href="funnel.html" class="btn btn-outline">Get a Free Ministry Audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand-name">YAHWAY<span>LOVE</span></div>
+          <p class="footer-tagline">Faith. Strategy. Growth. Ten AI agents working 24/7 for your ministry — led by Andrew Rocha in Fort Worth, Texas.</p>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 13.5A19.79 19.79 0 0 1 1.88 4.9 2 2 0 0 1 3.85 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (561) 305-0404
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            rocha@yahwaylove.com
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul role="list">
+            <li><a href="services.html">Meta Ads Management</a></li>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">Lead Funnels</a></li>
+            <li><a href="services.html">Content Creation</a></li>
+            <li><a href="services.html">AI Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="about.html">About Andrew</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="funnel.html">Free Audit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul role="list">
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 YAHWAYLOVE LLC. All rights reserved. Fort Worth, Texas.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
