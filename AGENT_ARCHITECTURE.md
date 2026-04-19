@@ -504,3 +504,297 @@ At $2,500/client retainer with $500 infrastructure cost → **80% margin**.
 **Week 4:** Build BUILD agent + full orchestrator + deploy to production
 
 Andrew operates from Claude Code CLI — can monitor, override, or enhance any agent at any time.
+
+---
+
+## KAIROS — Autonomous Daemon Pattern
+KAIROS is Anthropic's internal autonomous agent daemon (discovered via Claude Code source leak analysis by Sabrina Ramonov, March 2026).
+
+### Key Components
+- GitHub webhook listener — triggers on push events
+- 5-minute cron scheduler — heartbeat for continuous operation
+- /dream endpoint — memory consolidation during idle periods
+- SendUserFileTool — delivers files to users
+- PushNotificationTool — proactive user alerts
+- Session compaction — forks second Claude to summarize, re-injects context
+
+### Applied to YAHWAYLOVE DIRECTOR Agent
+```python
+import asyncio
+from anthropic import Anthropic
+
+class KAIROSDirector:
+    """DIRECTOR agent with KAIROS-style autonomous daemon pattern"""
+    
+    def __init__(self, api_key: str):
+        self.client = Anthropic(api_key=api_key)
+        self.heartbeat_interval = 300  # 5-minute cron
+        
+    async def heartbeat_cycle(self):
+        """9-step Canopy heartbeat protocol"""
+        while True:
+            # 1. Wake
+            # 2. Retrieve identity
+            # 3. Check governance/budget
+            # 4. Load continuation context
+            # 5. Resolve adapter (Claude Code, Codex, etc.)
+            # 6. Fetch pending tasks from Supabase
+            # 7. Atomic task checkout (prevent double-execution)
+            # 8. Execute with appropriate agent
+            # 9. Compact session + sleep
+            
+            tasks = await self.fetch_pending_tasks()
+            for task in tasks:
+                await self.route_to_agent(task)
+            
+            await asyncio.sleep(self.heartbeat_interval)
+    
+    async def dream_consolidation(self):
+        """Memory consolidation during idle periods"""
+        response = self.client.messages.create(
+            model="claude-opus-4-5",
+            max_tokens=4096,
+            messages=[{
+                "role": "user",
+                "content": "Consolidate today's learnings into wiki/ folder. Update CLAUDE.md with new patterns discovered."
+            }]
+        )
+        return response.content[0].text
+```
+
+---
+
+## UltraPlan — Deep Planning Mode
+UltraPlan offloads complex planning to a remote Opus instance with a 30-minute session window and 3-second polling.
+
+```python
+async def ultra_plan(objective: str) -> str:
+    """UltraPlan: offload complex planning to Opus with extended think time"""
+    client = Anthropic()
+    
+    # Extended thinking — 30-minute budget
+    response = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=16000,
+        thinking={
+            "type": "enabled",
+            "budget_tokens": 10000  # Deep thinking budget
+        },
+        messages=[{
+            "role": "user", 
+            "content": f"UltraPlan mode activated. Create a comprehensive execution plan for: {objective}. Think deeply about every dependency, risk, and sequence."
+        }]
+    )
+    return response.content[-1].text  # Return text block after thinking
+```
+
+---
+
+## Canopy Agent OS Integration
+All 10 YAHWAYLOVE agents run on the Canopy protocol (github.com/Miosa-osa/canopy).
+
+### Installation
+```bash
+curl -fsSL https://raw.githubusercontent.com/Miosa-osa/canopy/main/install.sh | bash
+```
+
+### Workspace Structure for YAHWAYLOVE
+```
+canopy/
+├── SYSTEM.md          # Agency identity, routing table, agent roster
+├── company.yaml       # Mission, budget ($500/mo), governance rules
+├── agents/
+│   ├── director.md    # DIRECTOR agent definition
+│   ├── aria.md        # ARIA (Meta Ads)
+│   ├── content.md     # CONTENT (creation + video)
+│   ├── herald.md      # HERALD (email + SMS)
+│   ├── voice.md       # VOICE (AI calls)
+│   ├── funnel.md      # FUNNEL (automation)
+│   ├── build.md       # BUILD (web dev)
+│   ├── pulse.md       # PULSE (analytics)
+│   ├── scout.md       # SCOUT (intel)
+│   └── editor.md      # EDITOR (QA + media)
+├── skills/
+│   ├── meta-ads.md
+│   ├── remotion-video.md
+│   ├── muapi-media.md
+│   ├── blotato-distribution.md
+│   └── faith-content.md
+├── raw/               # Source material (Karpathy pattern)
+├── wiki/              # LLM-written knowledge (Karpathy pattern)
+├── outputs/           # Deliverables
+└── CLAUDE.md          # How agents should think
+```
+
+### Budget Enforcement
+- Soft alert at 80% of monthly budget
+- Hard stop at 100% — requires human approval to resume
+- Real-time cost tracking per agent, task, and project
+
+---
+
+## free-code — Unlocked Claude Code
+```bash
+curl -fsSL https://raw.githubusercontent.com/paoloanzn/free-code/main/install.sh | bash
+```
+
+### Enabled Flags (54 total)
+Key flags for YAHWAYLOVE agents:
+- `ULTRAPLAN` — offloads planning to remote Opus
+- `ULTRATHINK` — extended reasoning for complex tasks
+- `AGENT_TRIGGERS` — autonomous task triggering
+- `TEAMMEM` — shared memory between agents
+- `VOICE_MODE` — voice interface for agents
+- `VERIFICATION_AGENT` — built-in quality checking
+- `BRIDGE_MODE` — cross-agent communication
+
+---
+
+## Remotion Video Agent (CONTENT + EDITOR)
+Install: `npx skills add remotion-dev/skills`
+
+### 5 Production Templates
+
+#### Template 1: Education Explainer (30s)
+- Use case: Explain any faith concept, AI tool, or marketing strategy
+- 5 scenes with SVG animations, research → script → animate workflow
+- Final: particle effect background
+
+#### Template 2: Product Demo (25s)
+- Use case: Showcase client ministry websites, apps, or services
+- Scrapes real branding from URL, animated cursor simulation
+- Real product image showcase
+
+#### Template 3: Google Reviews Testimonial (20s)
+- Use case: Build social proof for faith organizations
+- Playwright scrapes real Google reviews
+- Star fill animations, light theme, gold accents
+
+#### Template 4: Avatar + Animated Overlays
+- Use case: Enhance Andrew's talking-head content
+- Whisper transcription with timestamps
+- Full-frame video, top-portion overlays, speech-synced badges
+
+#### Template 5: Data Viz Dashboard (15s)
+- Use case: Client analytics reports, ministry growth metrics
+- CSV input → animated KPI cards, bar chart, donut, line chart
+- Glass-morphism aesthetic
+
+---
+
+## Gemma4 — Local Model Integration
+```bash
+ollama run gemma4
+```
+
+Variants:
+- `gemma4:e2b` — 2B params, phone/laptop (edge)
+- `gemma4:e4b` — 4B params, 9.6GB, 128K context (default)
+- `gemma4:12b` — 12B params, workstation
+- `gemma4:27b` — 27B params, server
+
+Use case in YAHWAYLOVE:
+- Local model for sensitive client data processing
+- Offline agent operations
+- Training Camp Module 17: "Local AI — Free Forever"
+
+---
+
+## Grok Multi-Agent Search (SCOUT Agent)
+Pattern from Ruben Hassid's AI guide, SuperGrok $30/mo
+
+### Multi-Agent Search Architecture
+- **Grok** (orchestrator) — routes queries to specialists
+- **Harper** (web + X search) — real-time web intelligence
+- **Benjamin** (fact-checker) — verifies claims with sources
+- **Lucas** (writer) — synthesizes into readable output
+- Result: 272 sources in 37 seconds
+
+Applied to YAHWAYLOVE SCOUT:
+- Monitors competitor church marketing
+- Tracks Meta Ads Library for faith-niche ads
+- Identifies inconsistent faith posters for HERALD outbound (Free Sample Close)
+- Weekly competitive intelligence briefings
+- Trend detection for faith + marketing intersection
+
+---
+
+## ShipClaw — Telegram Agent Deployment
+Deploy OpenClaw/Claude agents to Telegram in 30 seconds.
+URL: shipclaw.org
+
+Use case for YAHWAYLOVE:
+- HERALD agent deployed to client Telegram channels
+- VOICE agent accessible via Telegram for quick responses
+- Training Camp Bonus B: students deploy first agent in 30 seconds
+- 110 pre-built personalities as starting templates
+- Pay-as-you-go — no subscription needed
+
+---
+
+## Blotato.com — AI Content Distribution (CONTENT + HERALD Agents)
+Created by Sabrina Ramonov (same researcher behind KAIROS/Claude Code leak analysis).
+URL: blotato.com | Free trial: 5,000 credits
+
+### Capabilities
+- 33M views/month across all platforms
+- 100+ pieces of content distributed per week
+- Multi-platform distribution: LinkedIn, Instagram, X, Facebook, TikTok
+- Faith content optimization for platform-specific algorithms
+
+### Integration with YAHWAYLOVE Agents
+```
+CONTENT agent:
+  - Produces 10 posts via andrew.md voice profile
+  - Passes to Blotato for multi-platform scheduling
+
+HERALD agent:
+  - Free Sample Close: sends custom posts to faith leader prospects
+  - Uses Blotato distribution for max reach
+
+Training Camp Module 06:
+  - Students learn 1M Follower Content System via Blotato
+  - Batch-produce 30 days of content, schedule via Blotato
+
+Training Camp Module 12 (Sound Like You):
+  - Voice profile content fed directly to Blotato pipeline
+  - Consistent brand voice at content scale
+```
+
+### Free Sample Close Automation Flow
+```
+SCOUT identifies inconsistent faith poster
+  → CONTENT generates custom post in their voice
+    → HERALD sends "We wrote this for your church..." message
+      → FUNNEL tracks response and conversion
+        → Blotato distributes approved content at scale
+```
+
+---
+
+## Sabrina Ramonov — $1K Money Sprint (Training Camp Module 01)
+Source: "I Asked Claude To Make Me As Much Money As Possible" (April 11, 2026)
+
+### The 3-Prompt Sprint Method
+```
+Prompt 1: "Give me two ways I could make my first $1,000 in 30 days 
+           using my current skills and network. Ask me clarifying questions."
+
+Prompt 2: "Who is the single most successful person I should learn from 
+           to achieve this goal? Give me one specific person and one action."
+
+Prompt 3: "Create a 20-day action plan where customer acquisition starts 
+           on Day 1 — not after I've 'prepared'. Generate a Stripe payment link."
+
+Bonus:    "Ask me 3 yes/no questions to cut my to-do list in half and 
+           remove everything that isn't revenue-generating."
+```
+
+Tools required: Claude.ai, Stripe, LinkedIn Premium
+Duration: 45 minutes
+Outcome: Prospecting list + free sample + live payment link
+
+Applied to YAHWAYLOVE Training Camp:
+- Module 01 — runs before any technical training
+- Goal: students earn first revenue before touching Claude Code
+- Faith Content Sprint ($500 flat) is the direct productized output of this module

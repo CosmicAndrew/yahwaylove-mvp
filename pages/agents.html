@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Agent Team — YAHWAYLOVE LLC</title>
-  <meta name="description" content="Meet the 10 specialized AI agents that execute every YAHWAYLOVE service — from Meta Ads to email newsletters, call follow-ups, content creation, analytics, and more." />
+  <title>The Agent Team — YAHWAYLOVE LLC | 10 Autonomous AI Agents</title>
+  <meta name="description" content="Meet the 10 autonomous AI agents powering YAHWAYLOVE: DIRECTOR, ARIA, CONTENT, HERALD, VOICE, FUNNEL, BUILD, PULSE, SCOUT, EDITOR. Canopy OS, LangGraph, Remotion, Muapi.ai, Blotato, and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
@@ -22,11 +22,10 @@
     }
     .agent-hero::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
         radial-gradient(circle at 20% 50%, rgba(201,162,39,0.07) 0%, transparent 50%),
-        radial-gradient(circle at 80% 30%, rgba(78,122,160,0.05) 0%, transparent 40%);
+        radial-gradient(circle at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 40%);
     }
     .agent-hero-content { position: relative; z-index: 1; }
     .agent-hero h1 {
@@ -49,712 +48,780 @@
     .agent-count-row {
       display: flex;
       justify-content: center;
-      gap: var(--space-12);
+      gap: var(--space-10);
       flex-wrap: wrap;
-      margin-top: var(--space-10);
-      padding-top: var(--space-10);
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
     .agent-count-item { text-align: center; }
-    .agent-count-num {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: var(--brand-gold);
-      line-height: 1;
-    }
-    .agent-count-label {
-      font-size: var(--text-xs);
-      color: rgba(255,255,255,0.45);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: var(--space-1);
-    }
+    .agent-count-val { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--brand-gold); line-height: 1; }
+    .agent-count-label { font-size: var(--text-xs); color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-top: var(--space-1); }
 
-    /* ---- AGENT GRID ---- */
+    /* ---- AGENT CARDS ---- */
     .agents-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-6);
     }
-    @media (max-width: 960px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .agents-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 860px) { .agents-grid { grid-template-columns: 1fr; } }
 
-    .agent-card {
+    .agent-card-full {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-interactive);
+    }
+    .agent-card-full:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .agent-card-header {
+      padding: var(--space-7) var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      border-bottom: 1px solid var(--color-divider);
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-card-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .agent-card-full.director .agent-card-header::before { background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light)); }
+    .agent-card-full.blue .agent-card-header::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .agent-card-full.green .agent-card-header::before { background: linear-gradient(90deg, #10b981, #34d399); }
+    .agent-card-full.purple .agent-card-header::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+    .agent-card-full.orange .agent-card-header::before { background: linear-gradient(90deg, #f97316, #fb923c); }
+    .agent-card-full.pink .agent-card-header::before { background: linear-gradient(90deg, #ec4899, #f472b6); }
+    .agent-card-full.teal .agent-card-header::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+    .agent-card-full.red .agent-card-header::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .agent-card-full.indigo .agent-card-header::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+
+    .agent-avatar {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.4rem;
+    }
+    .agent-card-full.director .agent-avatar { background: linear-gradient(135deg, rgba(201,162,39,0.2), rgba(201,162,39,0.08)); color: var(--brand-gold); }
+    .agent-card-full.blue .agent-avatar { background: rgba(59,130,246,0.12); color: #60a5fa; }
+    .agent-card-full.green .agent-avatar { background: rgba(16,185,129,0.12); color: #34d399; }
+    .agent-card-full.purple .agent-avatar { background: rgba(139,92,246,0.12); color: #a78bfa; }
+    .agent-card-full.orange .agent-avatar { background: rgba(249,115,22,0.12); color: #fb923c; }
+    .agent-card-full.pink .agent-avatar { background: rgba(236,72,153,0.12); color: #f472b6; }
+    .agent-card-full.teal .agent-avatar { background: rgba(6,182,212,0.12); color: #22d3ee; }
+    .agent-card-full.red .agent-avatar { background: rgba(239,68,68,0.12); color: #f87171; }
+    .agent-card-full.indigo .agent-avatar { background: rgba(99,102,241,0.12); color: #818cf8; }
+
+    .agent-header-info { flex: 1; }
+    .agent-number { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 3px; }
+    .agent-name-large { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; color: var(--color-text); line-height: 1; margin-bottom: var(--space-1); }
+    .agent-role { font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 500; }
+
+    .agent-status-pill {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #22c55e;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .status-dot { width: 5px; height: 5px; background: #22c55e; border-radius: 50%; animation: pulse-status 1.8s ease-in-out infinite; }
+    @keyframes pulse-status { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+    .agent-card-body { padding: var(--space-7) var(--space-8); }
+    .agent-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-5); }
+
+    .agent-capabilities { margin-bottom: var(--space-5); }
+    .agent-cap-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
+    .agent-cap-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+    .agent-cap-item {
+      display: flex; align-items: flex-start; gap: var(--space-2);
+      font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5;
+    }
+    .agent-cap-item svg { flex-shrink: 0; margin-top: 2px; }
+
+    .agent-tool-pills { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+    .agent-tool-pill {
+      display: inline-block;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: var(--radius-full);
+      background: var(--color-surface-2); color: var(--color-text-muted); border: 1px solid var(--color-border);
+    }
+    .agent-tool-pill.highlight { background: rgba(201,162,39,0.1); color: var(--brand-gold-dim); border-color: rgba(201,162,39,0.25); }
+    [data-theme='dark'] .agent-tool-pill.highlight { color: var(--brand-gold-light); }
+    .agent-tool-pill.new { background: rgba(59,130,246,0.08); color: #2563eb; border-color: rgba(59,130,246,0.2); }
+    [data-theme='dark'] .agent-tool-pill.new { color: #93c5fd; }
+    .agent-tool-pill.green { background: rgba(16,185,129,0.08); color: #059669; border-color: rgba(16,185,129,0.2); }
+    [data-theme='dark'] .agent-tool-pill.green { color: #34d399; }
+
+    /* ---- CANOPY OS SECTION ---- */
+    .canopy-section {
+      background: linear-gradient(160deg, #030710, #0a0f2e);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+    .heartbeat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    @media (max-width: 860px) { .heartbeat-grid { grid-template-columns: 1fr; } }
+    .heartbeat-step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .heartbeat-num {
+      min-width: 28px; height: 28px;
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 800; color: var(--brand-gold);
+    }
+    .heartbeat-content h4 { font-size: var(--text-sm); font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
+    .heartbeat-content p { font-size: var(--text-xs); color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .canopy-install-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #a5f3fc;
+      margin-top: var(--space-8);
+    }
+    .canopy-install-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: var(--space-2); font-family: var(--font-body); }
+
+    /* ---- CLAUDE CODE INTERNALS ---- */
+    .internals-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-6); }
+    @media (max-width: 860px) { .internals-grid { grid-template-columns: 1fr; } }
+    .internals-card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
       padding: var(--space-8);
       position: relative;
       overflow: hidden;
-      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+      transition: all var(--transition-interactive);
     }
-    .agent-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(201, 162, 39, 0.4);
-    }
-    .agent-card::before {
+    .internals-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(59,130,246,0.3); }
+    .internals-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--brand-navy), var(--brand-gold), var(--brand-navy-soft));
-      opacity: 0;
-      transition: opacity var(--transition-interactive);
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
     }
-    .agent-card:hover::before { opacity: 1; }
-
-    /* Director card — featured */
-    .agent-card.director {
-      grid-column: span 3;
-      border-color: rgba(201,162,39,0.3);
-      background: linear-gradient(135deg, var(--brand-navy) 0%, #131840 100%);
-    }
-    .agent-card.director .agent-name,
-    .agent-card.director .agent-role,
-    .agent-card.director .agent-desc { color: var(--brand-white); }
-    .agent-card.director .agent-desc { color: rgba(255,255,255,0.7); }
-    .agent-card.director .agent-tag {
-      background: rgba(201,162,39,0.15);
-      color: var(--brand-gold);
-      border-color: rgba(201,162,39,0.3);
-    }
-    .agent-card.director::before { opacity: 1; }
-
-    @media (max-width: 960px) { .agent-card.director { grid-column: span 2; } }
-    @media (max-width: 560px) { .agent-card.director { grid-column: span 1; } }
-
-    .agent-card.director .agent-inner {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: var(--space-8);
-      align-items: start;
-    }
-    @media (max-width: 640px) {
-      .agent-card.director .agent-inner { grid-template-columns: 1fr; }
-    }
-
-    .agent-avatar {
-      width: 72px; height: 72px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
-      border: 2px solid rgba(201, 162, 39, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-gold);
-      margin-bottom: var(--space-5);
-      flex-shrink: 0;
-    }
-    .agent-card.director .agent-avatar {
-      width: 88px; height: 88px;
-      margin-bottom: 0;
-      border-color: rgba(201,162,39,0.5);
-      background: rgba(201,162,39,0.08);
-    }
-
-    .agent-codename {
-      font-size: var(--text-xs);
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-primary);
-      margin-bottom: var(--space-1);
-    }
-    .agent-name {
-      font-family: var(--font-display);
-      font-size: var(--text-lg);
-      font-weight: 700;
-      color: var(--color-text);
-      margin-bottom: var(--space-1);
-      line-height: 1.2;
-    }
-    .agent-role {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      font-weight: 500;
-      margin-bottom: var(--space-4);
-    }
-    .agent-desc {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: 1.7;
-      margin-bottom: var(--space-5);
-    }
-    .agent-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-    }
-    .agent-tag {
+    .internals-icon { width: 48px; height: 48px; background: rgba(59,130,246,0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: #60a5fa; margin-bottom: var(--space-5); }
+    .internals-card h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-3); color: var(--color-text); }
+    .internals-card p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; }
+    .internals-code {
+      margin-top: var(--space-4);
+      font-family: monospace;
       font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 3px var(--space-3);
-      border-radius: var(--radius-full);
-      background: rgba(10,15,46,0.07);
-      color: var(--brand-navy);
-      border: 1px solid rgba(10,15,46,0.12);
+      background: rgba(10,15,46,0.06);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+      color: #2563eb;
     }
-    [data-theme='dark'] .agent-tag {
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.6);
-      border-color: rgba(255,255,255,0.1);
-    }
-
-    .agent-status {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--text-xs);
-      color: #2e7d50;
-      font-weight: 600;
-      margin-bottom: var(--space-5);
-    }
-    .agent-status-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #2e7d50;
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(46,125,80,0.4); }
-      50% { box-shadow: 0 0 0 6px rgba(46,125,80,0); }
-    }
-
-    /* ---- HOW AGENTS WORK ---- */
-    .workflow-step {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: var(--space-5);
-      align-items: start;
-      padding: var(--space-6) 0;
-      border-bottom: 1px solid var(--color-divider);
-    }
-    .workflow-step:last-child { border-bottom: none; }
-    .workflow-num {
-      width: 48px; height: 48px;
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-soft));
-      border: 2px solid rgba(201,162,39,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--text-base);
-      color: var(--brand-gold);
-      flex-shrink: 0;
-    }
-    .workflow-text h3 {
-      font-family: var(--font-display);
-      font-size: var(--text-base);
-      font-weight: 700;
-      color: var(--color-text);
-      margin-bottom: var(--space-2);
-    }
-    .workflow-text p {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: 1.65;
-    }
-    .workflow-agent-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(201,162,39,0.1);
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: var(--radius-full);
-      padding: 2px var(--space-2);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--brand-gold-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-top: var(--space-2);
-    }
-    [data-theme='dark'] .workflow-agent-badge { color: var(--brand-gold); }
-
-    /* ---- DARK SECTION ---- */
-    .section-dark {
-      background: linear-gradient(160deg, var(--brand-navy) 0%, #0d1235 100%);
-    }
-    .section-dark .section-title { color: var(--brand-white); }
-    .section-dark .section-sub { color: rgba(255,255,255,0.65); }
-    .section-dark .section-label { color: var(--brand-gold); }
+    [data-theme='dark'] .internals-code { background: rgba(0,0,0,0.2); color: #93c5fd; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
+<!-- ====== NAV ====== -->
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <rect width="36" height="36" rx="8" fill="#C9A227"/>
-        <path d="M18 6 L28 14 L28 26 L18 30 L8 26 L8 14 Z" fill="none" stroke="#0A0F2E" stroke-width="2"/>
-        <path d="M18 6 L18 30 M8 14 L28 14 M8 26 L28 26" stroke="#0A0F2E" stroke-width="1.5" opacity="0.5"/>
-        <circle cx="18" cy="20" r="4" fill="#0A0F2E"/>
-        <circle cx="18" cy="20" r="2" fill="#C9A227"/>
+    <a href="../index.html" class="nav-logo" aria-label="YAHWAYLOVE home">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#c9a227"/>
+        <path d="M16 6 L26 24 L16 20 L6 24 Z" fill="#0a0f2e"/>
+        <path d="M16 11 L22 23 L16 20 L10 23 Z" fill="#c9a227" opacity="0.4"/>
+        <rect x="14.5" y="8" width="3" height="16" rx="1.5" fill="#0a0f2e"/>
       </svg>
       <span class="nav-logo-text">YAHWAY<span>LOVE</span></span>
     </a>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" role="list">
+    <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
+      <li><a href="agents.html">Agent Team</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="training.html">Training Camp</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Call</a></li>
     </ul>
-    <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+    <div style="display:flex;align-items:center;gap:var(--space-3);">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="hamburger" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ====== HERO ====== -->
 <section class="agent-hero">
-  <div class="container agent-hero-content">
-    <span class="badge badge-gold" style="margin-bottom:var(--space-5);">
-      <span class="agent-status-dot" style="background:var(--brand-gold);animation:pulse-dot 2s infinite;"></span>
-      10 Agents · All Systems Active
-    </span>
-    <h1 data-animate>Meet the <span>Agent Team</span><br/>That Does the Work</h1>
-    <p data-animate data-animate-delay="1">
-      Every service YAHWAYLOVE delivers is executed by a specialized AI agent — running 24/7, logging every action, and reporting to Andrew. This isn't AI-assisted marketing. This is AI-operated ministry growth.
-    </p>
-    <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;" data-animate data-animate-delay="2">
-      <a href="contact.html" class="btn btn-primary btn-lg">Deploy the Team for My Ministry</a>
-      <a href="pricing.html" class="btn btn-outline btn-lg">See Pricing</a>
-    </div>
-    <div class="agent-count-row" data-animate data-animate-delay="3">
-      <div class="agent-count-item">
-        <div class="agent-count-num">10</div>
-        <div class="agent-count-label">Specialized Agents</div>
-      </div>
-      <div class="agent-count-item">
-        <div class="agent-count-num">24/7</div>
-        <div class="agent-count-label">Always Running</div>
-      </div>
-      <div class="agent-count-item">
-        <div class="agent-count-num">0</div>
-        <div class="agent-count-label">Sick Days</div>
-      </div>
-      <div class="agent-count-item">
-        <div class="agent-count-num">5min</div>
-        <div class="agent-count-label">Lead Response Time</div>
-      </div>
-      <div class="agent-count-item">
-        <div class="agent-count-num">100%</div>
-        <div class="agent-count-label">Logged & Transparent</div>
+  <div class="container">
+    <div class="agent-hero-content" data-animate>
+      <span class="badge badge-gold" style="margin-bottom:var(--space-5);">&#10013; Powered by Canopy OS</span>
+      <h1>Your <span>10-Agent AI Team</span><br/>Working 24/7 for the Kingdom</h1>
+      <p>Each agent is a specialist — built, trained, and deployed on Canopy OS with a 9-step heartbeat protocol, budget enforcement, and human-in-the-loop approval on every major decision.</p>
+      <div class="agent-count-row">
+        <div class="agent-count-item"><div class="agent-count-val">10</div><div class="agent-count-label">Specialist Agents</div></div>
+        <div class="agent-count-item"><div class="agent-count-val">330+</div><div class="agent-count-label">Canopy Templates</div></div>
+        <div class="agent-count-item"><div class="agent-count-val">200+</div><div class="agent-count-label">AI Models</div></div>
+        <div class="agent-count-item"><div class="agent-count-val">24/7</div><div class="agent-count-label">Execution</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AGENT GRID -->
+<!-- ====== AGENT CARDS ====== -->
 <section>
   <div class="container">
-    <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
-      <span class="section-label">The Roster</span>
-      <h2 class="section-title">Your Dedicated Agent Team</h2>
-      <p class="section-sub" style="margin:0 auto;">Each agent is purpose-built, domain-specialized, and faith-aligned. Together they form the most capable ministry marketing team available — at any price point.</p>
-    </div>
-
     <div class="agents-grid">
 
-      <!-- DIRECTOR — Spanning card -->
-      <div class="agent-card director" data-animate>
-        <div class="agent-inner">
-          <div>
-            <div class="agent-avatar">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
-            </div>
+      <!-- DIRECTOR -->
+      <div class="agent-card-full director" data-animate data-animate-delay="1">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
-          <div>
-            <div class="agent-status"><div class="agent-status-dot"></div> Online — Orchestrating 24/7</div>
-            <div class="agent-codename">DIRECTOR</div>
-            <div class="agent-name">Campaign Orchestration Agent</div>
-            <div class="agent-role">Team Lead · Client Account Commander</div>
-            <div class="agent-desc">DIRECTOR is the brain of the operation. For every client account, DIRECTOR coordinates all 9 other agents — routing tasks, managing priorities, resolving conflicts, and delivering unified daily status updates to Andrew. Every campaign runs through DIRECTOR. Nothing ships without DIRECTOR's sign-off. Clients only need to communicate with Andrew — DIRECTOR handles everything behind the scenes.</div>
-            <div class="agent-tags">
-              <span class="agent-tag">Team Coordination</span>
-              <span class="agent-tag">Task Routing</span>
-              <span class="agent-tag">Client Reporting</span>
-              <span class="agent-tag">Priority Management</span>
-              <span class="agent-tag">Account Command</span>
-            </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 01</div>
+            <div class="agent-name-large">DIRECTOR</div>
+            <div class="agent-role">Orchestration &amp; Workflow Management</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
+        </div>
+        <div class="agent-card-body">
+          <p class="agent-desc">DIRECTOR orchestrates all 9 specialist agents using LangGraph stateful workflows and the Canopy OS heartbeat protocol. It routes tasks, manages budget, enforces governance rules, and consolidates memory via the KAIROS /dream pattern.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Routes tasks to all 9 agents via Canopy 9-step GenServer cycle</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>UltraPlan: offloads complex planning to remote Opus (30-min sessions)</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>KAIROS daemon: GitHub webhooks, 5-min cron, /dream memory consolidation</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Budget enforcement: soft alert at 80%, hard stop at 100%</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill highlight">LangGraph</span>
+            <span class="agent-tool-pill highlight">Canopy OS</span>
+            <span class="agent-tool-pill new">UltraPlan</span>
+            <span class="agent-tool-pill new">KAIROS</span>
+            <span class="agent-tool-pill">Claude Opus</span>
+            <span class="agent-tool-pill">Supabase</span>
           </div>
         </div>
       </div>
 
       <!-- ARIA -->
-      <div class="agent-card" data-animate data-animate-delay="1">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-          </svg>
+      <div class="agent-card-full blue" data-animate data-animate-delay="2">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 02</div>
+            <div class="agent-name-large">ARIA</div>
+            <div class="agent-role">Meta Ads Intelligence &amp; Execution</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Scanning Ad Accounts</div>
-        <div class="agent-codename">ARIA</div>
-        <div class="agent-name">Ad Research & Intelligence Agent</div>
-        <div class="agent-role">Meta Ads Specialist</div>
-        <div class="agent-desc">ARIA runs Meta Ads campaigns end-to-end. Audience research, faith-audience interest stacking, creative briefs, A/B test design, bid strategy, daily account scanning, budget optimization, and weekly performance reports — ARIA executes all of it continuously.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Meta Ads</span>
-          <span class="agent-tag">Audience Research</span>
-          <span class="agent-tag">A/B Testing</span>
-          <span class="agent-tag">Bid Strategy</span>
-          <span class="agent-tag">ROAS Optimization</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">ARIA manages the full Meta Ads lifecycle — research, creative generation, audience targeting, A/B testing, and optimization — specifically tuned for the faith niche. Uses Computer Use to automate Meta Ads Library competitor analysis.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Computer Use: automates Meta Ads Library browsing &amp; competitor research</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Grok SCOUT integration for real-time faith ad intelligence</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Generates ad variants from competitor analysis</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Human-in-the-loop approval before spend</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">Computer Use</span>
+            <span class="agent-tool-pill highlight">Meta API</span>
+            <span class="agent-tool-pill new">Grok SCOUT Intel</span>
+            <span class="agent-tool-pill">Claude Tool Use</span>
+          </div>
         </div>
       </div>
 
       <!-- CONTENT -->
-      <div class="agent-card" data-animate data-animate-delay="2">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
+      <div class="agent-card-full green" data-animate data-animate-delay="1">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 03</div>
+            <div class="agent-name-large">CONTENT</div>
+            <div class="agent-role">AI Content Creation &amp; Media Production</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Generating Content</div>
-        <div class="agent-codename">CONTENT</div>
-        <div class="agent-name">Content Generation Orchestrator</div>
-        <div class="agent-role">Creative Engine</div>
-        <div class="agent-desc">CONTENT transforms sermon notes, bullet points, and brand briefs into full social media calendars, Reel scripts, blog posts, email newsletter copy, video storyboards, and ad creative copy. It also analyzes performance data and auto-adjusts content strategy weekly.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Social Copy</span>
-          <span class="agent-tag">Reel Scripts</span>
-          <span class="agent-tag">Newsletters</span>
-          <span class="agent-tag">Blog Posts</span>
-          <span class="agent-tag">Sermon Repurposing</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">CONTENT produces every type of faith content — programmatic videos via Remotion, 4K images via NanoBanana 2, social posts via the andrew.md voice profile, and distributes everything at scale via Blotato.com (33M views/month).</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Remotion: 5 video template types at programmatic scale</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>NanoBanana 2: free 4K faith images via Google Gemini</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Muapi.ai: 200+ models for images, video, lip sync</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>andrew.md + Wispr Flow: content sounds exactly like the client</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Blotato.com: distributes 100+ pieces/week across platforms</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">Remotion</span>
+            <span class="agent-tool-pill green">NanoBanana 2</span>
+            <span class="agent-tool-pill highlight">Muapi.ai</span>
+            <span class="agent-tool-pill new">Blotato.com</span>
+            <span class="agent-tool-pill">andrew.md</span>
+            <span class="agent-tool-pill">Wispr Flow</span>
+          </div>
         </div>
       </div>
 
       <!-- HERALD -->
-      <div class="agent-card" data-animate data-animate-delay="1">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
+      <div class="agent-card-full purple" data-animate data-animate-delay="2">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 04</div>
+            <div class="agent-name-large">HERALD</div>
+            <div class="agent-role">Email, SMS &amp; Outbound Campaigns</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Sending Sequences</div>
-        <div class="agent-codename">HERALD</div>
-        <div class="agent-name">Outreach & Communication Agent</div>
-        <div class="agent-role">Email · SMS · Newsletter Delivery</div>
-        <div class="agent-desc">HERALD handles all outbound communications — cold email prospecting sequences, warm lead follow-ups within 5 minutes, weekly newsletter delivery to subscriber lists, and SMS/text campaigns via Twilio. Every message is personalized, timed strategically, and logged in HubSpot.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Cold Email</span>
-          <span class="agent-tag">Newsletters</span>
-          <span class="agent-tag">SMS Campaigns</span>
-          <span class="agent-tag">Lead Follow-Up</span>
-          <span class="agent-tag">Twilio</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">HERALD runs the full email and SMS automation pipeline — from list segmentation and sequence writing to send-time optimization. Executes the Free Sample Close outbound strategy via Blotato, delivering custom posts to faith leaders 24/7.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Human-in-the-loop approval from JSON template before every send</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ShipClaw Telegram deployment for real-time client notifications</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free Sample Close: sends custom posts to faith leader prospects</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Blotato.com: cross-platform distribution at content scale</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill highlight">Claude API</span>
+            <span class="agent-tool-pill new">ShipClaw Telegram</span>
+            <span class="agent-tool-pill new">Blotato.com</span>
+            <span class="agent-tool-pill">JSON Approval</span>
+            <span class="agent-tool-pill">Formspree</span>
+          </div>
         </div>
       </div>
 
       <!-- VOICE -->
-      <div class="agent-card" data-animate data-animate-delay="2">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
+      <div class="agent-card-full orange" data-animate data-animate-delay="1">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.28-1.28a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 05</div>
+            <div class="agent-name-large">VOICE</div>
+            <div class="agent-role">AI Calls &amp; Conversational Outreach</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> On Call</div>
-        <div class="agent-codename">VOICE</div>
-        <div class="agent-name">Call Intelligence & Follow-Up Agent</div>
-        <div class="agent-role">AI Voice Calls · CRM Logging · SMS Summaries</div>
-        <div class="agent-desc">VOICE makes AI-powered follow-up calls to warm leads using natural speech (via VAPI). It transcribes every call, summarizes key points, logs everything into HubSpot CRM, and sends a post-call SMS recap to the prospect. No lead goes cold. No call goes unlogged.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">AI Voice Calls</span>
-          <span class="agent-tag">Call Transcription</span>
-          <span class="agent-tag">CRM Logging</span>
-          <span class="agent-tag">Post-Call SMS</span>
-          <span class="agent-tag">VAPI</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">VOICE handles inbound and outbound AI calls for lead qualification, appointment booking, and follow-up sequences. Available 24/7 via VAPI and accessible through Telegram via ShipClaw for instant client communications.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>VAPI + Claude Sonnet: natural AI voice calls</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ShipClaw pattern: accessible via Telegram for quick responses</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lead qualification scripts trained on faith-niche objections</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Appointment booking with calendar integration</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill highlight">VAPI</span>
+            <span class="agent-tool-pill new">ShipClaw Telegram</span>
+            <span class="agent-tool-pill">Claude Sonnet</span>
+          </div>
         </div>
       </div>
 
       <!-- FUNNEL -->
-      <div class="agent-card" data-animate data-animate-delay="1">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-          </svg>
+      <div class="agent-card-full teal" data-animate data-animate-delay="2">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 06</div>
+            <div class="agent-name-large">FUNNEL</div>
+            <div class="agent-role">Marketing Automation &amp; Lead Management</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Monitoring Conversions</div>
-        <div class="agent-codename">FUNNEL</div>
-        <div class="agent-name">Funnel Architecture & Email Agent</div>
-        <div class="agent-role">Lead Capture · Email Sequences · HubSpot</div>
-        <div class="agent-desc">FUNNEL designs and documents entire lead capture flows — opt-in pages, thank-you pages, tripwires, email nurture sequences (5–7 emails), CRM tagging rules, and automation triggers. It monitors conversion rates in real time and flags drop-off points before they cost clients money.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Funnel Design</span>
-          <span class="agent-tag">Email Sequences</span>
-          <span class="agent-tag">HubSpot</span>
-          <span class="agent-tag">CRM Tags</span>
-          <span class="agent-tag">Conversion Tracking</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">FUNNEL builds and manages the complete lead journey — from landing page to close. Uses Canopy's DAG workflow engine for complex conditional logic across 7 step types, with Supabase for real-time lead tracking.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Canopy DAG: 7 step types (agent_task, approval, condition, transform, webhook, delay, parallel)</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Supabase PostgreSQL for real-time lead pipeline tracking</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Flowise visual builder for no-code automation workflows</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Faith Content Sprint → retainer conversion funnel automation</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">Canopy DAG</span>
+            <span class="agent-tool-pill highlight">Flowise</span>
+            <span class="agent-tool-pill new">Supabase</span>
+            <span class="agent-tool-pill">7 Step Types</span>
+          </div>
         </div>
       </div>
 
       <!-- BUILD -->
-      <div class="agent-card" data-animate data-animate-delay="2">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <path d="M8 21h8M12 17v4"/>
-          </svg>
+      <div class="agent-card-full indigo" data-animate data-animate-delay="1">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 07</div>
+            <div class="agent-name-large">BUILD</div>
+            <div class="agent-role">Web Development &amp; Deployment</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Building</div>
-        <div class="agent-codename">BUILD</div>
-        <div class="agent-name">Web Development Agent</div>
-        <div class="agent-role">Websites · Landing Pages · Ad Creatives</div>
-        <div class="agent-desc">BUILD creates mobile-first, high-converting websites and landing pages using AI-accelerated code workflows. It also produces static ad creatives, graphic templates, and carousel layouts. Every deliverable is deployed to GitHub and live on Vercel — typically within 72 hours.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Web Dev</span>
-          <span class="agent-tag">Landing Pages</span>
-          <span class="agent-tag">Ad Creatives</span>
-          <span class="agent-tag">GitHub</span>
-          <span class="agent-tag">Vercel</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">BUILD ships complete websites and web applications for ministry clients using Claude Code with all 54 experimental flags unlocked via free-code. From draftly.space 3D cinematic sites to full React applications deployed on Vercel.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>free-code: 54 flags including ULTRATHINK and AGENT_TRIGGERS</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>draftly.space: 3D cinematic scroll websites from a single prompt</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Google Stitch MCP: design-to-code bridge for client Figma files</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Remotion: animated product demo videos for each client build</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">free-code (54 flags)</span>
+            <span class="agent-tool-pill highlight">Claude Code</span>
+            <span class="agent-tool-pill new">draftly.space</span>
+            <span class="agent-tool-pill new">Google Stitch MCP</span>
+            <span class="agent-tool-pill">Remotion</span>
+            <span class="agent-tool-pill">Vercel</span>
+          </div>
         </div>
       </div>
 
       <!-- PULSE -->
-      <div class="agent-card" data-animate data-animate-delay="1">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="18" y1="20" x2="18" y2="10"/>
-            <line x1="12" y1="20" x2="12" y2="4"/>
-            <line x1="6" y1="20" x2="6" y2="14"/>
-          </svg>
+      <div class="agent-card-full pink" data-animate data-animate-delay="2">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 08</div>
+            <div class="agent-name-large">PULSE</div>
+            <div class="agent-role">Analytics, Reporting &amp; Budget Intelligence</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Aggregating Data</div>
-        <div class="agent-codename">PULSE</div>
-        <div class="agent-name">Analytics & Reporting Agent</div>
-        <div class="agent-role">Meta · Google Analytics · HubSpot</div>
-        <div class="agent-desc">PULSE aggregates data across Meta Ads Manager, Google Analytics, and HubSpot into a single weekly plain-English report. It flags anomalies, detects spend inefficiencies, recommends budget reallocations, and tracks KPI trends over time. You always know exactly what's working.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Analytics</span>
-          <span class="agent-tag">Weekly Reports</span>
-          <span class="agent-tag">KPI Tracking</span>
-          <span class="agent-tag">Anomaly Detection</span>
-          <span class="agent-tag">Budget Recs</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">PULSE monitors all KPIs across Meta Ads, website traffic, email performance, and AI spend. Produces animated dashboard videos from CSV data via Remotion and enforces the Canopy budget protocol for all 10 agents.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Remotion Data Viz: CSV &rarr; animated 15s dashboard videos</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Canopy budget enforcer: real-time token cost monitoring per agent</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Meta + GA4 API integration for unified reporting</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly animated analytics reports delivered to client inbox</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">Remotion Data Viz</span>
+            <span class="agent-tool-pill highlight">Canopy Budget</span>
+            <span class="agent-tool-pill">Meta API</span>
+            <span class="agent-tool-pill">GA4 API</span>
+          </div>
         </div>
       </div>
 
       <!-- SCOUT -->
-      <div class="agent-card" data-animate data-animate-delay="2">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
+      <div class="agent-card-full orange" data-animate data-animate-delay="1">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 09</div>
+            <div class="agent-name-large">SCOUT</div>
+            <div class="agent-role">Competitive Intelligence &amp; Trend Monitoring</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Monitoring Competitors</div>
-        <div class="agent-codename">SCOUT</div>
-        <div class="agent-name">Competitive Intelligence Agent</div>
-        <div class="agent-role">Market Research · Ad Library · Trend Tracking</div>
-        <div class="agent-desc">SCOUT monitors competitor churches and ministries' Meta Ad Libraries weekly, tracks trending faith content across platforms, and delivers a monthly "Kingdom Landscape" report — so clients always know what their competition is doing and where the opportunities are.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Competitor Analysis</span>
-          <span class="agent-tag">Ad Library Monitoring</span>
-          <span class="agent-tag">Trend Research</span>
-          <span class="agent-tag">Monthly Reports</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">SCOUT runs Ruben Hassid's multi-agent search pattern using Grok SuperGrok — four specialized sub-agents searching 272 sources in 37 seconds. Monitors competitor church ads, detects faith marketing trends, and finds prospects for the Free Sample Close outbound system.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Grok multi-agent: Grok + Harper (web/X) + Benjamin (fact-check) + Lucas (writer)</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>272 sources in 37 seconds via SuperGrok ($30/mo)</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Meta Ad Library automation with Claude Computer Use</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Identifies inconsistent faith posters for HERALD outbound targeting</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill highlight">Grok SuperGrok</span>
+            <span class="agent-tool-pill new">Multi-Agent Search</span>
+            <span class="agent-tool-pill new">Computer Use</span>
+            <span class="agent-tool-pill">Meta Ad Library</span>
+          </div>
         </div>
       </div>
 
       <!-- EDITOR -->
-      <div class="agent-card" data-animate data-animate-delay="3">
-        <div class="agent-avatar">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
+      <div class="agent-card-full red" data-animate data-animate-delay="2">
+        <div class="agent-card-header">
+          <div class="agent-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="agent-header-info">
+            <div class="agent-number">Agent 10</div>
+            <div class="agent-name-large">EDITOR</div>
+            <div class="agent-role">Quality Assurance &amp; Media Finalization</div>
+          </div>
+          <div class="agent-status-pill"><span class="status-dot"></span>Active</div>
         </div>
-        <div class="agent-status"><div class="agent-status-dot"></div> Reviewing Output</div>
-        <div class="agent-codename">EDITOR</div>
-        <div class="agent-name">Content QA & Brand Voice Agent</div>
-        <div class="agent-role">Quality Control · Theology Review · Brand Consistency</div>
-        <div class="agent-desc">EDITOR reviews every piece of content produced by CONTENT before it goes live — checking for brand voice consistency, theological accuracy, grammar, tone, and compliance with the client's ministry guidelines. Nothing ships without EDITOR's approval. Excellence is non-negotiable.</div>
-        <div class="agent-tags">
-          <span class="agent-tag">Content QA</span>
-          <span class="agent-tag">Brand Voice</span>
-          <span class="agent-tag">Theology Review</span>
-          <span class="agent-tag">Grammar & Tone</span>
+        <div class="agent-card-body">
+          <p class="agent-desc">EDITOR is the final gate before anything goes live. It runs theology review, applies all 5 Remotion video templates for polished output, generates lip-sync videos for pastor content amplification, and ensures every deliverable meets YAHWAYLOVE's faith standards.</p>
+          <div class="agent-capabilities">
+            <div class="agent-cap-title">Capabilities</div>
+            <ul class="agent-cap-list">
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All 5 Remotion templates: Explainer, Demo, Reviews, Overlays, Data Viz</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Muapi.ai Lip Sync: 9 models including Infinite Talk and LTX Lipsync</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cinema Studio: 6 cameras, 11 lenses for cinematic faith content</li>
+              <li class="agent-cap-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Theology review pipeline using Sabrina's Claude Code video prompts</li>
+            </ul>
+          </div>
+          <div class="agent-tool-pills">
+            <span class="agent-tool-pill new">Remotion (5 templates)</span>
+            <span class="agent-tool-pill highlight">Muapi.ai Lip Sync</span>
+            <span class="agent-tool-pill new">Cinema Studio</span>
+            <span class="agent-tool-pill">Theology Review</span>
+          </div>
         </div>
       </div>
 
-    </div><!-- /agents-grid -->
+    </div>
   </div>
 </section>
 
-<!-- HOW AGENTS COLLABORATE -->
-<section style="background:var(--color-surface-2);">
+<!-- ====== CANOPY AGENT OS ====== -->
+<section class="canopy-section">
   <div class="container">
-    <div class="grid-2" style="gap:var(--space-16);">
-      <div data-animate>
-        <span class="section-label">The Workflow</span>
-        <h2 class="section-title">How Your Agent Team Works Every Day</h2>
-        <p class="section-sub">From the moment you become a client, your entire DIRECTOR-led agent team activates. Here's what runs on autopilot for you every single day.</p>
+    <div class="text-center" data-animate style="margin-bottom: var(--space-12);">
+      <span class="section-label" style="color:var(--brand-gold-light);">Infrastructure</span>
+      <h2 class="section-title" style="color:var(--brand-white);">The Canopy Agent OS</h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:var(--text-lg);max-width:52ch;margin:0 auto;">All 10 YAHWAYLOVE agents run on the Canopy protocol &mdash; 330+ pre-built agent templates, a pixel-art virtual office showing agents collaborating, and a 9-step heartbeat cycle that keeps every agent continuously operational.</p>
+    </div>
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);margin-bottom:var(--space-12);" data-animate>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:var(--brand-gold);">330+</div>
+        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-top:var(--space-1);">Agent Templates</div>
       </div>
-      <div data-animate data-animate-delay="1">
-        <div class="workflow-step">
-          <div class="workflow-num">1</div>
-          <div class="workflow-text">
-            <h3>Morning Account Scan (6 AM CT)</h3>
-            <p>ARIA scans your Meta Ads accounts, PULSE pulls overnight analytics, SCOUT checks competitor activity. Any anomaly triggers an immediate alert to Andrew.</p>
-            <div class="workflow-agent-badge">ARIA · PULSE · SCOUT</div>
-          </div>
-        </div>
-        <div class="workflow-step">
-          <div class="workflow-num">2</div>
-          <div class="workflow-text">
-            <h3>Content Production (Daily)</h3>
-            <p>CONTENT generates today's scheduled posts, captions, and any queued assets. EDITOR reviews and approves before anything goes to scheduling.</p>
-            <div class="workflow-agent-badge">CONTENT · EDITOR</div>
-          </div>
-        </div>
-        <div class="workflow-step">
-          <div class="workflow-num">3</div>
-          <div class="workflow-text">
-            <h3>Lead Response (Within 5 Min)</h3>
-            <p>New lead comes in. HERALD fires a personalized email and SMS instantly. VOICE queues a follow-up call within the hour. FUNNEL logs and tags in HubSpot automatically.</p>
-            <div class="workflow-agent-badge">HERALD · VOICE · FUNNEL</div>
-          </div>
-        </div>
-        <div class="workflow-step">
-          <div class="workflow-num">4</div>
-          <div class="workflow-text">
-            <h3>Weekly Report (Every Monday)</h3>
-            <p>PULSE compiles a full-week performance summary. DIRECTOR packages it into a clean client briefing. Andrew adds personal notes and strategic recommendations.</p>
-            <div class="workflow-agent-badge">PULSE · DIRECTOR</div>
-          </div>
-        </div>
-        <div class="workflow-step">
-          <div class="workflow-num">5</div>
-          <div class="workflow-text">
-            <h3>Monthly Kingdom Landscape (1st of Month)</h3>
-            <p>SCOUT delivers a competitive intelligence report — what competitors spent, what content performed industry-wide, and where the biggest growth opportunities are.</p>
-            <div class="workflow-agent-badge">SCOUT · DIRECTOR</div>
-          </div>
-        </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:var(--brand-gold);">19</div>
+        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-top:var(--space-1);">Agent Categories</div>
       </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:var(--brand-gold);">9</div>
+        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-top:var(--space-1);">Heartbeat Steps</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:var(--brand-gold);">11</div>
+        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-top:var(--space-1);">Adapters (Claude, Codex)</div>
+      </div>
+    </div>
+
+    <!-- 9-step heartbeat -->
+    <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--brand-white);margin-bottom:var(--space-6);text-align:center;" data-animate>The 9-Step Heartbeat Cycle</h3>
+    <div class="heartbeat-grid" data-animate>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">1</div>
+        <div class="heartbeat-content"><h4>Wake</h4><p>Agent activates from sleep state on cron trigger or webhook event</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">2</div>
+        <div class="heartbeat-content"><h4>Identity</h4><p>Retrieves agent profile from agents/ folder (director.md, aria.md, etc.)</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">3</div>
+        <div class="heartbeat-content"><h4>Governance</h4><p>Checks budget status — soft alert at 80%, hard stop at 100%</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">4</div>
+        <div class="heartbeat-content"><h4>Continuation</h4><p>Loads prior context from wiki/ folder and continuation pointer</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">5</div>
+        <div class="heartbeat-content"><h4>Adapter</h4><p>Resolves which AI (Claude Code, Codex, OSA) handles this task type</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">6</div>
+        <div class="heartbeat-content"><h4>Tasks</h4><p>Fetches pending tasks from Supabase with atomic checkout (no double-execution)</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">7</div>
+        <div class="heartbeat-content"><h4>Execute</h4><p>Runs task with appropriate specialist agent and tool calls</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">8</div>
+        <div class="heartbeat-content"><h4>Compact</h4><p>Forks second Claude to summarize session, re-injects compressed context</p></div>
+      </div>
+      <div class="heartbeat-step">
+        <div class="heartbeat-num">9</div>
+        <div class="heartbeat-content"><h4>Sleep</h4><p>Writes outputs/ and wiki/ updates, schedules next wake interval</p></div>
+      </div>
+    </div>
+
+    <div class="canopy-install-box" data-animate>
+      <div class="canopy-install-label">Install Canopy OS</div>
+      curl -fsSL https://raw.githubusercontent.com/Miosa-osa/canopy/main/install.sh | bash
     </div>
   </div>
 </section>
 
-<!-- WHAT MAKES THIS DIFFERENT -->
-<section class="section-dark">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:var(--space-12);" data-animate>
-      <span class="section-label">Why This Matters</span>
-      <h2 class="section-title">Not "AI-Assisted." Actually AI-Operated.</h2>
-      <p class="section-sub" style="margin:0 auto;color:rgba(255,255,255,0.65);">Most agencies say they "use AI." YAHWAYLOVE's agents ARE the team — executing deliverables, not just recommending them.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="1">
-        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3 style="color:var(--brand-white);">24/7 Execution</h3>
-        <p>Agents don't sleep, take lunch, or have off days. Your campaigns, content, and lead follow-up run continuously — including weekends and holidays.</p>
-      </div>
-      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="2">
-        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3 style="color:var(--brand-white);">100% Logged & Auditable</h3>
-        <p>Every action every agent takes is logged, timestamped, and available for review. Full transparency — you always know exactly what was done and why.</p>
-      </div>
-      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);" data-animate data-animate-delay="3">
-        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 style="color:var(--brand-white);">Andrew Reviews Everything</h3>
-        <p>Agents execute. Andrew supervises. Every major deliverable — reports, campaigns, content calendars — gets Andrew's personal eyes before it reaches you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
+<!-- ====== CLAUDE CODE INTERNALS ====== -->
 <section>
   <div class="container">
-    <div class="cta-banner" data-animate>
-      <div class="cta-banner-content">
-        <div class="badge badge-gold" style="margin:0 auto var(--space-4);width:fit-content;">Ready to Deploy Your Team?</div>
-        <h2>10 Agents. 1 Mission. Your Ministry's Growth.</h2>
-        <p>Book a free strategy call and we'll show you exactly which agents your organization needs and what they'll execute in the first 30 days.</p>
-        <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary btn-lg">Book Your Free Strategy Call</a>
-          <a href="funnel.html" class="btn btn-outline btn-lg">Get a Free Ministry Audit</a>
+    <div class="text-center" data-animate style="margin-bottom: var(--space-12);">
+      <span class="section-label">Advanced Architecture</span>
+      <h2 class="section-title">Claude Code Internals Unlocked</h2>
+      <p class="section-sub" style="margin: 0 auto;">Three layers of Claude Code infrastructure that most developers don't know exist &mdash; all active inside YAHWAYLOVE's agent system.</p>
+    </div>
+    <div class="internals-grid">
+      <div class="internals-card" data-animate data-animate-delay="1">
+        <div class="internals-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
         </div>
+        <h3>KAIROS Daemon</h3>
+        <p>Anthropic's internal autonomous agent pattern discovered via Claude Code source analysis by Sabrina Ramonov (March 2026). GitHub webhook listener triggers on push events. 5-minute cron scheduler maintains continuous heartbeat. /dream endpoint consolidates memory during idle periods.</p>
+        <div class="internals-code">5-min cron &rarr; webhook &rarr; /dream memory</div>
+      </div>
+      <div class="internals-card" data-animate data-animate-delay="2">
+        <div class="internals-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>UltraPlan</h3>
+        <p>Activated via free-code's ULTRAPLAN flag, UltraPlan offloads complex planning to a remote Claude Opus instance with a 30-minute session window and 3-second polling. Enables deep multi-step planning that the standard model context can't hold.</p>
+        <div class="internals-code">claude-opus-4-5 + budget_tokens: 10000</div>
+      </div>
+      <div class="internals-card" data-animate data-animate-delay="3">
+        <div class="internals-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>free-code (54 Flags)</h3>
+        <p>The free-code fork removes all telemetry and enables 54 experimental flags. Key flags: ULTRAPLAN, ULTRATHINK (extended reasoning), AGENT_TRIGGERS (autonomous task triggering), TEAMMEM (shared memory between agents), VOICE_MODE, VERIFICATION_AGENT, BRIDGE_MODE.</p>
+        <div class="internals-code">curl -fsSL .../free-code/install.sh | bash</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ====== CTA ====== -->
+<section>
+  <div class="container">
+    <div style="background:linear-gradient(160deg,var(--brand-navy),var(--brand-navy-soft));border:1px solid rgba(201,162,39,0.2);border-radius:var(--radius-xl);padding:var(--space-16) var(--space-12);text-align:center;position:relative;overflow:hidden;" data-animate>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:20rem;opacity:0.015;color:var(--brand-gold);font-family:serif;pointer-events:none;">&#10013;</div>
+      <div style="position:relative;z-index:1;">
+        <span class="section-label" style="color:var(--brand-gold-light);">Deploy Your Team</span>
+        <h2 class="section-title" style="color:var(--brand-white);margin-bottom:var(--space-4);">Ready to Put These Agents to Work?</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:var(--text-lg);max-width:48ch;margin:0 auto var(--space-8);line-height:1.7;">Your ministry deserves a full AI team executing every service 24/7. Book a strategy call and we'll show you exactly how each agent fits your specific growth goals.</p>
+        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Book Strategy Call</a>
+          <a href="training.html" class="btn btn-outline btn-lg">Learn the Tools (Training Camp)</a>
+        </div>
+        <p style="margin-top:var(--space-6);color:rgba(255,255,255,0.35);font-size:var(--text-xs);">Andrew Rocha &middot; (561) 305-0404 &middot; rocha@yahwaylove.com &middot; Fort Worth, Texas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-brand-name">YAHWAY<span>LOVE</span> LLC</div>
-        <p class="footer-tagline">The only faith-first AI marketing agency. Built to serve the Kingdom, engineered for growth.</p>
+        <p class="footer-tagline">Faith-Focused AI Marketing Agency. Serving churches, ministries, and Christian businesses with the world's most advanced AI tools.</p>
         <div class="footer-contact-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+15613050404" style="color:rgba(255,255,255,0.65);text-decoration:none;">(561) 305-0404</a>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.28-1.28a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (561) 305-0404
         </div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:rocha@yahwaylove.com" style="color:rgba(255,255,255,0.65);text-decoration:none;">rocha@yahwaylove.com</a>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          rocha@yahwaylove.com
         </div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Fort Worth, Texas
         </div>
       </div>
       <div class="footer-col">
+        <h4>Agent Team</h4>
+        <ul>
+          <li><a href="agents.html">DIRECTOR — Orchestration</a></li>
+          <li><a href="agents.html">ARIA — Meta Ads</a></li>
+          <li><a href="agents.html">CONTENT — Creation</a></li>
+          <li><a href="agents.html">HERALD — Email &amp; SMS</a></li>
+          <li><a href="agents.html">BUILD — Web Dev</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Services</h4>
-        <ul role="list">
-          <li><a href="services.html#meta-ads">Meta Ads Strategy</a></li>
-          <li><a href="services.html#web-dev">Web Development</a></li>
-          <li><a href="services.html#funnels">Lead Gen Funnels</a></li>
-          <li><a href="services.html#content">Content Creation</a></li>
-          <li><a href="services.html#brand">Brand Strategy</a></li>
-          <li><a href="services.html#automation">AI Automation</a></li>
+        <ul>
+          <li><a href="services.html">Meta Ads</a></li>
+          <li><a href="services.html">AI Content</a></li>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">Email Automation</a></li>
+          <li><a href="training.html">AI Training Camp</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <ul role="list">
-          <li><a href="about.html">About Andrew</a></li>
-          <li><a href="agents.html">The Agent Team</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="funnel.html">Free Audit</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <ul role="list">
-          <li><a href="mailto:rocha@yahwaylove.com">Email Us</a></li>
-          <li><a href="tel:+15613050404">Call Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html">Book a Call</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 YAHWAYLOVE LLC · Andrew Rocha · Fort Worth, Texas · All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="mailto:rocha@yahwaylove.com" aria-label="Email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-        <a href="tel:+15613050404" aria-label="Phone">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.58 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.82-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
-      </div>
+      <p>&copy; 2026 YAHWAYLOVE LLC &middot; Andrew Rocha &middot; Fort Worth, TX &middot; Faith-Focused AI Marketing</p>
     </div>
   </div>
 </footer>
