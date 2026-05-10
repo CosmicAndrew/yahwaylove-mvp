@@ -9,6 +9,7 @@
     { "source": "/portfolio", "destination": "/pages/portfolio.html" },
     { "source": "/pricing", "destination": "/pages/pricing.html" },
     { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/funnel", "destination": "/pages/funnel.html" },
     { "source": "/audit", "destination": "/pages/funnel.html" },
     { "source": "/free-audit", "destination": "/pages/funnel.html" },
     { "source": "/agents", "destination": "/pages/agents.html" },
