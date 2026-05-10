@@ -1,9 +1,9 @@
-# YAHWAYLOVE — Claude-Powered Agent Architecture
+# YAHWAYLOVE — Provider-Routed Agent Architecture
 ## Technical Blueprint for the 10-Agent Workforce
 
-**Stack: Anthropic Claude API + Claude Code + Tool Use**
+**Stack: DeepSeek V4 Pro + OpenAI GPT-5.5 fallback + optional OpenRouter Opus escalation**
 **Owner: Andrew Rocha | rocha@yahwaylove.com**
-**Last Updated: April 19, 2026 — Post-Restructure (Sprint GTM + Offer Ladder)**
+**Last Updated: May 10, 2026 — LLM provider replacement**
 
 ---
 
@@ -62,7 +62,7 @@ TIER 3 — AI Training Camp: $97–$2,500 (separate audience — DIY ministry le
 - [ ] andrew.md voice profile not yet built (needed for CONTENT agent)
 - [ ] No prospect list yet (SCOUT needs to run first pass)
 - [ ] Muapi.ai production API key: confirmed live, $20 credit loaded
-- [ ] Claude API key: needed for CONTENT + all agents
+- [x] Sprint LLM route: DeepSeek and OpenAI keys available locally
 - [ ] Meta Business API: needed for ARIA (retainer tier only)
 - [ ] Supabase leads table: needed for FUNNEL tracking
 
@@ -74,16 +74,15 @@ TIER 3 — AI Training Camp: $97–$2,500 (separate audience — DIY ministry le
 
 ---
 
-## Why Claude
+## Why The Routed LLM Stack
 
 | Capability | Why It Matters |
 |---|---|
-| Tool Use (Function Calling) | Agents can call real APIs — Meta, HubSpot, Twilio, Google — not just generate text |
-| Long Context (200K tokens) | Agents can read an entire client's history, ad account, and website in one pass |
-| Claude Code | Agents can write, test, and deploy real code to GitHub/Vercel autonomously |
-| Multi-Agent Orchestration | DIRECTOR agent can spawn and coordinate sub-agents via the API |
-| Computer Use (beta) | Agents can literally operate a browser — login to Meta Ads Manager, pull reports |
-| Low Hallucination Rate | Critical for financial/ad data — Claude is the most accurate at structured outputs |
+| DeepSeek V4 Pro primary | Keeps Sprint generation affordable enough to run locally |
+| DeepSeek V4 Flash retry | Provides a same-provider fallback for transient failures |
+| GPT-5.5 fallback | Preserves quality for hard voice/profile/editor tasks |
+| OpenRouter Opus optional | Keeps Opus available only when explicitly approved for premium escalation |
+| Model-agnostic prompts | Allows provider swaps without rewriting agent prompts |
 
 ---
 
@@ -92,7 +91,7 @@ TIER 3 — AI Training Camp: $97–$2,500 (separate audience — DIY ministry le
 ```
 ┌─────────────────────────────────────────────┐
 │           DIRECTOR AGENT (Orchestrator)      │
-│    Claude claude-opus-4-5 | Tool Use | MCP        │
+│    DeepSeek V4 Pro | GPT-5.5 | MCP        │
 │    - Routes tasks to sub-agents              │
 │    - Manages client context (200K tokens)    │
 │    - Sends unified status to Andrew          │
@@ -296,7 +295,7 @@ After generating, pass ALL output to EDITOR for review before delivery.
 """
 
 CONTENT_TOOLS = [
-    generate_content_tool,        # Claude claude-sonnet-4-5 text generation
+    generate_content_tool,        # DeepSeek/GPT-5.5 text generation
     search_scripture_tool,        # Bible API for verse accuracy
     pull_performance_data_tool,   # PULSE API - what content worked before
     schedule_to_buffer_tool,      # Buffer API for social scheduling
@@ -532,7 +531,9 @@ GitHub (CosmicAndrew) ──► Vercel (yahwaylove.com)
 
 | Key | Service | Status | Needed For |
 |---|---|---|---|
-| `ANTHROPIC_API_KEY` | Claude API | ⏳ Pending | All agents — CONTENT, EDITOR, DIRECTOR, SCOUT |
+| `DEEPSEEK_API_KEY` | DeepSeek API | ✅ Available locally | Sprint primary route — CONTENT, EDITOR, DIRECTOR, SCOUT |
+| `OPENAI_API_KEY` | OpenAI API | ✅ Available locally | GPT-5.5 quality fallback |
+| `OPENROUTER_API_KEY` | OpenRouter API | ✅ Available locally | Optional Opus 4.7 premium escalation |
 | `MUAPI_PRODUCTION_KEY` | Muapi.ai (200+ AI models) | ✅ Live ($20 credit) | AI media generation |
 | `VERCEL_TOKEN` | Auto-deploy | ✅ Live | BUILD agent + site deploys |
 | `GITHUB_TOKEN` | Repo access | ✅ Live | BUILD agent |
@@ -548,15 +549,15 @@ GitHub (CosmicAndrew) ──► Vercel (yahwaylove.com)
 | `SUPABASE_URL` | Leads database | ⏳ Pending | FUNNEL — lead tracking |
 | `SUPABASE_KEY` | Leads database | ⏳ Pending | FUNNEL — lead tracking |
 
-**Sprint-phase minimum (to close first $500 manually):** No API keys required — use Claude.ai Pro + manual DMs.
-**CONTENT agent minimum:** `ANTHROPIC_API_KEY` only.
+**Sprint-phase minimum (to close first $500 manually):** No distribution keys required — generate locally and send manual outreach.
+**CONTENT agent minimum:** `DEEPSEEK_API_KEY` or `OPENAI_API_KEY`.
 **Full retainer stack minimum:** All keys above.
 
 ## Monthly Cost Estimate (to run all 10 agents)
 
 | Service | Cost/Month |
 |---|---|
-| Anthropic API (Claude claude-sonnet-4-5/claude-opus-4-5) | ~$150–$400 |
+| DeepSeek API + OpenAI fallback | Usage-based; DeepSeek default keeps Sprint costs low |
 | Twilio SMS (10K messages) | ~$75 |
 | VAPI Voice (~200 calls/mo) | ~$80 |
 | HubSpot Starter | $20 |
@@ -580,7 +581,7 @@ The build sequence is now GTM-driven — ship what closes the first $500 before 
 - [ ] Build andrew.md voice profile (Taste Interviewer prompt)
 - [ ] Run SCOUT manually: identify 10 inconsistent faith posters on LinkedIn
 - [ ] Write + send 5 free sample posts manually (before CONTENT agent is live)
-- [ ] Close first $500 Sprint — deliver 10 posts manually via Claude.ai
+- [ ] Close first $500 Sprint — deliver 10 posts through local Sprint agents
 - [ ] Document Sprint delivery workflow → templatize for CONTENT agent
 
 **Agent Phase (Week 1–2, post first $500)**

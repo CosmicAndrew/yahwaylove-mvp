@@ -8,27 +8,36 @@ Usage:
   python scout_agent.py --list  # show current prospect list
 
 Dependencies:
-  pip install anthropic requests python-dotenv
+  pip install openai requests python-dotenv
 
 API Keys needed:
   GROK_API_KEY — SuperGrok ($30/mo) for real-time search
-  ANTHROPIC_API_KEY — for voice signal extraction + scoring
+  DEEPSEEK_API_KEY or OPENAI_API_KEY — for voice signal extraction + scoring
 """
 
 import os
 import json
 import argparse
 import datetime
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+try:
+    from .llm_client import LLMConfigError, generate_text, require_llm_credentials
+except ImportError:
+    from llm_client import LLMConfigError, generate_text, require_llm_credentials
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 # Always run from agents/ directory
 os.chdir(Path(__file__).parent)
 load_dotenv()
 
 GROK_API_KEY = os.getenv("GROK_API_KEY")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 # ============================================
 # GROK MULTI-AGENT SEARCH
@@ -87,20 +96,15 @@ def analyze_prospect(linkedin_url: str) -> dict:
     Analyze a single prospect from their public LinkedIn URL.
     Extracts voice signals and scores them for Free Sample Close priority.
     """
-    if not ANTHROPIC_API_KEY:
-        print("⚠️  ANTHROPIC_API_KEY not set — returning mock analysis for demo")
+    try:
+        require_llm_credentials()
+    except LLMConfigError:
+        print("⚠️  DEEPSEEK_API_KEY or OPENAI_API_KEY not set — returning mock analysis for demo")
         return _mock_prospect_analysis(linkedin_url)
 
     try:
-        import anthropic
-        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=2048,
-            messages=[{
-                "role": "user",
-                "content": f"""Analyze this LinkedIn profile for the YAHWAYLOVE Free Sample Close:
+        raw = generate_text(
+            prompt=f"""Analyze this LinkedIn profile for the YAHWAYLOVE Free Sample Close:
 URL: {linkedin_url}
 
 Since you cannot browse URLs directly, provide a template analysis that Andrew can fill in
@@ -108,11 +112,11 @@ after visiting the profile manually. Structure it exactly as the SCOUT output fo
 
 {SCOUT_SCORING_PROMPT}
 
-Return valid JSON only."""
-            }]
+Return valid JSON only.""",
+            max_tokens=2048,
         )
 
-        raw = response.content[0].text.strip()
+        raw = raw.strip()
         # Extract JSON from response
         if "```json" in raw:
             raw = raw.split("```json")[1].split("```")[0].strip()

@@ -73,9 +73,9 @@ BUSINESS_AUDIT.md       405-line deliverability + scalability audit
 SYSTEM.md               Canopy OS agent identity + routing table
 company.yaml            Offer ladder, budget governance, API keys status, tool inventory
 agents/
-  voice_profiler.py     Taste Interviewer (claude-opus-4-7)
-  content_agent.py      10-post generator (claude-sonnet-4-6)
-  editor_agent.py       Theology + tone QA (claude-opus-4-7)
+  voice_profiler.py     Taste Interviewer (DeepSeek V4 Pro + GPT-5.5 fallback)
+  content_agent.py      10-post generator (DeepSeek V4 Pro + GPT-5.5 fallback)
+  editor_agent.py       Theology + tone QA (DeepSeek V4 Pro + GPT-5.5 fallback)
   sprint_runner.py      End-to-end orchestrator (--distribute, --batch-scout, --free-sample flags)
   scout_agent.py        Grok multi-agent SCOUT (Harper + Benjamin sub-agents)
   tools/
@@ -95,16 +95,16 @@ vercel.json             Vercel deployment config
 
 | Agent | Model | Role |
 |---|---|---|
-| Director | claude-opus-4-7 | Orchestrator — routes tasks, manages state |
-| Aria | claude-sonnet-4-6 | Client-facing voice assistant |
-| Content | claude-sonnet-4-6 | 10-post generator per Sprint |
-| Herald | claude-sonnet-4-6 | Email/DM outreach writer |
-| Voice | claude-opus-4-7 | Ministry voice profiler (taste interviewer) |
-| Funnel | claude-sonnet-4-6 | Lead nurture sequences |
-| Build | claude-sonnet-4-6 | Landing page copy generator |
-| Pulse | claude-sonnet-4-6 | Analytics interpreter |
+| Director | DeepSeek V4 Pro + GPT-5.5 fallback | Orchestrator — routes tasks, manages state |
+| Aria | DeepSeek V4 Pro + GPT-5.5 fallback | Client-facing voice assistant |
+| Content | DeepSeek V4 Pro + GPT-5.5 fallback | 10-post generator per Sprint |
+| Herald | DeepSeek V4 Pro + GPT-5.5 fallback | Email/DM outreach writer |
+| Voice | DeepSeek V4 Pro + GPT-5.5 fallback | Ministry voice profiler (taste interviewer) |
+| Funnel | DeepSeek V4 Pro + GPT-5.5 fallback | Lead nurture sequences |
+| Build | DeepSeek V4 Pro + GPT-5.5 fallback | Landing page copy generator |
+| Pulse | DeepSeek V4 Pro + GPT-5.5 fallback | Analytics interpreter |
 | Scout | Grok (api.x.ai) | Harper (prospect research) + Benjamin (trend intel) |
-| Editor | claude-opus-4-7 | Theology accuracy + tone QA |
+| Editor | DeepSeek V4 Pro + GPT-5.5 fallback | Theology accuracy + tone QA |
 
 Run agents from `agents/` directory:
 ```bash
@@ -149,7 +149,9 @@ python scout_agent.py --run "church name"      # single prospect scan
 
 | Key | Status | Notes |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | ⏳ Pending | **CRITICAL** — needed for ALL agents |
+| `DEEPSEEK_API_KEY` | ✅ Available locally | **CRITICAL** — primary Sprint model |
+| `OPENAI_API_KEY` | ✅ Available locally | GPT-5.5 quality fallback |
+| `OPENROUTER_API_KEY` | ✅ Available locally | Optional Opus 4.7 escalation only |
 | `MUAPI_PRODUCTION_KEY` | ✅ Live ($20 credit) | Now also integrates Higgsfield CLI |
 | `HIGGSFIELD_API_KEY` | ✅ Live | Higgsfield CLI video generation |
 | `VERCEL_TOKEN` | ✅ Live | Auto-deploy on git push |
@@ -166,7 +168,7 @@ python scout_agent.py --run "church name"      # single prospect scan
 
 | Tool | Purpose | Status |
 |---|---|---|
-| Claude (Anthropic) | Core LLM for all content agents | Pending API key |
+| DeepSeek + OpenAI | Core LLM route for all content agents | Local keys available |
 | Blotato | Multi-platform auto-distribution (33M views/mo) | Pending key |
 | Grok SCOUT | Prospect research (Harper + Benjamin agents) | Pending key |
 | Remotion | Programmatic video (5 templates) | Integrated |
@@ -187,7 +189,7 @@ Full audit: `BUSINESS_AUDIT.md`
 2. Meta religious ad targeting (Special Ad Category restrictions since Jan 2022)
 3. Theology accuracy liability → mandatory client review before publishing
 4. Single-operator bottleneck → hire VA at $5K MRR
-5. Anthropic API pricing dependency → build model-agnostic prompts
+5. Premium model pricing dependency → default to DeepSeek V4 Pro, fallback to GPT-5.5, reserve Opus for OpenRouter escalation
 
 ### Path to $1B
 - Services = proof of concept; SaaS pivot required at Month 18
@@ -210,7 +212,7 @@ Full audit: `BUSINESS_AUDIT.md`
 | MRR at competition end | $5,000–$10,000 |
 
 ### Week 1 Priorities
-1. Get `ANTHROPIC_API_KEY` — unlocks all agents
+1. Wire `DEEPSEEK_API_KEY` + `OPENAI_API_KEY` — unlocks all agents
 2. Send 10–15 cold emails (NOT LinkedIn) with free sample post
 3. Record first Group Workshop (Zoom + Claude = done)
 4. Sign up for Blotato free trial (5K credits)

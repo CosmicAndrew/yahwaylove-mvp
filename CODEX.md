@@ -28,7 +28,8 @@
 - Each agent uses `os.chdir(Path(__file__).parent)` for relative path resolution
 - Environment variables loaded via `python-dotenv` from `agents/.env`
 - Copy `agents/.env.example` → `agents/.env` and fill keys before running
-- Models: `claude-opus-4-7` (quality tasks), `claude-sonnet-4-6` (speed tasks)
+- Models: `deepseek-v4-pro` primary, `deepseek-v4-flash` retry, `gpt-5.5` quality fallback
+- Optional premium fallback: `anthropic/claude-opus-4.7` through OpenRouter only
 - Grok Scout uses OpenAI-compatible interface at `https://api.x.ai/v1/chat/completions`
 - Higgsfield CLI is the primary video generation tool (replaces standalone MuAPI for video)
 
@@ -82,15 +83,20 @@ Add `HIGGSFIELD_API_KEY=` to `agents/.env.example`.
 
 ---
 
-### 2. Wire `ANTHROPIC_API_KEY` (Priority: CRITICAL)
-Once the key is obtained, add to `agents/.env`:
+### 2. Wire Sprint LLM Keys (Priority: CRITICAL)
+Create `agents/.env` from `agents/.env.example` and add:
 ```
-ANTHROPIC_API_KEY=sk-ant-...
+DEEPSEEK_API_KEY=sk-...
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-5.5
+OPENROUTER_API_KEY=sk-or-...
+OPENROUTER_OPUS_MODEL=anthropic/claude-opus-4.7
+YAHWAYLOVE_ALLOW_OPUS=false
 ```
 Test with:
 ```bash
 cd agents
-python -c "from anthropic import Anthropic; c = Anthropic(); print(c.messages.create(model='claude-sonnet-4-6', max_tokens=10, messages=[{'role':'user','content':'ping'}]).content)"
+python -c "from llm_client import generate_text; print(generate_text(prompt='Reply with pong.', max_tokens=8))"
 ```
 
 ---
@@ -138,7 +144,7 @@ python scout_agent.py --analyze
 # Prerequisites
 cd agents
 cp .env.example .env
-# Fill ANTHROPIC_API_KEY in .env
+# Fill DEEPSEEK_API_KEY and OPENAI_API_KEY in .env
 
 # Free sample (1 post — for outreach)
 python sprint_runner.py --free-sample
@@ -195,7 +201,9 @@ dd9195c  tighten: training camp phases, 7 self-study tier, AGENT_ARCHITECTURE GT
 
 | Service | Endpoint | Auth |
 |---|---|---|
-| Anthropic | `https://api.anthropic.com/v1/messages` | `x-api-key: ANTHROPIC_API_KEY` |
+| DeepSeek | `https://api.deepseek.com` | `Bearer DEEPSEEK_API_KEY` |
+| OpenAI | `https://api.openai.com/v1/responses` | `Bearer OPENAI_API_KEY` |
+| OpenRouter | `https://openrouter.ai/api/v1/chat/completions` | `Bearer OPENROUTER_API_KEY` |
 | Grok/xAI | `https://api.x.ai/v1/chat/completions` | `Bearer GROK_API_KEY` |
 | Blotato | `https://api.blotato.com` | `Bearer BLOTATO_API_KEY` |
 | Higgsfield | `https://api.higgsfield.ai` | `Bearer HIGGSFIELD_API_KEY` |

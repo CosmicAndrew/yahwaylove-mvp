@@ -13,15 +13,15 @@
 
 | Agent | Role | Model | Status |
 |---|---|---|---|
-| DIRECTOR | Orchestrator — routes tasks, manages client context | claude-opus-4-7 | Ready (needs ANTHROPIC_API_KEY) |
-| CONTENT | Post generator — 10 typed faith posts per sprint | claude-sonnet-4-6 | Ready |
-| EDITOR | Theology + tone QA — PASS/REVISE verdict | claude-opus-4-7 | Ready |
+| DIRECTOR | Orchestrator — routes tasks, manages client context | DeepSeek V4 Pro + GPT-5.5 fallback | Ready |
+| CONTENT | Post generator — 10 typed faith posts per sprint | DeepSeek V4 Pro + GPT-5.5 fallback | Ready |
+| EDITOR | Theology + tone QA — PASS/REVISE verdict | DeepSeek V4 Pro + GPT-5.5 fallback | Ready |
 | SCOUT | Discovery — finds inconsistent faith posters (Grok multi-agent) | Grok SuperGrok | Pending |
-| HERALD | Outreach — free sample close via DM + email | claude-sonnet-4-6 | Pending API keys |
-| ARIA | Meta Ads — campaign creation + optimization | claude-sonnet-4-6 | Pending Meta API |
-| PULSE | Analytics — weekly reports from GA4 + Meta + HubSpot | claude-sonnet-4-6 | Pending |
-| VOICE | AI calls via VAPI — warm lead follow-up | VAPI + Claude | Pending |
-| FUNNEL | HubSpot automation — lead capture + sequences | claude-sonnet-4-6 | Pending |
+| HERALD | Outreach — free sample close via DM + email | DeepSeek V4 Pro + GPT-5.5 fallback | Pending API keys |
+| ARIA | Meta Ads — campaign creation + optimization | DeepSeek V4 Pro + GPT-5.5 fallback | Pending Meta API |
+| PULSE | Analytics — weekly reports from GA4 + Meta + HubSpot | DeepSeek V4 Pro + GPT-5.5 fallback | Pending |
+| VOICE | AI calls via VAPI — warm lead follow-up | VAPI + routed LLM | Pending |
+| FUNNEL | HubSpot automation — lead capture + sequences | DeepSeek V4 Pro + GPT-5.5 fallback | Pending |
 | BUILD | Web dev via Claude Code — sites + landing pages | Claude Code | Pending |
 
 ---

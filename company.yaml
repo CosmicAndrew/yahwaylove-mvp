@@ -53,8 +53,10 @@ budget:
 # Infrastructure (Sprint phase)
 stack:
   ai_models:
-    orchestration: claude-opus-4-7
-    generation: claude-sonnet-4-6
+    orchestration: deepseek-v4-pro
+    generation: deepseek-v4-pro
+    fallback: gpt-5.5
+    premium_fallback: openrouter/anthropic/claude-opus-4.7
     scout: grok-3  # SuperGrok $30/mo
     local: ollama/gemma4  # for sensitive data
 
@@ -70,7 +72,9 @@ stack:
     leads: supabase  # pending
 
   api_keys:
-    ANTHROPIC_API_KEY: pending
+    DEEPSEEK_API_KEY: available_local
+    OPENAI_API_KEY: available_local
+    OPENROUTER_API_KEY: optional_available_local
     MUAPI_PRODUCTION_KEY: live  # $20 credit
     VERCEL_TOKEN: live
     GITHUB_TOKEN: live

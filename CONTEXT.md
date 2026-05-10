@@ -78,16 +78,16 @@ Ten agents running on Canopy OS protocol (`SYSTEM.md`). Entry point: `agents/spr
 
 | Agent | Model | File | Role |
 |---|---|---|---|
-| Director | claude-opus-4-7 | (orchestrator) | Routes tasks, manages state |
-| Voice | claude-opus-4-7 | `voice_profiler.py` | 5-question brand voice interview |
-| Content | claude-sonnet-4-6 | `content_agent.py` | 10-post generator |
-| Editor | claude-opus-4-7 | `editor_agent.py` | Theology + tone QA |
+| Director | DeepSeek V4 Pro + GPT-5.5 fallback | (orchestrator) | Routes tasks, manages state |
+| Voice | DeepSeek V4 Pro + GPT-5.5 fallback | `voice_profiler.py` | 5-question brand voice interview |
+| Content | DeepSeek V4 Pro + GPT-5.5 fallback | `content_agent.py` | 10-post generator |
+| Editor | DeepSeek V4 Pro + GPT-5.5 fallback | `editor_agent.py` | Theology + tone QA |
 | Scout | Grok (api.x.ai) | `scout_agent.py` | Harper (research) + Benjamin (trends) |
-| Herald | claude-sonnet-4-6 | — | Cold email outreach sequences |
-| Funnel | claude-sonnet-4-6 | — | Lead nurture emails |
-| Build | claude-sonnet-4-6 | — | Landing page copy |
-| Pulse | claude-sonnet-4-6 | — | Analytics interpretation |
-| Aria | claude-sonnet-4-6 | — | Client-facing voice interface |
+| Herald | DeepSeek V4 Pro + GPT-5.5 fallback | — | Cold email outreach sequences |
+| Funnel | DeepSeek V4 Pro + GPT-5.5 fallback | — | Lead nurture emails |
+| Build | DeepSeek V4 Pro + GPT-5.5 fallback | — | Landing page copy |
+| Pulse | DeepSeek V4 Pro + GPT-5.5 fallback | — | Analytics interpretation |
+| Aria | DeepSeek V4 Pro + GPT-5.5 fallback | — | Client-facing voice interface |
 
 **Sprint pipeline:**
 ```bash
@@ -104,7 +104,7 @@ python sprint_runner.py --batch-scout      # sprint + prospect research
 
 | Tool | Role | Status |
 |---|---|---|
-| Claude (Anthropic) | Core LLM — all content, editing, orchestration | ⏳ Need API key |
+| DeepSeek + OpenAI | Core LLM route — all content, editing, orchestration | ✅ Keys available locally |
 | Grok / xAI | SCOUT prospect research (api.x.ai) | ⏳ Need API key |
 | Blotato | Multi-platform auto-distribution (33M views/mo) | ⏳ Need key |
 | Higgsfield CLI | AI video generation — primary video tool | ✅ Live |
@@ -123,8 +123,13 @@ python sprint_runner.py --batch-scout      # sprint + prospect research
 ## 7. API Keys
 
 ```bash
-# CRITICAL — needed to run ALL agents
-ANTHROPIC_API_KEY=           # ⏳ Pending
+# CRITICAL — needed to run Sprint agents
+DEEPSEEK_API_KEY=            # ✅ Available locally
+OPENAI_API_KEY=              # ✅ Available locally
+OPENAI_MODEL=gpt-5.5
+OPENROUTER_API_KEY=          # ✅ Optional premium fallback locally
+OPENROUTER_OPUS_MODEL=anthropic/claude-opus-4.7
+YAHWAYLOVE_ALLOW_OPUS=false
 
 # Live now
 MUAPI_PRODUCTION_KEY=        # ✅ $20 credit
@@ -191,7 +196,7 @@ Full audit: `BUSINESS_AUDIT.md` (405 lines)
 2. **Meta ad religious targeting** → Special Ad Category restrictions (Jan 2022) — organic only
 3. **Theology accuracy liability** → mandatory client review before any post is published
 4. **Single-operator bottleneck** → hire VA at $5K MRR
-5. **Anthropic API pricing** → build model-agnostic prompts for GPT-4o fallback
+5. **Premium model pricing** → default to DeepSeek V4 Pro, fallback to GPT-5.5, reserve Opus for OpenRouter escalation only
 
 ### Critical Copy Rules (audit-applied)
 - Say "AI-powered workflows" NOT "10 agents" (VC credibility)
@@ -229,7 +234,7 @@ Services revenue is **proof of concept only** — the SaaS pivot is the real com
 | **MRR at end** | **$5,000–$10,000** |
 
 ### Week 1 Action Items
-1. ✅ Get `ANTHROPIC_API_KEY` — unlocks all 5 Python agents
+1. ✅ Wire `DEEPSEEK_API_KEY` + `OPENAI_API_KEY` — unlocks all 5 Python agents
 2. ✅ Send 10–15 cold emails with free sample post (no LinkedIn)
 3. ✅ Run first Group Workshop (Zoom + Claude.ai — no key needed)
 4. ✅ Sign up for Blotato free trial (blotato.com — 5K credits)

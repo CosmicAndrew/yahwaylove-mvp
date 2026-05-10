@@ -32,8 +32,8 @@ Usage:
     python sprint_runner.py --sprint SPRINT-2026-04-19-JS --distribute
 
 Requirements:
-    pip install anthropic python-dotenv requests
-    ANTHROPIC_API_KEY in agents/.env
+    pip install openai python-dotenv requests
+    DEEPSEEK_API_KEY or OPENAI_API_KEY in agents/.env
     BLOTATO_API_KEY in agents/.env (optional — for distribution)
 """
 
@@ -46,6 +46,15 @@ import subprocess
 from datetime import datetime, date, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
+
+try:
+    from .llm_client import LLMConfigError, require_llm_credentials
+except ImportError:
+    from llm_client import LLMConfigError, require_llm_credentials
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 load_dotenv()
 
@@ -78,7 +87,7 @@ def run_step(cmd: list, label: str) -> int:
 
 
 def load_json(path: str) -> dict:
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -87,7 +96,7 @@ def find_profile_for_sprint(sprint_id: str) -> str | None:
     summary = Path(f"posts/{sprint_id}/intake_summary.md")
     if not summary.exists():
         return None
-    content = summary.read_text()
+    content = summary.read_text(encoding="utf-8")
     name_match = re.search(r"\*\*Pastor:\*\*\s*(.+)", content)
     if not name_match:
         return None
@@ -104,7 +113,7 @@ def extract_posts_from_sprint(sprint_id: str) -> list:
     if not reviewed.exists():
         return []
 
-    content = reviewed.read_text()
+    content = reviewed.read_text(encoding="utf-8")
 
     # Split by post markers (## Post N: or --- separators)
     posts = []
@@ -142,7 +151,7 @@ def distribute_sprint(sprint_id: str, platforms: list = None, start_date: str = 
     summary = Path(f"posts/{sprint_id}/intake_summary.md")
     client_name = "Ministry"
     if summary.exists():
-        content = summary.read_text()
+        content = summary.read_text(encoding="utf-8")
         name_match = re.search(r"\*\*Pastor:\*\*\s*(.+)", content)
         if name_match:
             client_name = name_match.group(1).strip()
@@ -161,7 +170,7 @@ def distribute_sprint(sprint_id: str, platforms: list = None, start_date: str = 
     # Save distribution log
     sprint_dir = Path(f"posts/{sprint_id}")
     log_path = sprint_dir / "blotato_schedule.json"
-    with open(log_path, "w") as f:
+    with open(log_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
 
     print(f"\n  💾 Distribution log → {log_path}")
@@ -184,12 +193,12 @@ def build_delivery_doc(sprint_id: str, blotato_results: list = None) -> str:
     # Extract pastor name from intake summary
     pastor_name = "Pastor"
     if summary.exists():
-        content = summary.read_text()
+        content = summary.read_text(encoding="utf-8")
         name_match = re.search(r"\*\*Pastor:\*\*\s*(.+)", content)
         if name_match:
             pastor_name = name_match.group(1).strip()
 
-    reviewed_content = reviewed.read_text()
+    reviewed_content = reviewed.read_text(encoding="utf-8")
     timestamp = datetime.now().strftime("%B %d, %Y")
 
     # Build distribution section
@@ -258,7 +267,7 @@ _Romans 3:23_
 """
 
     delivery_path = sprint_dir / "DELIVERY.md"
-    with open(delivery_path, "w") as f:
+    with open(delivery_path, "w", encoding="utf-8") as f:
         f.write(delivery_doc)
 
     return str(delivery_path)
@@ -273,7 +282,7 @@ def run_batch_scout(prospect_file: str, free_sample: bool = True) -> None:
         print(f"  ✗  Prospect file not found: {prospect_file}")
         sys.exit(1)
 
-    with open(prospect_file) as f:
+    with open(prospect_file, encoding="utf-8") as f:
         prospects = json.load(f)
 
     # Filter HIGH priority prospects
@@ -305,7 +314,7 @@ def run_batch_scout(prospect_file: str, free_sample: bool = True) -> None:
 
         # Write temp form file
         form_path = f"_scout_form_{i+1}.json"
-        with open(form_path, "w") as f:
+        with open(form_path, "w", encoding="utf-8") as f:
             json.dump(form_data, f, indent=2)
 
         # Run pipeline (free sample mode)
@@ -322,7 +331,7 @@ def run_batch_scout(prospect_file: str, free_sample: bool = True) -> None:
         prospect["sample_date"] = date.today().isoformat()
 
     # Save updated prospect list
-    with open(prospect_file, "w") as f:
+    with open(prospect_file, "w", encoding="utf-8") as f:
         json.dump(prospects, f, indent=2)
 
     print(f"""
@@ -402,7 +411,7 @@ def run_full_pipeline(
     current_step += 1
 
     # Determine sprint ID from the profile
-    with open(profile_path) as f:
+    with open(profile_path, encoding="utf-8") as f:
         profile_content = f.read()
     sprint_id_match = re.search(r"sprint_id:\s*(.+)", profile_content)
     sprint_id = sprint_id_match.group(1).strip() if sprint_id_match else "UNKNOWN"
@@ -484,10 +493,11 @@ def main():
 
     args = parser.parse_args()
 
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("\n  ✗  ANTHROPIC_API_KEY not set in .env\n")
-        print("  Add your Anthropic API key to agents/.env:")
-        print("  ANTHROPIC_API_KEY=sk-ant-...\n")
+    try:
+        require_llm_credentials()
+    except LLMConfigError as exc:
+        print(f"\n  ✗  {exc}\n")
+        print("  Add DEEPSEEK_API_KEY or OPENAI_API_KEY to agents/.env.\n")
         sys.exit(1)
 
     os.chdir(Path(__file__).parent)  # Always run from agents/ directory

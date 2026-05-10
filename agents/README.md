@@ -9,9 +9,9 @@ Faith Content Sprint pipeline. Takes a pastor's intake form and delivers
 
 ```bash
 cd agents/
-pip install anthropic python-dotenv
+pip install openai python-dotenv requests
 cp .env.example .env
-# Add your ANTHROPIC_API_KEY to .env
+# Add DEEPSEEK_API_KEY and OPENAI_API_KEY to .env
 ```
 
 ---
@@ -123,19 +123,19 @@ agents/
 ## Prompt Engineering Notes
 
 ### voice_profiler.py
-Uses `claude-opus-4-5` for the Taste Interviewer — highest reasoning quality for
-capturing nuanced voice patterns. The pastor.md profile is the most critical file
+Uses the shared `llm_client.py` route: DeepSeek V4 Pro first, DeepSeek V4 Flash
+retry, then GPT-5.5 fallback. The pastor.md profile is the most critical file
 in the entire pipeline. Garbage in = posts that don't sound like the pastor.
 
 ### content_agent.py
-Uses `claude-sonnet-4-6` for post generation — fast and high quality.
+Uses the same DeepSeek/GPT-5.5 route for post generation.
 10 posts generated in a single call for consistency across the batch.
 Free sample mode generates 1 post (Post 1: Scripture Reflection) only.
 
 ### editor_agent.py
-Uses `claude-opus-4-5` for review — needs strong reasoning to catch theological errors.
+Uses the shared route for theology + tone review.
 Produces inline revisions for any post that fails — CONTENT doesn't need to re-run.
-A second `claude-sonnet-4-6` call extracts the final clean posts from the report.
+A second provider-routed call extracts the final clean posts from the report.
 
 ---
 
@@ -150,7 +150,7 @@ The `--free-sample` flag powers the YAHWAYLOVE outbound GTM flow:
 5. If they engage → pitch the $500 Sprint
 6. If they buy the Sprint → pitch the retainer
 
-**No API calls needed for the DM step. Just Claude.ai Pro + manual outreach.**
+**No distribution API calls are needed for the DM step. Generate the sample locally, then handle manual outreach.**
 
 ---
 
@@ -160,7 +160,7 @@ The `--free-sample` flag powers the YAHWAYLOVE outbound GTM flow:
 - [x] `content_agent.py` — complete
 - [x] `editor_agent.py` — complete
 - [x] `sprint_runner.py` — complete
-- [ ] Awaiting `ANTHROPIC_API_KEY` to run end-to-end
+- [x] Provider route switched to DeepSeek V4 Pro + GPT-5.5 fallback
 - [ ] First test run: use Andrew as the "pastor" to validate voice profile quality
 - [ ] SCOUT integration (automated LinkedIn/Facebook discovery) — Phase 2
 

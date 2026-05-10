@@ -14,11 +14,10 @@ Output:
     posts/[sprint_id]/intake_summary.md  — what was used as input
 
 Requirements:
-    pip install anthropic python-dotenv
-    ANTHROPIC_API_KEY in agents/.env
+    pip install openai python-dotenv
+    DEEPSEEK_API_KEY or OPENAI_API_KEY in agents/.env
 """
 
-import anthropic
 import argparse
 import os
 import sys
@@ -27,9 +26,16 @@ from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from .llm_client import LLMConfigError, generate_text, require_llm_credentials
+except ImportError:
+    from llm_client import LLMConfigError, generate_text, require_llm_credentials
 
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+load_dotenv()
 
 # ── Post type definitions ─────────────────────────────────────────────────────
 
@@ -128,7 +134,7 @@ Voice Profile:
 
 Write a {post_type_name} post ({description}, {length}).
 
-{"Topic/theme to center on: " + topic if topic else "Choose a theme that fits this pastor's current season and audience pain points."}
+{topic_line}
 
 Requirements:
 - Sound exactly like this pastor based on their voice profile
@@ -155,7 +161,7 @@ For each post:
 - Do NOT use any phrases from their Avoid List
 - Keep each post self-contained
 
-{"Global topic/theme: " + topic if topic else "Choose themes that fit this pastor's stated season, audience pain points, and recurring theological ideas from their profile."}
+{topic_line}
 
 Platform: {platform}
 
@@ -216,7 +222,7 @@ Write all 10 posts in this exact format — one after another, separated by ---:
 
 def load_profile(profile_path: str) -> str:
     """Load pastor.md file and return as string."""
-    with open(profile_path) as f:
+    with open(profile_path, encoding="utf-8") as f:
         return f.read()
 
 
@@ -251,48 +257,45 @@ def generate_posts(
     free_sample: bool = False,
 ) -> str:
     """
-    Generate posts using Claude.
+    Generate posts using the configured LLM provider route.
     free_sample=True → generates only 1 post (Post 1: Scripture Reflection).
     """
     platform = extract_platform(profile)
 
     if free_sample or count == 1:
         post_type = POST_TYPES[0]
+        topic_line = (
+            f"Topic/theme to center on: {topic}"
+            if topic
+            else "Choose a theme that fits this pastor's current season and audience pain points."
+        )
         prompt = SINGLE_POST_PROMPT.format(
             profile=profile,
             post_type_name=post_type["name"],
             description=post_type["description"],
             length=post_type["length"],
-            topic=topic,
+            topic_line=topic_line,
             platform=platform,
-        )
-        # Remove the conditional topic line properly
-        prompt = prompt.replace(
-            '{"Topic/theme to center on: " + topic if topic else "Choose a theme that fits this pastor\'s current season and audience pain points."}',
-            f"Topic/theme to center on: {topic}" if topic else "Choose a theme that fits this pastor's current season and audience pain points."
         )
         print(f"  ⟳  Generating free sample post...")
     else:
+        topic_line = (
+            f"Global topic/theme: {topic}"
+            if topic
+            else "Choose themes that fit this pastor's stated season, audience pain points, and recurring theological ideas from their profile."
+        )
         prompt = BATCH_PROMPT.format(
             profile=profile,
-            topic=topic,
+            topic_line=topic_line,
             platform=platform,
         )
-        # Clean up topic line
-        prompt = prompt.replace(
-            '{"Global topic/theme: " + topic if topic else "Choose themes that fit this pastor\'s stated season, audience pain points, and recurring theological ideas from their profile."}',
-            f"Global topic/theme: {topic}" if topic else "Choose themes that fit this pastor's stated season, audience pain points, and recurring theological ideas from their profile."
-        )
-        print(f"  ⟳  Generating {count} posts via Claude...")
+        print(f"  ⟳  Generating {count} posts via DeepSeek/GPT-5.5...")
 
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=8096,
+    return generate_text(
         system=CONTENT_SYSTEM,
-        messages=[{"role": "user", "content": prompt}],
+        prompt=prompt,
+        max_tokens=8096,
     )
-
-    return response.content[0].text
 
 
 def save_posts(
@@ -326,12 +329,12 @@ def save_posts(
 ---
 
 """
-    with open(posts_file, "w") as f:
+    with open(posts_file, "w", encoding="utf-8") as f:
         f.write(header + posts_text)
 
     # Save intake summary
     summary_file = output_dir / "intake_summary.md"
-    with open(summary_file, "w") as f:
+    with open(summary_file, "w", encoding="utf-8") as f:
         f.write(f"""# Sprint Intake Summary
 **Sprint ID:** {sprint_id}
 **Pastor:** {pastor_name}
@@ -358,9 +361,10 @@ def main():
     parser.add_argument("--free-sample", action="store_true", help="Generate 1 free sample post only")
     args = parser.parse_args()
 
-    # Validate
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("\n  ✗  ANTHROPIC_API_KEY not found in .env\n")
+    try:
+        require_llm_credentials()
+    except LLMConfigError as exc:
+        print(f"\n  ✗  {exc}\n")
         sys.exit(1)
 
     if not os.path.exists(args.profile):

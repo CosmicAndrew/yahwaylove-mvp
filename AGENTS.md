@@ -20,13 +20,13 @@ Competition: Perplexity Billion Dollar Build (Apr 14 – Jun 2, 2026)
 > Orchestration entry point: `agents/sprint_runner.py`
 
 ### Director (Orchestrator)
-- **Model:** claude-opus-4-7
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Routes all inbound tasks to appropriate sub-agents, manages conversation state, enforces theology guardrails
 - **Input:** Client intake form data, Ministry DNA scan results
 - **Output:** Dispatches to Voice, Content, Scout, or Herald agents
 
 ### Voice (Taste Interviewer)
-- **Model:** claude-opus-4-7
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **File:** `agents/voice_profiler.py`
 - **Role:** Conducts 5-question brand voice interview, outputs `VoiceProfile` JSON
 - **Output schema:**
@@ -35,14 +35,14 @@ Competition: Perplexity Billion Dollar Build (Apr 14 – Jun 2, 2026)
   ```
 
 ### Content (Post Generator)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **File:** `agents/content_agent.py`
 - **Role:** Generates 10 faith-contextualized social posts from VoiceProfile
 - **Platforms:** Instagram, Facebook, LinkedIn, X, Threads
 - **Output:** 10 posts in JSON array with `platform`, `copy`, `hashtags`, `cta` fields
 
 ### Editor (Theology + Tone QA)
-- **Model:** claude-opus-4-7
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **File:** `agents/editor_agent.py`
 - **Role:** Reviews all Content output for theology accuracy and brand tone before delivery
 - **Hard rules:**
@@ -62,25 +62,25 @@ Competition: Perplexity Billion Dollar Build (Apr 14 – Jun 2, 2026)
   ```
 
 ### Herald (Outreach Writer)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Writes cold email sequences for Tier 0 free sample outreach
 - **CRITICAL:** Email only — NO LinkedIn DMs (account ban risk)
 - **Cap:** 10–15 emails/week
 
 ### Funnel (Lead Nurture)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Writes email nurture sequences post-lead-capture
 
 ### Build (Landing Page Copy)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Generates church-specific landing page copy variants
 
 ### Pulse (Analytics)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Interprets engagement analytics, surfaces top-performing post patterns
 
 ### Aria (Client Assistant)
-- **Model:** claude-sonnet-4-6
+- **Model:** DeepSeek V4 Pro + GPT-5.5 fallback
 - **Role:** Client-facing voice interface, answers questions about deliverables
 
 ---
@@ -118,8 +118,13 @@ python sprint_runner.py --batch-scout     # Sprint + SCOUT prospect scan
 ## Environment Variables
 
 ```bash
-# CRITICAL — get this first
-ANTHROPIC_API_KEY=
+# CRITICAL — Sprint LLM route
+DEEPSEEK_API_KEY=
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5.5
+OPENROUTER_API_KEY=
+OPENROUTER_OPUS_MODEL=anthropic/claude-opus-4.7
+YAHWAYLOVE_ALLOW_OPUS=false
 
 # Live
 MUAPI_PRODUCTION_KEY=           # $20 credit live
@@ -214,4 +219,4 @@ yahwaylove-mvp/
 3. **Client reviews before posting** — contractual, not optional
 4. **Cap simultaneous Sprint clients at 4** until `--distribute` automation is proven
 5. **No Kingdom Dominator ($8,500) sales** until at least 2 retainer case studies documented
-6. **Model-agnostic prompts** — don't hardcode Anthropic-specific syntax; must work on GPT-4o fallback
+6. **Model-agnostic prompts** — don't hardcode provider-specific syntax; must work on GPT-5.5 fallback

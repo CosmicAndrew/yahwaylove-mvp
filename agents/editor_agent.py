@@ -15,11 +15,10 @@ Outputs:
     posts/[sprint_id]/editor_report.md    — full QA report with notes per post
 
 Requirements:
-    pip install anthropic python-dotenv
-    ANTHROPIC_API_KEY in agents/.env
+    pip install openai python-dotenv
+    DEEPSEEK_API_KEY or OPENAI_API_KEY in agents/.env
 """
 
-import anthropic
 import argparse
 import os
 import re
@@ -28,9 +27,16 @@ from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from .llm_client import LLMConfigError, generate_text, require_llm_credentials
+except ImportError:
+    from llm_client import LLMConfigError, generate_text, require_llm_credentials
 
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+load_dotenv()
 
 # ── System prompt ─────────────────────────────────────────────────────────────
 
@@ -144,7 +150,7 @@ def load_raw_posts(sprint_dir: Path) -> str:
     for fname in ["raw_posts.md", "free_sample.md"]:
         fpath = sprint_dir / fname
         if fpath.exists():
-            with open(fpath) as f:
+            with open(fpath, encoding="utf-8") as f:
                 return f.read()
     print(f"\n  ✗  No raw posts found in {sprint_dir}\n")
     sys.exit(1)
@@ -155,7 +161,7 @@ def load_profile_from_summary(sprint_dir: Path) -> str:
     summary_path = sprint_dir / "intake_summary.md"
     if not summary_path.exists():
         return "[Voice profile not available — review manually]"
-    with open(summary_path) as f:
+    with open(summary_path, encoding="utf-8") as f:
         content = f.read()
     # Extract the profile block from the summary
     match = re.search(r"## Profile Used\n```\n(.+?)```", content, re.DOTALL)
@@ -165,34 +171,24 @@ def load_profile_from_summary(sprint_dir: Path) -> str:
 
 
 def run_editor_review(profile: str, posts: str) -> str:
-    """Run EDITOR review via Claude."""
+    """Run EDITOR review through the configured LLM provider route."""
     print("  ⟳  Running EDITOR review...")
 
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=8096,
+    return generate_text(
         system=EDITOR_SYSTEM,
-        messages=[{
-            "role": "user",
-            "content": REVIEW_PROMPT.format(profile=profile, posts=posts)
-        }],
+        prompt=REVIEW_PROMPT.format(profile=profile, posts=posts),
+        max_tokens=8096,
     )
-    return response.content[0].text
 
 
 def extract_final_posts(report: str) -> str:
-    """Use Claude to extract clean delivery-ready posts from the report."""
+    """Extract clean delivery-ready posts from the report."""
     print("  ⟳  Compiling approved posts...")
 
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
+    return generate_text(
+        prompt=EXTRACT_APPROVED_PROMPT.format(report=report),
         max_tokens=6000,
-        messages=[{
-            "role": "user",
-            "content": EXTRACT_APPROVED_PROMPT.format(report=report)
-        }],
     )
-    return response.content[0].text
 
 
 def parse_delivery_summary(report: str) -> dict:
@@ -219,13 +215,13 @@ def save_outputs(
 
     # Save editor report
     report_file = sprint_dir / "editor_report.md"
-    with open(report_file, "w") as f:
+    with open(report_file, "w", encoding="utf-8") as f:
         f.write(f"# EDITOR QA Report — {sprint_id}\n**Reviewed:** {timestamp}\n\n")
         f.write(report)
 
     # Save delivery-ready posts
     reviewed_file = sprint_dir / "reviewed_posts.md"
-    with open(reviewed_file, "w") as f:
+    with open(reviewed_file, "w", encoding="utf-8") as f:
         f.write(f"# Delivery-Ready Posts — {sprint_id}\n")
         f.write(f"**Reviewed:** {timestamp}\n")
         f.write(f"**Status:** EDITOR APPROVED — Ready to deliver to pastor\n\n")
@@ -245,8 +241,10 @@ def main():
     parser.add_argument("--profile", type=str, help="Path to pastor.md (optional override)")
     args = parser.parse_args()
 
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("\n  ✗  ANTHROPIC_API_KEY not found in .env\n")
+    try:
+        require_llm_credentials()
+    except LLMConfigError as exc:
+        print(f"\n  ✗  {exc}\n")
         sys.exit(1)
 
     print("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -266,7 +264,7 @@ def main():
     raw_posts = load_raw_posts(sprint_dir)
 
     if args.profile:
-        with open(args.profile) as f:
+        with open(args.profile, encoding="utf-8") as f:
             profile = f.read()
     else:
         profile = load_profile_from_summary(sprint_dir)

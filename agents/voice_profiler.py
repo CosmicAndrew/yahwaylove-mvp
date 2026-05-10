@@ -10,11 +10,10 @@ Usage:
     python voice_profiler.py --from-form form.json  # from Formspree webhook payload
 
 Requirements:
-    pip install anthropic python-dotenv
-    ANTHROPIC_API_KEY in .env
+    pip install openai python-dotenv
+    DEEPSEEK_API_KEY or OPENAI_API_KEY in agents/.env
 """
 
-import anthropic
 import argparse
 import json
 import os
@@ -23,9 +22,16 @@ from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from .llm_client import LLMConfigError, generate_text, require_llm_credentials
+except ImportError:
+    from llm_client import LLMConfigError, generate_text, require_llm_credentials
 
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+load_dotenv()
 
 # ── System prompt for the Taste Interviewer ──────────────────────────────────
 
@@ -109,7 +115,7 @@ vocabulary level, use of contractions, capitalization quirks, paragraph length]
 - [Phrase or topic 3 — reason]
 
 ## Sample Post Prompt
-[A single paragraph prompt that, when given to Claude, would produce a post that
+[A single paragraph prompt that, when given to an LLM, would produce a post that
 sounds exactly like this person. Should reference their specific style, theology,
 and audience in concrete terms.]
 """
@@ -164,11 +170,11 @@ def parse_formspree_payload(payload: dict) -> dict:
     }
 
 
-# ── Core: build voice profile via Claude ─────────────────────────────────────
+# ── Core: build voice profile via configured LLM route ───────────────────────
 
 def build_voice_profile(intake: dict) -> str:
     """
-    Send intake answers to Claude and get back a complete pastor.md string.
+    Send intake answers to the configured LLM and get back a complete pastor.md string.
     """
     intake_text = "\n".join(
         f"**{k.replace('_', ' ').title()}:** {v}" for k, v in intake.items() if v
@@ -182,22 +188,19 @@ def build_voice_profile(intake: dict) -> str:
         intake_data=intake_text,
     ).replace("[Auto-generate: SPRINT-YYYY-MM-DD-[INITIALS]]", sprint_id)
 
-    print("  ⟳  Building voice profile via Claude...")
+    print("  ⟳  Building voice profile via DeepSeek/GPT-5.5...")
 
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=4096,
+    return generate_text(
         system=TASTE_INTERVIEWER_SYSTEM,
-        messages=[{"role": "user", "content": prompt}],
+        prompt=prompt,
+        max_tokens=4096,
     )
-
-    return response.content[0].text
 
 
 def save_profile(profile_md: str, output_path: str, intake: dict) -> None:
     """Save the pastor.md file and print a summary."""
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(profile_md)
 
     name = intake.get("name", "Pastor")
@@ -219,21 +222,21 @@ def main():
                         help="Output path for pastor.md (default: profiles/pastor.md)")
     args = parser.parse_args()
 
-    # Check API key
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("\n  ✗  ANTHROPIC_API_KEY not found in .env")
-        print("     Add it to agents/.env and retry.\n")
+    try:
+        require_llm_credentials()
+    except LLMConfigError as exc:
+        print(f"\n  ✗  {exc}\n")
         sys.exit(1)
 
     # Gather intake
     if args.interactive:
         intake = run_interactive_interview()
     elif args.from_form:
-        with open(args.from_form) as f:
+        with open(args.from_form, encoding="utf-8") as f:
             raw = json.load(f)
         intake = parse_formspree_payload(raw)
     elif args.input:
-        with open(args.input) as f:
+        with open(args.input, encoding="utf-8") as f:
             intake = json.load(f)
     else:
         parser.print_help()
